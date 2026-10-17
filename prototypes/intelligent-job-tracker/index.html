@@ -42,11 +42,25 @@
   </header>
 
   <div class="govuk-width-container">
-    <div class="govuk-phase-banner">
+    <div class="govuk-phase-banner ijt-phase-banner">
       <p class="govuk-phase-banner__content">
         <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong>
         <span class="govuk-phase-banner__text">This is a prototype. Just for fun.</span>
       </p>
+      <details class="govuk-details ijt-proto">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Prototype settings</span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">Switch what the module at the top of the dashboard shows:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a class="govuk-link" href="?scenario=checkin">Interview yesterday: ask how it went</a></li>
+            <li><a class="govuk-link" href="?scenario=prep">Interview coming up: offer interview prep</a></li>
+            <li><a class="govuk-link" href="?scenario=none">Nothing coming up</a></li>
+          </ul>
+          <p class="govuk-body"><a class="govuk-link" href="#" id="reset">Reset the example data</a></p>
+        </div>
+      </details>
     </div>
 
     <main class="govuk-main-wrapper" id="main-content">
@@ -70,23 +84,6 @@
       <ul class="ijt-stats" id="stats"></ul>
 
       <section id="jobs" aria-live="polite"></section>
-
-      <div class="ijt-proto">
-        <details class="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">Prototype settings</span>
-          </summary>
-          <div class="govuk-details__text">
-            <p class="govuk-body">Switch what the module at the top of the dashboard shows:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li><a class="govuk-link" href="?scenario=checkin">Interview yesterday: ask how it went</a></li>
-              <li><a class="govuk-link" href="?scenario=prep">Interview coming up: offer interview prep</a></li>
-              <li><a class="govuk-link" href="?scenario=none">Nothing coming up</a></li>
-            </ul>
-            <p class="govuk-body"><a class="govuk-link" href="#" id="reset">Reset the example data</a></p>
-          </div>
-        </details>
-      </div>
     </main>
   </div>
 

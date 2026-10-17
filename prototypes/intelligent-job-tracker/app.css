@@ -129,7 +129,32 @@
 @media (prefers-reduced-motion: reduce) { .ijt-spinner { animation: none; } }
 
 /* Prototype-only controls */
-.ijt-proto { margin-top: 40px; padding-top: 20px; border-top: 1px dashed var(--govuk-border-colour); }
+/* Prototype settings, tucked into the phase banner */
+
+.ijt-phase-banner {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px 20px;
+}
+.ijt-proto { margin: 0; font-size: 1rem; }
+.ijt-proto .govuk-details__text {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  top: 100%;
+  border: 1px solid var(--govuk-border-colour);
+  border-left: 5px solid var(--govuk-border-colour);
+  background: var(--govuk-body-background-colour);
+}
+@media (min-width: 641px) {
+  .ijt-proto .govuk-details__text { left: auto; width: 420px; }
+}
+.ijt-proto .govuk-body, .ijt-proto .govuk-list { font-size: 1rem; }
+.ijt-proto .govuk-details__text > :last-child { margin-bottom: 0; }
 
 /* Section heading with a button on the same line */
 
