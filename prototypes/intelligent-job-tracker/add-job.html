@@ -61,7 +61,7 @@
               <div class="govuk-form-group govuk-!-margin-bottom-4">
                 <label class="govuk-label govuk-label--s" for="link">Paste a link to the job advert</label>
                 <div id="link-hint" class="govuk-hint">We'll read the advert and fill in the details for you</div>
-                <input class="govuk-input" id="link" name="link" type="url" spellcheck="false" aria-describedby="link-hint" value="https://jobs.example.com/pennywell-water/customer-service-advisor">
+                <input class="govuk-input" id="link" name="link" type="url" spellcheck="false" aria-describedby="link-hint" placeholder="https://jobs.example.com/mands-food/bakery-team-leader">
               </div>
               <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" id="fetch">Get job details</button>
               <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0" id="fetch-status" aria-live="polite" hidden></p>
@@ -153,10 +153,10 @@
       setTimeout(() => {
         const closing = app.parseDay(app.daysFromToday(9))
         Object.entries({
-          title: 'Customer service advisor',
-          employer: 'Pennywell Water',
-          location: 'Leeds',
-          salary: '£24,500 a year',
+          title: 'Bakery team leader',
+          employer: 'M&S Food',
+          location: 'York',
+          salary: '£13.50 an hour',
           'closing-day': closing.getDate(),
           'closing-month': closing.getMonth() + 1,
           'closing-year': closing.getFullYear()
@@ -199,6 +199,8 @@
         title: $('title').value.trim(),
         employer: $('employer').value.trim(),
         location: $('location').value.trim() || 'Not given',
+        salary: $('salary').value.trim(),
+        link: $('link').value.trim(),
         type: 'Other',
         stage,
         dates: stage === 'applied' ? { shortlisted: today, applied: today } : { shortlisted: today },

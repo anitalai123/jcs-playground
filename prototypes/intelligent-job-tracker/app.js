@@ -2,7 +2,7 @@
 // Jobs are kept in localStorage so changes carry across pages. The data reseeds each day,
 // so the "interview yesterday" and "interview coming up" examples always line up with today.
 
-const KEY = 'ijt-data-v1'
+const KEY = 'ijt-data-v2'
 export const PAGE_SIZE = 5
 
 export const STAGES = {
@@ -50,41 +50,44 @@ export const interviewWhen = (j) => `${longDate(j.interviewAt)} at ${time(j.inte
 
 // Seed data
 
+// The person: a junior pastry chef stepping up to a more senior role. Senior pastry and
+// supervisor jobs get interviews. Bakery manager jobs, a bigger jump, get nothing.
+
 const SHORTLISTED = [
   // title, employer, location, type, days since added, days until closing date
-  ['Customer service team member', 'Pebble Bank', 'Leeds', 'Customer service', 0, 6],
-  ['Admin officer', 'Seaview Borough Council', 'Wakefield', 'Admin', 1, 3],
-  ['Guest services assistant', 'Lakeside Leisure Park', 'Harrogate', 'Customer service', 2, 12],
-  ['Patient coordinator', 'Elm Park Health Centre', 'Leeds', 'Reception', 4, 9],
-  ['Receptionist', 'Marlowe Vets', 'Bradford', 'Reception', 6, 2]
+  ['Bakery team leader', 'Greggs', 'Leeds', 'Bakery supervisor', 0, 6],
+  ['Pastry chef de partie', 'Hotel du Vin', 'York', 'Senior pastry', 1, 3],
+  ['Senior baker', "GAIL's", 'Harrogate', 'Bakery supervisor', 2, 12],
+  ['Bakery manager', 'Cooplands', 'Wakefield', 'Bakery manager', 4, 9],
+  ['Junior pastry sous chef', 'The Queens Hotel', 'Leeds', 'Senior pastry', 6, 2]
 ]
 
 const APPLIED = [
   // title, employer, location, type, days since applied, unsuccessful
-  ['Customer experience advisor', 'Tidewater Rail', 'Leeds', 'Customer service', 1, false],
-  ['Stock controller', 'Kestrel Foods', 'Wakefield', 'Warehouse', 2, false],
-  ['Office administrator', 'Ashby & Cole Solicitors', 'Leeds', 'Admin', 4, false],
-  ['Telesales advisor', 'Bluebell Insurance', 'Remote', 'Call centre', 5, true],
-  ['Retail assistant', 'Fern & Fable Books', 'Harrogate', 'Retail', 6, false],
-  ['Customer support adviser', 'Lumen Broadband', 'Remote', 'Customer service', 9, false],
-  ['Picker packer', 'Northway Distribution', 'Wakefield', 'Warehouse', 10, true],
-  ['Front desk receptionist', 'The Grange Hotel', 'Harrogate', 'Reception', 15, false],
-  ['Data entry clerk', 'Pennine Insurance', 'Leeds', 'Data entry', 16, false],
-  ['Inbound sales advisor', 'Orbit Mobile', 'Bradford', 'Call centre', 17, true],
-  ['Admin assistant', 'Riverside Academy', 'Huddersfield', 'Admin', 18, true],
-  ['Warehouse assistant', 'Kestrel Foods', 'Wakefield', 'Warehouse', 19, false],
-  ['Team leader', 'Sunrise Café', 'Leeds', 'Hospitality', 20, false],
-  ['Collections advisor', 'Trustline Finance', 'Bradford', 'Call centre', 21, true],
-  ['Store assistant', 'Corner Market', 'Leeds', 'Retail', 22, false],
-  ['Forklift driver', 'Delta Freight', 'Halifax', 'Warehouse', 23, true],
-  ['Customer service assistant', 'Greenfield Leisure', 'Leeds', 'Customer service', 24, false],
-  ['Records assistant', 'Westfield Clinic', 'Huddersfield', 'Data entry', 25, true],
-  ['Call centre agent', 'Sapphire Telecom', 'Bradford', 'Call centre', 26, false],
-  ['Payroll assistant', 'Ledger & Co', 'Leeds', 'Finance', 27, false],
-  ['Visual merchandiser', "Hartley's Department Store", 'Leeds', 'Retail', 28, true],
-  ['Warehouse operative', 'Swift Parcel Hub', 'Wakefield', 'Warehouse', 29, true],
-  ['Customer service advisor', 'Harbourside Energy', 'Remote', 'Customer service', 30, false],
-  ['Receptionist', 'Oakwood Dental', 'Halifax', 'Reception', 31, false]
+  ['Bakery manager', 'Greggs', 'Leeds', 'Bakery manager', 1, false],
+  ['Senior pastry chef', 'Rise & Crumb Patisserie', 'Leeds', 'Senior pastry', 2, false],
+  ['Bakery team leader', 'M&S Food', 'Bradford', 'Bakery supervisor', 4, false],
+  ['Assistant bakery manager', "Sainsbury's", 'Wakefield', 'Bakery manager', 5, true],
+  ['Pastry chef de partie', 'The Grand', 'York', 'Senior pastry', 6, false],
+  ['Head baker', "GAIL's", 'York', 'Bakery manager', 9, false],
+  ['Shop manager', 'Greggs', 'Huddersfield', 'Bakery manager', 10, true],
+  ['Senior pastry chef', 'Larkspur Patisserie', 'York', 'Senior pastry', 15, false],
+  ['Bakery supervisor', 'Waitrose', 'Harrogate', 'Bakery supervisor', 16, false],
+  ['Bakery department manager', 'Tesco', 'Bradford', 'Bakery manager', 17, true],
+  ['Production supervisor', 'Northern Butter Bakehouse', 'Huddersfield', 'Bakery supervisor', 18, true],
+  ['Senior baker', 'PAUL', 'Leeds', 'Bakery supervisor', 19, false],
+  ['Pastry section lead', 'Hotel du Vin', 'Harrogate', 'Senior pastry', 20, false],
+  ['Bakery manager', 'Cooplands', 'Halifax', 'Bakery manager', 21, true],
+  ['Bakery team leader', 'Cooplands', 'Halifax', 'Bakery supervisor', 22, false],
+  ['Assistant manager', "GAIL's", 'Leeds', 'Bakery manager', 23, true],
+  ['Senior pastry chef', 'The Ivy', 'Leeds', 'Senior pastry', 24, true],
+  ['Bakery supervisor', 'M&S Food', 'Wakefield', 'Bakery supervisor', 25, false],
+  ['Bakery manager', 'PAUL', 'York', 'Bakery manager', 26, false],
+  ['Pastry chef de partie', 'Rudding Park', 'Harrogate', 'Senior pastry', 27, true],
+  ['Bakery manager', 'Cooplands', 'Huddersfield', 'Bakery manager', 28, true],
+  ['Production team leader', 'Greggs', 'Leeds', 'Bakery supervisor', 29, false],
+  ['Senior baker', 'Waitrose', 'York', 'Bakery supervisor', 30, false],
+  ['Pastry chef', 'Crumb & Co', 'Bradford', 'Senior pastry', 31, false]
 ]
 
 function seed () {
@@ -99,13 +102,13 @@ function seed () {
   for (const [t, e, l, type, ago, closed] of APPLIED) {
     add(t, e, l, type, 'applied', { shortlisted: ago + 2, applied: ago }, { closed })
   }
-  add('Sales assistant', 'Brightwater Retail', 'Leeds', 'Retail', 'interview',
+  add('Senior pastry chef', 'Harvey Nichols', 'Leeds', 'Senior pastry', 'interview',
     { shortlisted: 34, applied: 32, interview: 26 }, { closed: true, interviewAt: daysFromToday(-21) + 'T11:00' })
-  add('Administrative assistant', 'Calder Logistics', 'Wakefield', 'Admin', 'offered',
+  add('Pastry chef de partie', 'Bettys', 'Harrogate', 'Senior pastry', 'offered',
     { shortlisted: 30, applied: 28, interview: 22, offered: 10 }, { interviewAt: daysFromToday(-18) + 'T09:30' })
-  add('Receptionist', 'Meadow Lane Surgery', 'Leeds', 'Reception', 'interview',
+  add('Bakery team leader', "GAIL's", 'Leeds', 'Bakery supervisor', 'interview',
     { shortlisted: 18, applied: 16, interview: 6 }, { interviewAt: daysFromToday(-1) + 'T10:00' })
-  add('Customer service advisor', 'Northbridge Housing', 'Leeds', 'Customer service', 'interview',
+  add('Bakery supervisor', 'M&S Food', 'Leeds', 'Bakery supervisor', 'interview',
     { shortlisted: 14, applied: 12, interview: 3 }, { interviewAt: daysFromToday(3) + 'T14:30' })
   return jobs
 }

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Edit job details – Intelligent job tracker – Prototype</title>
+  <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
+  <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="govuk-template__body">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- Global header: keep in sync across prototypes/index.html, _template and every prototype page. Dark blue GOV.UK header holds JCS playground; light blue service navigation holds the prototype's name. No crown: that's only for services hosted on GOV.UK -->
+  <header class="govuk-template__header">
+    <div class="govuk-header" data-module="govuk-header">
+      <div class="govuk-header__container govuk-width-container">
+        <div class="govuk-header__logo">
+          <a href="/" class="govuk-header__homepage-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round" class="bi bi-emoji-smile-upside-down" viewBox="-0.5 -0.5 17 17" aria-hidden="true" focusable="false" style="vertical-align: -4px; margin-right: 8px;">
+              <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0"/>
+              <path d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5m4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5"/>
+            </svg><span style="font-size: 1.5rem; font-weight: 700;">JCS playground</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="index.html" class="govuk-service-navigation__link">Intelligent job tracker</a>
+          </span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong>
+        <span class="govuk-phase-banner__text">This is a prototype. Just for fun.</span>
+      </p>
+    </div>
+
+    <main class="govuk-main-wrapper" id="main-content">
+      <a href="index.html" class="govuk-back-link" id="back">Back to your job search</a>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div id="error-summary"></div>
+          <span class="govuk-caption-l" id="caption"></span>
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-3" id="heading"></h1>
+          <p class="govuk-body" id="tags"></p>
+          <p class="govuk-body ijt-muted govuk-!-margin-bottom-8" id="summary"></p>
+
+          <form id="form" novalidate>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h2 class="govuk-fieldset__heading">Where are you with this job?</h2>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios" id="stages"></div>
+              </fieldset>
+            </div>
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-8">Job details</h2>
+
+            <div class="govuk-form-group" id="title-group">
+              <label class="govuk-label govuk-label--s" for="title">Job title</label>
+              <p id="title-error" class="govuk-error-message" hidden><span class="govuk-visually-hidden">Error:</span> Enter the job title</p>
+              <input class="govuk-input" id="title" name="title" type="text">
+            </div>
+
+            <div class="govuk-form-group" id="employer-group">
+              <label class="govuk-label govuk-label--s" for="employer">Employer</label>
+              <p id="employer-error" class="govuk-error-message" hidden><span class="govuk-visually-hidden">Error:</span> Enter the employer</p>
+              <input class="govuk-input" id="employer" name="employer" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="location">Location</label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="location" name="location" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="salary">Salary (optional)</label>
+              <input class="govuk-input govuk-input--width-10" id="salary" name="salary" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="link">Link to the job advert (optional)</label>
+              <input class="govuk-input" id="link" name="link" type="url" spellcheck="false">
+            </div>
+
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button">Save changes</button>
+              <a class="govuk-link" href="index.html" id="cancel">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <p class="govuk-body-s govuk-!-margin-bottom-0">Prototype – not a real service</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initAll } from '/assets/govuk-frontend.min.js'
+    import * as app from './app.js'
+    const { esc, STAGES } = app
+
+    const $ = (id) => document.getElementById(id)
+    const jobs = app.load()
+    const job = app.find(jobs, app.params.get('job')) || jobs[0]
+    const from = STAGES[app.params.get('from')] ? app.params.get('from') : job.stage
+    const backUrl = `index.html?stage=${from}#jobs`
+    $('back').href = backUrl
+    $('cancel').href = backUrl
+
+    // Top of the page: who, what and where it's at
+
+    const tag = (s) => `<strong class="govuk-tag ${STAGES[s].tag}">${STAGES[s].label}</strong>`
+    const header = () => {
+      $('caption').textContent = job.employer
+      $('heading').textContent = job.title
+      $('tags').innerHTML = tag(job.stage) + (job.closed ? ' <strong class="govuk-tag govuk-tag--grey">Unsuccessful</strong>' : '')
+      const bits = [job.location]
+      if (job.dates.applied) bits.push(`Applied ${app.relDay(job.dates.applied)}`)
+      else if (job.closingDate) bits.push(`Closes ${app.relDay(job.closingDate)}`)
+      if (job.interviewAt) bits.push(`Interview ${app.dayDiff(job.interviewAt) < 0 ? 'was' : 'is'} ${app.interviewWhen(job)}`)
+      if (job.dates.offered) bits.push(`Offered ${app.relDay(job.dates.offered)}`)
+      $('summary').innerHTML = bits.map(esc).join(' · ')
+    }
+    header()
+    document.title = `${job.title} – Edit job details – Intelligent job tracker – Prototype`
+
+    for (const f of ['title', 'employer', 'location', 'salary', 'link']) $(f).value = job[f] && job[f] !== 'Not given' ? job[f] : ''
+
+    // Stage radios. Each one reveals the dates that matter at that stage.
+
+    const dateInput = (id, legend, hint, iso) => {
+      const d = iso ? app.parseDay(iso) : null
+      const part = (p, label, width, v) => `
+        <div class="govuk-date-input__item"><div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="${id}-${p}">${label}</label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-${width}" id="${id}-${p}" type="text" inputmode="numeric" value="${v ?? ''}">
+        </div></div>`
+      return `
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="${id}-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">${legend}</legend>
+            <div id="${id}-hint" class="govuk-hint">${hint}</div>
+            <div class="govuk-date-input">
+              ${part('day', 'Day', 2, d?.getDate())}${part('month', 'Month', 2, d && d.getMonth() + 1)}${part('year', 'Year', 4, d?.getFullYear())}
+            </div>
+          </fieldset>
+        </div>`
+    }
+    const timeInput = (id, iso) => `
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="${id}">Interview time (optional)</label>
+        <div id="${id}-hint" class="govuk-hint">For example, 10am or 2:30pm</div>
+        <input class="govuk-input govuk-input--width-5" id="${id}" type="text" aria-describedby="${id}-hint" value="${iso ? app.time(iso) : ''}">
+      </div>`
+
+    const eg = 'For example, 27 3 2027'
+    const options = [
+      ['shortlisted', 'Going to apply', dateInput('closing', 'Closing date (optional)', `${eg}. We'll remind you before it closes.`, job.closingDate)],
+      ['applied', 'Applied', dateInput('applied-a', 'Date you applied', eg, job.dates.applied)],
+      ['interview', 'Interview offered', dateInput('applied-i', 'Date you applied', eg, job.dates.applied) +
+        dateInput('interview-i', 'Interview date (optional)', 'Leave this blank if you don\'t know yet', job.interviewAt) + timeInput('time-i', job.interviewAt)],
+      ['offered', 'Job offered', dateInput('interview-o', 'Interview date', eg, job.interviewAt) +
+        dateInput('offered-o', 'Date you got the offer', eg, job.dates.offered)]
+    ]
+    // A closed job keeps the furthest stage it reached, so the numbers still count it
+    $('stages').innerHTML = options.map(([value, label, fields]) => `
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="stage-${value}" name="stage" type="radio" value="${value}"${!job.closed && job.stage === value ? ' checked' : ''} data-aria-controls="conditional-${value}">
+        <label class="govuk-label govuk-radios__label" for="stage-${value}">${label}</label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-${value}">${fields}</div>`).join('') + `
+      <div class="govuk-radios__divider">or</div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="stage-closed" name="stage" type="radio" value="closed"${job.closed ? ' checked' : ''} aria-describedby="stage-closed-hint">
+        <label class="govuk-label govuk-radios__label" for="stage-closed">I'm no longer going for this job</label>
+        <div id="stage-closed-hint" class="govuk-hint govuk-radios__hint">For example, you weren't successful or decided not to apply</div>
+      </div>`
+
+    // Saving
+
+    const readDate = (id) => {
+      const [d, m, y] = ['day', 'month', 'year'].map((p) => Number($(`${id}-${p}`).value))
+      if (!d || !m || !y) return null
+      const date = new Date(y, m - 1, d)
+      if (date.getMonth() !== m - 1) return null
+      return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`
+    }
+    const to24h = (t) => {
+      const m = t.trim().toLowerCase().match(/^(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)?$/)
+      if (!m) return '09:00'
+      let h = Number(m[1]) % 12
+      if (m[3] === 'pm' || (!m[3] && Number(m[1]) >= 12)) h += 12
+      return `${String(h).padStart(2, '0')}:${m[2] || '00'}`
+    }
+
+    $('form').addEventListener('submit', (e) => {
+      e.preventDefault()
+      const missing = ['title', 'employer'].filter((f) => !$(f).value.trim())
+      for (const f of ['title', 'employer']) {
+        const bad = missing.includes(f)
+        $(`${f}-group`).classList.toggle('govuk-form-group--error', bad)
+        $(`${f}-error`).hidden = !bad
+        $(f).classList.toggle('govuk-input--error', bad)
+      }
+      if (missing.length) {
+        $('error-summary').innerHTML = `
+          <div class="govuk-error-summary" data-module="govuk-error-summary" tabindex="-1">
+            <div role="alert">
+              <h2 class="govuk-error-summary__title">There is a problem</h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  ${missing.map((f) => `<li><a href="#${f}">${$(`${f}-error`).lastChild.textContent.trim()}</a></li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>`
+        $('error-summary').firstElementChild.focus()
+        return
+      }
+
+      for (const f of ['title', 'employer', 'location', 'salary', 'link']) job[f] = $(f).value.trim()
+      if (!job.location) job.location = 'Not given'
+      const chosen = document.querySelector('input[name="stage"]:checked').value
+      job.closed = chosen === 'closed'
+      if (job.closed) {
+        app.save(jobs)
+        return (location.href = `index.html?stage=${from}&closed=${job.id}#jobs`)
+      }
+
+      // Stages up to the chosen one get a date (today if we don't know), later ones are cleared
+      const stage = chosen
+      const order = Object.keys(STAGES)
+      const reached = order.indexOf(stage)
+      const today = app.daysFromToday(0)
+      const entered = {
+        shortlisted: { closingDate: readDate('closing') },
+        applied: { applied: readDate('applied-a') },
+        interview: { applied: readDate('applied-i'), interviewDay: readDate('interview-i'), time: $('time-i').value },
+        offered: { interviewDay: readDate('interview-o'), offered: readDate('offered-o') }
+      }[stage]
+
+      // If we only know the interview day, use it for when the interview was offered when it's in the past
+      const interviewFallback = entered.interviewDay && entered.interviewDay < today ? entered.interviewDay : today
+      order.forEach((s, i) => {
+        if (i > reached) delete job.dates[s]
+        else job.dates[s] = entered[s] || job.dates[s] || (s === 'interview' ? interviewFallback : today)
+      })
+      if (stage === 'shortlisted') {
+        if (entered.closingDate) job.closingDate = entered.closingDate
+        else delete job.closingDate
+      }
+      if (reached < order.indexOf('interview')) delete job.interviewAt
+      else if (entered.interviewDay) job.interviewAt = `${entered.interviewDay}T${entered.time ? to24h(entered.time) : (job.interviewAt ? job.interviewAt.slice(11, 16) : '09:00')}`
+      else if (stage === 'interview') delete job.interviewAt
+      job.stage = stage
+
+      app.save(jobs)
+      location.href = `index.html?stage=${stage}&edited=${job.id}#jobs`
+    })
+
+    initAll()
+  </script>
+</body>
+</html>

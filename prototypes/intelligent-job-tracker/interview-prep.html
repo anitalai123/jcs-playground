@@ -80,15 +80,15 @@
               <h2 class="govuk-heading-m">What they're looking for</h2>
               <p class="govuk-body">From the job advert, <span data-employer></span> wants someone who:</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li>explains things clearly and politely, on the phone and face to face</li>
-                <li>stays calm when people are upset or when it's busy</li>
-                <li>is comfortable using computer systems to update records</li>
-                <li>works well as part of a team</li>
+                <li>makes products consistently to spec, from laminated doughs to finished pastries</li>
+                <li>can run a shift and keep the team on time during busy periods</li>
+                <li>trains and supports new and junior team members</li>
+                <li>keeps on top of food safety, allergens, stock and waste</li>
               </ul>
               <p class="govuk-body">Think of one example from your experience for each of these. Examples can come from work, volunteering, caring or everyday life.</p>
               <h3 class="govuk-heading-s">Find out before the interview</h3>
               <ul class="govuk-list govuk-list--bullet">
-                <li>what <span data-employer></span> does and who it helps</li>
+                <li>what <span data-employer></span> bakes and who its customers are</li>
                 <li>its values, usually on the "About us" page of its website</li>
                 <li>any recent news about it</li>
               </ul>
@@ -140,15 +140,15 @@
     document.getElementById('summary').innerHTML = [
       row('When', job.interviewAt ? `${app.interviewWhen(job)}<br><span class="ijt-muted">${app.relDay(job.interviewAt)}</span>` : 'Not known yet'),
       row('Where', `${esc(job.employer)}, ${esc(job.location)}`),
-      row('Format', 'Face to face, about 45 minutes, with 2 people')
+      row('Format', 'Face to face, about an hour, with a short practical bake')
     ].join('')
 
     const questions = [
-      ['Tell us about a time you dealt with an unhappy customer.', 'They want to know you can stay calm, listen and fix the problem, or find someone who can.'],
-      [`Why do you want to work for ${job.employer}?`, 'They want to see you\'ve found out about them and that the job matters to you.'],
-      ['What would you do if someone asked you something you didn\'t know the answer to?', 'They\'re checking you\'re honest and know when to ask for help.'],
-      ['Tell us about a time you had a lot to do. How did you manage it?', 'They want to know how you prioritise and stay organised when it\'s busy.'],
-      [`Why would you be good at being a ${job.title.toLowerCase()}?`, 'This is your chance to match your skills to what\'s in the job advert.']
+      ['Tell us about a time you kept quality high when the kitchen was under pressure.', 'They want to know you won\'t cut corners when it\'s busy, which matters more when you\'re in charge.'],
+      [`Why do you want to work for ${job.employer}?`, 'They want to see you\'ve found out about them, their bakes and their customers.'],
+      ['How would you train a new starter to make one of our products to the right standard?', 'A senior role means teaching others. They want to hear you can explain, show and check.'],
+      ['What would you do if a batch didn\'t meet the standard just before opening?', 'They\'re checking you can make a quick, sensible decision and tell the right people.'],
+      [`Why are you ready to step up to ${job.title.toLowerCase()}?`, 'This is your chance to show where you\'ve already done parts of the bigger job.']
     ]
 
     document.getElementById('question-list').innerHTML = questions.map(([q, why], i) => `
@@ -203,7 +203,7 @@
       'Re-read the job advert',
       'Prepare an example for each thing they\'re looking for',
       'Write down 2 questions to ask them',
-      'Decide what to wear',
+      'Check if you need to bring your own whites and knives',
       'Bring photo ID and a copy of your CV'
     ]
     document.getElementById('checks').innerHTML = checks.map((c, i) => `
