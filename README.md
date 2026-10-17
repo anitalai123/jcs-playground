@@ -10,12 +10,12 @@ Quick prototypes for work, all served from one site: **https://jcs-playground.ve
 scripts/new.sh pricing-calculator
 ```
 
-This copies `prototypes/_template` to `prototypes/pricing-calculator/` and adds a heading and "Go to prototype" button to the home page. The template is a single HTML page built with [GOV.UK Frontend](https://design-system.service.gov.uk/) 6.5.1, loaded from jsDelivr. Open its `index.html` in a browser to work locally.
+This copies `prototypes/_template` to `prototypes/pricing-calculator/` and adds a heading and "Go to prototype" button to the home page. The template is a single HTML page built with [GOV.UK Frontend](https://design-system.service.gov.uk/) 6.5.1. Its stylesheet, script and GDS Transport font files are in `prototypes/assets/`. Open its `index.html` in a browser to work locally.
 
 To use a component, copy its HTML from the design system's example pages. The "HTML" tab under each example has it.
 
 Rules for prototypes hosted off GOV.UK:
-- Don't use the GOV.UK header, crown or GDS Transport font. The template leaves them out, and text falls back to Arial.
+- Don't use the GOV.UK header or crown. The template leaves them out.
 - Keep the "Prototype" banner so nobody mistakes the page for a real government service.
 
 ## Deploy
