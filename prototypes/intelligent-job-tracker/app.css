@@ -1,0 +1,145 @@
+/* Styles for the intelligent job tracker that GOV.UK Frontend doesn't cover */
+
+.ijt-muted { color: var(--govuk-secondary-text-colour); }
+
+/* Big numbers */
+
+.ijt-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 769px) {
+  .ijt-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+}
+.ijt-stats > li { display: flex; }
+
+.ijt-stat {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px 15px 20px;
+  border: 1px solid var(--govuk-border-colour);
+  border-top: 5px solid var(--govuk-brand-colour);
+  background: var(--govuk-body-background-colour);
+  color: var(--govuk-text-colour);
+  font-family: "GDS Transport", arial, sans-serif;
+  text-decoration: none;
+}
+.ijt-stat:hover { border-color: var(--govuk-link-hover-colour); background: var(--govuk-surface-background-colour); }
+.ijt-stat:hover .ijt-stat__more { text-decoration-thickness: 3px; }
+.ijt-stat:focus {
+  outline: 3px solid transparent;
+  background: var(--govuk-focus-colour);
+  box-shadow: 0 -2px var(--govuk-focus-colour), 0 4px var(--govuk-focus-text-colour);
+  border-color: var(--govuk-focus-text-colour);
+}
+.ijt-stat[aria-current="true"] {
+  border: 3px solid var(--govuk-brand-colour);
+  border-top-width: 5px;
+  padding: 13px 13px 18px;
+  background: var(--govuk-surface-background-colour);
+}
+.ijt-stat__label { font-size: 1.1875rem; font-weight: 700; }
+.ijt-stat__number { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin: 5px 0 10px; }
+@media (min-width: 769px) { .ijt-stat__number { font-size: 4.5rem; } }
+.ijt-stat__rate { font-size: 1rem; line-height: 1.35; margin-bottom: 15px; }
+.ijt-stat__rate strong { display: block; font-size: 1.5rem; line-height: 1.2; }
+.ijt-stat__more {
+  margin-top: auto;
+  color: var(--govuk-link-colour);
+  font-size: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 0.1578em;
+}
+.ijt-stat:focus .ijt-stat__more { color: var(--govuk-focus-text-colour); }
+
+/* "1 in 7" shown as dots: one filled for every N */
+.ijt-dots { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 8px; }
+.ijt-dots i { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--govuk-brand-colour); box-sizing: border-box; }
+.ijt-dots i.on { background: var(--govuk-brand-colour); }
+
+/* Contextual module */
+
+.ijt-context {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-left: 10px solid var(--govuk-brand-colour);
+  background: var(--govuk-surface-background-colour);
+}
+.ijt-context--checkin { border-left-color: #54319f; }
+.ijt-context > :last-child { margin-bottom: 0; }
+.ijt-eyebrow {
+  display: inline-block;
+  margin: 0 0 10px;
+  font-family: "GDS Transport", arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--govuk-secondary-text-colour);
+}
+
+/* Job list */
+
+.ijt-jobs { margin: 0 0 20px; padding: 0; list-style: none; border-top: 1px solid var(--govuk-border-colour); }
+.ijt-job {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--govuk-border-colour);
+}
+.ijt-job__main { flex: 1 1 320px; }
+.ijt-job__main > * { margin-bottom: 5px; }
+.ijt-job__main > :last-child { margin-bottom: 0; }
+.ijt-job__side { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+.ijt-job__side .govuk-button { margin-bottom: 0; }
+
+/* AI analysis */
+
+.ijt-insight {
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border: 1px solid var(--govuk-border-colour);
+  border-left: 5px solid var(--govuk-brand-colour);
+}
+.ijt-insight > :last-child { margin-bottom: 0; }
+.ijt-insight--good { border-left-color: var(--govuk-success-colour); }
+
+.ijt-summary-row { display: flex; flex-wrap: wrap; gap: 15px 40px; margin-bottom: 30px; }
+.ijt-summary-row div { font-family: "GDS Transport", arial, sans-serif; }
+.ijt-summary-row strong { display: block; font-size: 2.25rem; line-height: 1.1; }
+
+.ijt-loading { display: flex; align-items: center; gap: 15px; padding: 40px 0; }
+.ijt-loading[hidden] { display: none; }
+.ijt-spinner {
+  width: 32px; height: 32px; flex: none;
+  border: 5px solid var(--govuk-border-colour);
+  border-top-color: var(--govuk-brand-colour);
+  border-radius: 50%;
+  animation: ijt-spin 0.9s linear infinite;
+}
+@keyframes ijt-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ijt-spinner { animation: none; } }
+
+/* Prototype-only controls */
+.ijt-proto { margin-top: 40px; padding-top: 20px; border-top: 1px dashed var(--govuk-border-colour); }
+
+/* Section heading with a button on the same line */
+
+.ijt-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 20px;
+  margin-bottom: 20px;
+}
+.ijt-heading-row > .govuk-heading-m,
+.ijt-heading-row > .govuk-button { margin-bottom: 0; }

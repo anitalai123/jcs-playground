@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Add a job – Intelligent job tracker – Prototype</title>
+  <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
+  <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="govuk-template__body">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- Global header: keep in sync across prototypes/index.html, _template and every prototype page. Dark blue GOV.UK header holds JCS playground; light blue service navigation holds the prototype's name. No crown: that's only for services hosted on GOV.UK -->
+  <header class="govuk-template__header">
+    <div class="govuk-header" data-module="govuk-header">
+      <div class="govuk-header__container govuk-width-container">
+        <div class="govuk-header__logo">
+          <a href="/" class="govuk-header__homepage-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round" class="bi bi-emoji-smile-upside-down" viewBox="-0.5 -0.5 17 17" aria-hidden="true" focusable="false" style="vertical-align: -4px; margin-right: 8px;">
+              <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0"/>
+              <path d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5m4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5"/>
+            </svg><span style="font-size: 1.5rem; font-weight: 700;">JCS playground</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="index.html" class="govuk-service-navigation__link">Intelligent job tracker</a>
+          </span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong>
+        <span class="govuk-phase-banner__text">This is a prototype. Just for fun.</span>
+      </p>
+    </div>
+
+    <main class="govuk-main-wrapper" id="main-content">
+      <a href="index.html" class="govuk-back-link">Back to your job search</a>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div id="error-summary"></div>
+          <h1 class="govuk-heading-l">Add a job</h1>
+
+          <form id="add" novalidate>
+            <div class="ijt-context govuk-!-margin-bottom-8">
+              <div class="govuk-form-group govuk-!-margin-bottom-4">
+                <label class="govuk-label govuk-label--s" for="link">Paste a link to the job advert</label>
+                <div id="link-hint" class="govuk-hint">We'll read the advert and fill in the details for you</div>
+                <input class="govuk-input" id="link" name="link" type="url" spellcheck="false" aria-describedby="link-hint" value="https://jobs.example.com/pennywell-water/customer-service-advisor">
+              </div>
+              <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" id="fetch">Get job details</button>
+              <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0" id="fetch-status" aria-live="polite" hidden></p>
+            </div>
+
+            <p class="govuk-body">Or fill in the details yourself.</p>
+
+            <div class="govuk-form-group" id="title-group">
+              <label class="govuk-label govuk-label--s" for="title">Job title</label>
+              <p id="title-error" class="govuk-error-message" hidden><span class="govuk-visually-hidden">Error:</span> Enter the job title</p>
+              <input class="govuk-input" id="title" name="title" type="text">
+            </div>
+
+            <div class="govuk-form-group" id="employer-group">
+              <label class="govuk-label govuk-label--s" for="employer">Employer</label>
+              <p id="employer-error" class="govuk-error-message" hidden><span class="govuk-visually-hidden">Error:</span> Enter the employer</p>
+              <input class="govuk-input" id="employer" name="employer" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="location">Location</label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="location" name="location" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="salary">Salary (optional)</label>
+              <input class="govuk-input govuk-input--width-10" id="salary" name="salary" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="closing-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Closing date (optional)</legend>
+                <div id="closing-hint" class="govuk-hint">For example, 27 3 2027. We'll remind you before it closes.</div>
+                <div class="govuk-date-input" id="closing">
+                  <div class="govuk-date-input__item"><div class="govuk-form-group"><label class="govuk-label govuk-date-input__label" for="closing-day">Day</label><input class="govuk-input govuk-date-input__input govuk-input--width-2" id="closing-day" type="text" inputmode="numeric"></div></div>
+                  <div class="govuk-date-input__item"><div class="govuk-form-group"><label class="govuk-label govuk-date-input__label" for="closing-month">Month</label><input class="govuk-input govuk-date-input__input govuk-input--width-2" id="closing-month" type="text" inputmode="numeric"></div></div>
+                  <div class="govuk-date-input__item"><div class="govuk-form-group"><label class="govuk-label govuk-date-input__label" for="closing-year">Year</label><input class="govuk-input govuk-date-input__input govuk-input--width-4" id="closing-year" type="text" inputmode="numeric"></div></div>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Where are you with this job?</legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="stage" name="stage" type="radio" value="shortlisted" checked>
+                    <label class="govuk-label govuk-radios__label" for="stage">I want to apply</label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="stage-2" name="stage" type="radio" value="applied">
+                    <label class="govuk-label govuk-radios__label" for="stage-2">I've applied</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button">Add job</button>
+              <a class="govuk-link" href="index.html">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <p class="govuk-body-s govuk-!-margin-bottom-0">Prototype – not a real service</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initAll } from '/assets/govuk-frontend.min.js'
+    import * as app from './app.js'
+
+    const $ = (id) => document.getElementById(id)
+    const status = $('fetch-status')
+
+    // Pretend to read the advert
+    $('fetch').addEventListener('click', () => {
+      status.hidden = false
+      status.textContent = 'Reading the job advert…'
+      setTimeout(() => {
+        const closing = app.parseDay(app.daysFromToday(9))
+        Object.entries({
+          title: 'Customer service advisor',
+          employer: 'Pennywell Water',
+          location: 'Leeds',
+          salary: '£24,500 a year',
+          'closing-day': closing.getDate(),
+          'closing-month': closing.getMonth() + 1,
+          'closing-year': closing.getFullYear()
+        }).forEach(([id, v]) => { $(id).value = v })
+        status.innerHTML = '<strong>We\'ve filled in the details from the advert.</strong> Check they\'re right before you add the job.'
+      }, 900)
+    })
+
+    $('add').addEventListener('submit', (e) => {
+      e.preventDefault()
+      const missing = ['title', 'employer'].filter((f) => !$(f).value.trim())
+      for (const f of ['title', 'employer']) {
+        const bad = missing.includes(f)
+        $(`${f}-group`).classList.toggle('govuk-form-group--error', bad)
+        $(`${f}-error`).hidden = !bad
+        $(f).classList.toggle('govuk-input--error', bad)
+      }
+      if (missing.length) {
+        $('error-summary').innerHTML = `
+          <div class="govuk-error-summary" data-module="govuk-error-summary">
+            <div role="alert">
+              <h2 class="govuk-error-summary__title">There is a problem</h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  ${missing.map((f) => `<li><a href="#${f}">${$(`${f}-error`).lastChild.textContent.trim()}</a></li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>`
+        const summary = $('error-summary').querySelector('.govuk-error-summary')
+        summary.setAttribute('tabindex', '-1')
+        summary.focus()
+        return
+      }
+      const stage = document.querySelector('input[name="stage"]:checked').value
+      const [d, m, y] = ['day', 'month', 'year'].map((p) => Number($(`closing-${p}`).value))
+      const today = app.daysFromToday(0)
+      const jobs = app.load()
+      const id = app.addJob(jobs, {
+        title: $('title').value.trim(),
+        employer: $('employer').value.trim(),
+        location: $('location').value.trim() || 'Not given',
+        type: 'Other',
+        stage,
+        dates: stage === 'applied' ? { shortlisted: today, applied: today } : { shortlisted: today },
+        ...(d && m && y ? { closingDate: `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}` } : {})
+      })
+      location.href = `index.html?stage=${stage}&added=${id}#jobs`
+    })
+
+    initAll()
+  </script>
+</body>
+</html>

@@ -6,26 +6,35 @@
   <meta name="theme-color" content="#1d70b8">
   <!-- Prototypes shouldn't show up in search results -->
   <meta name="robots" content="noindex, nofollow">
-  <title>Intelligent job tracker – Prototype</title>
+  <title>Your job search – Intelligent job tracker – Prototype</title>
   <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
   <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="app.css">
 </head>
 <body class="govuk-template__body">
   <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
   <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
 
-  <!-- Global header: keep in sync with prototypes/index.html. No GOV.UK header or crown: those are only for services hosted on GOV.UK -->
+  <!-- Global header: keep in sync across prototypes/index.html, _template and every prototype page. Dark blue GOV.UK header holds JCS playground; light blue service navigation holds the prototype's name. No crown: that's only for services hosted on GOV.UK -->
   <header class="govuk-template__header">
+    <div class="govuk-header" data-module="govuk-header">
+      <div class="govuk-header__container govuk-width-container">
+        <div class="govuk-header__logo">
+          <a href="/" class="govuk-header__homepage-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round" class="bi bi-emoji-smile-upside-down" viewBox="-0.5 -0.5 17 17" aria-hidden="true" focusable="false" style="vertical-align: -4px; margin-right: 8px;">
+              <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0"/>
+              <path d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5m4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5"/>
+            </svg><span style="font-size: 1.5rem; font-weight: 700;">JCS playground</span>
+          </a>
+        </div>
+      </div>
+    </div>
     <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
       <div class="govuk-width-container">
         <div class="govuk-service-navigation__container">
           <span class="govuk-service-navigation__service-name">
-            <a href="/" class="govuk-service-navigation__link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round" class="bi bi-emoji-smile-upside-down" viewBox="-0.5 -0.5 17 17" aria-hidden="true" focusable="false" style="vertical-align: -6px; margin-right: 8px;">
-                <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0"/>
-                <path d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5m4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5"/>
-              </svg>JCS playground</a>
+            <a href="index.html" class="govuk-service-navigation__link">Intelligent job tracker</a>
           </span>
         </div>
       </div>
@@ -36,17 +45,47 @@
     <div class="govuk-phase-banner">
       <p class="govuk-phase-banner__content">
         <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong>
-        <span class="govuk-phase-banner__text">This is a prototype. It is not a real service.</span>
+        <span class="govuk-phase-banner__text">This is a prototype. Just for fun.</span>
       </p>
     </div>
 
     <main class="govuk-main-wrapper" id="main-content">
+      <div id="banner"></div>
+
+      <span class="govuk-caption-l">Intelligent job tracker</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Your job search</h1>
+
+      <div class="govuk-button-group">
+        <a href="add-job.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add a job</a>
+      </div>
+
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <a href="../" class="govuk-back-link">Back</a>
-          <h1 class="govuk-heading-l">Intelligent job tracker</h1>
-          <p class="govuk-body">The prototype starts here.</p>
-        </div>
+        <div class="govuk-grid-column-two-thirds" id="context"></div>
+      </div>
+
+      <div class="ijt-heading-row">
+        <h2 class="govuk-heading-m">Your progress in the last 30 days</h2>
+        <a href="stuck.html" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">I'm stuck</a>
+      </div>
+      <ul class="ijt-stats" id="stats"></ul>
+
+      <section id="jobs" aria-live="polite"></section>
+
+      <div class="ijt-proto">
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">Prototype settings</span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">Switch what the module at the top of the dashboard shows:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a class="govuk-link" href="?scenario=checkin">Interview yesterday: ask how it went</a></li>
+              <li><a class="govuk-link" href="?scenario=prep">Interview coming up: offer interview prep</a></li>
+              <li><a class="govuk-link" href="?scenario=none">Nothing coming up</a></li>
+            </ul>
+            <p class="govuk-body"><a class="govuk-link" href="#" id="reset">Reset the example data</a></p>
+          </div>
+        </details>
       </div>
     </main>
   </div>
@@ -63,9 +102,199 @@
 
   <script type="module">
     import { initAll } from '/assets/govuk-frontend.min.js'
-    initAll()
+    import * as app from './app.js'
+    const { esc, params, STAGES, PAGE_SIZE } = app
 
-    // Prototype logic goes here
+    const jobs = app.load()
+    const stage = STAGES[params.get('stage')] ? params.get('stage') : null
+    const page = Math.max(1, Number(params.get('page')) || 1)
+    const c = app.counts(jobs)
+
+    // Success messages after an action
+
+    const banner = (heading, text = '') => {
+      document.getElementById('banner').innerHTML = `
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header"><h2 class="govuk-notification-banner__title" id="banner-title">Success</h2></div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">${heading}</h3>
+            ${text ? `<p class="govuk-body">${text}</p>` : ''}
+          </div>
+        </div>`
+    }
+    const acted = app.find(jobs, params.get('moved') || params.get('closed') || params.get('added') || '')
+    if (acted) {
+      const name = `${esc(acted.title)} at ${esc(acted.employer)}`
+      if (params.has('added')) banner(`Added ${name}`, `It's in your ${STAGES[acted.stage].label.toLowerCase()} jobs.`)
+      else if (params.has('closed')) banner(`${name} marked as unsuccessful`, 'Hearing no is part of every job search. If it keeps happening, <a class="govuk-notification-banner__link" href="stuck.html">we can help you work out why</a>.')
+      else if (acted.stage === 'applied') banner(`${name} marked as applied`, 'Good luck. We\'ll remind you to follow up if you haven\'t heard back in 2 weeks.')
+      else if (acted.stage === 'interview') banner(`You got an interview with ${esc(acted.employer)}`, acted.interviewAt ? `It's on ${app.interviewWhen(acted)}. <a class="govuk-notification-banner__link" href="interview-prep.html?job=${acted.id}">Start preparing</a>` : 'Add the date when you know it, and we\'ll help you prepare.')
+      else if (acted.stage === 'offered') banner(`Congratulations on your offer from ${esc(acted.employer)}`)
+    }
+    if (params.get('checkin') === 'done') banner('Thanks for telling us how your interview went', 'We\'ll remind you to follow up if you haven\'t heard back.')
+
+    // Contextual module: check in after yesterday's interview, otherwise offer prep for the next one
+
+    const scenario = params.get('scenario')
+    const yesterday = scenario === 'checkin'
+      ? jobs.find((j) => j.stage === 'interview' && app.dayDiff(j.interviewAt) === -1)
+      : scenario ? null : app.interviewYesterday(jobs)
+    const upcoming = scenario === 'none' ? null : app.upcomingInterview(jobs)
+    const context = document.getElementById('context')
+
+    if (yesterday) {
+      context.innerHTML = `
+        <div class="ijt-context ijt-context--checkin">
+          <p class="ijt-eyebrow">Interview yesterday</p>
+          <form action="interview-checkin.html" method="get" novalidate>
+            <input type="hidden" name="job" value="${yesterday.id}">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="checkin-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h2 class="govuk-fieldset__heading">How did your interview with ${esc(yesterday.employer)} go?</h2>
+                </legend>
+                <div id="checkin-hint" class="govuk-hint">${esc(yesterday.title)}, yesterday at ${app.time(yesterday.interviewAt)}. Telling us helps us suggest what to do next.</div>
+                <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                  ${[['well', 'It went well'], ['unsure', 'I\'m not sure'], ['badly', 'It didn\'t go well']].map(([v, l], i) => `
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="feeling-${i}" name="feeling" type="radio" value="${v}">
+                    <label class="govuk-label govuk-radios__label" for="feeling-${i}">${l}</label>
+                  </div>`).join('')}
+                </div>
+              </fieldset>
+            </div>
+            <div class="govuk-button-group govuk-!-margin-bottom-0">
+              <button type="submit" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">Continue</button>
+              <a href="#" class="govuk-link" id="not-now">Ask me later</a>
+            </div>
+          </form>
+        </div>`
+      document.getElementById('not-now').addEventListener('click', (e) => {
+        e.preventDefault()
+        app.find(jobs, yesterday.id).checkin = 'later'
+        app.save(jobs)
+        location.href = 'index.html'
+      })
+    } else if (upcoming) {
+      const days = app.dayDiff(upcoming.interviewAt)
+      context.innerHTML = `
+        <div class="ijt-context">
+          <p class="ijt-eyebrow">Interview ${app.relDay(upcoming.interviewAt)}</p>
+          <h2 class="govuk-heading-m">Get ready for your interview with ${esc(upcoming.employer)}</h2>
+          <p class="govuk-body"><strong>${esc(upcoming.title)}</strong><br>${app.interviewWhen(upcoming)}</p>
+          <p class="govuk-body">Practise answers to the questions you're likely to be asked, find out what the employer is looking for, and check you've got everything ready.</p>
+          <a href="interview-prep.html?job=${upcoming.id}" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">Start interview prep</a>
+        </div>`
+    }
+
+    // Big numbers
+
+    const ratePhrase = (r, what) => r.n === 1
+      ? `<strong>Every ${what[0]}</strong> led to ${what[1]}`
+      : `<strong>${r.exact ? '' : 'About '}1 in ${r.n}</strong> ${what[0]}s led to ${what[1]}`
+    const dots = (r) => r.n <= 12
+      ? `<span class="ijt-dots" aria-hidden="true">${Array.from({ length: r.n }, (_, i) => `<i${i === 0 ? ' class="on"' : ''}></i>`).join('')}</span>`
+      : ''
+    const cards = [
+      ['shortlisted', 'Shortlisted', 'to apply for'],
+      ['applied', 'Applied', 'applications sent'],
+      ['interview', 'Interviews', '', app.rate(c.interview, c.applied), ['application', 'an interview']],
+      ['offered', 'Offers', '', app.rate(c.offered, c.interview), ['interview', 'an offer']]
+    ]
+    document.getElementById('stats').innerHTML = cards.map(([key, label, sub, r, what]) => `
+      <li>
+        <a class="ijt-stat" href="?stage=${key}#jobs"${stage === key ? ' aria-current="true"' : ''}>
+          <span class="ijt-stat__label">${label}</span>
+          <span class="ijt-stat__number">${c[key]}</span>
+          <span class="ijt-stat__rate">${what
+            ? (r ? `${dots(r)}${ratePhrase(r, what)}<span class="govuk-visually-hidden"> (${r.percent}%)</span>` : `No ${what[1].split(' ')[1]}s yet`)
+            : `<span class="ijt-muted">${sub}</span>`}</span>
+          <span class="ijt-stat__more">${stage === key ? 'Showing below' : 'View jobs'}<span class="govuk-visually-hidden"> – ${label.toLowerCase()}</span></span>
+        </a>
+      </li>`).join('')
+
+    // List of jobs for the selected number
+
+    const section = document.getElementById('jobs')
+    if (!stage) {
+      section.innerHTML = '<p class="govuk-body ijt-muted">Select a number to see the jobs behind it.</p>'
+    } else {
+      const list = app.listFor(jobs, stage)
+      const pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE))
+      const p = Math.min(page, pages)
+      const shown = list.slice((p - 1) * PAGE_SIZE, p * PAGE_SIZE)
+      const headings = { shortlisted: 'Jobs you\'ve shortlisted', applied: 'Jobs you\'ve applied for', interview: 'Jobs you got an interview for', offered: 'Jobs you got an offer for' }
+      const url = (n) => `?stage=${stage}&page=${n}#jobs`
+
+      const status = (j) => j.closed
+        ? '<strong class="govuk-tag govuk-tag--grey">Unsuccessful</strong>'
+        : `<strong class="govuk-tag ${STAGES[j.stage].tag}">${STAGES[j.stage].label}</strong>`
+
+      const detail = (j) => {
+        const bits = [`${STAGES[stage].dateLabel} ${app.relDay(j.dates[stage])}`]
+        if (stage === 'shortlisted' && j.closingDate) bits.push(app.dayDiff(j.closingDate) <= 3 ? `<strong>Closes ${app.relDay(j.closingDate)}</strong>` : `Closes ${app.relDay(j.closingDate)}`)
+        if (j.stage === 'interview' && !j.closed && j.interviewAt) bits.push(`Interview ${app.dayDiff(j.interviewAt) < 0 ? 'was' : 'is'} ${app.longDate(j.interviewAt)}`)
+        if (j.stage === 'applied' && !j.closed && app.dayDiff(j.dates.applied) < -14) bits.push('No reply for over 2 weeks')
+        return bits.join(' · ')
+      }
+
+      // Jobs sitting at this stage can be moved straight to the next one
+      const actions = (j) => {
+        if (j.closed || j.stage !== stage || !STAGES[stage].next) return status(j)
+        const more = []
+        if (stage === 'interview' && app.dayDiff(j.interviewAt) >= 0) more.push(`<a class="govuk-link" href="interview-prep.html?job=${j.id}">Prepare<span class="govuk-visually-hidden"> for ${esc(j.title)}</span></a>`)
+        if (stage !== 'shortlisted') more.push(`<a class="govuk-link" href="#" data-close="${j.id}">Not successful<span class="govuk-visually-hidden">: ${esc(j.title)}</span></a>`)
+        return `${status(j)}
+          <button type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-move="${j.id}">${STAGES[stage].action}<span class="govuk-visually-hidden">: ${esc(j.title)} at ${esc(j.employer)}</span></button>
+          ${more.join('')}`
+      }
+
+      section.innerHTML = `
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">${headings[stage]}</h2>
+        <p class="govuk-body ijt-muted">${list.length} ${list.length === 1 ? 'job' : 'jobs'}, most recent first${pages > 1 ? `. Page ${p} of ${pages}` : ''}</p>
+        ${list.length ? `<ul class="ijt-jobs">${shown.map((j) => `
+          <li class="ijt-job">
+            <div class="ijt-job__main">
+              <h3 class="govuk-heading-s">${esc(j.title)}</h3>
+              <p class="govuk-body-s">${esc(j.employer)} · ${esc(j.location)}</p>
+              <p class="govuk-body-s ijt-muted">${detail(j)}</p>
+            </div>
+            <div class="ijt-job__side">${actions(j)}</div>
+          </li>`).join('')}</ul>` : '<p class="govuk-body">No jobs here yet.</p>'}
+        ${pages > 1 ? `
+        <nav class="govuk-pagination" aria-label="Pages of ${headings[stage].toLowerCase()}">
+          ${p > 1 ? `<div class="govuk-pagination__prev"><a class="govuk-link govuk-pagination__link" href="${url(p - 1)}" rel="prev"><svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13"><path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path></svg><span class="govuk-pagination__link-title">Previous<span class="govuk-visually-hidden"> page</span></span></a></div>` : ''}
+          <ul class="govuk-pagination__list">${Array.from({ length: pages }, (_, i) => i + 1).map((n) => `
+            <li class="govuk-pagination__item${n === p ? ' govuk-pagination__item--current' : ''}"><a class="govuk-link govuk-pagination__link" href="${url(n)}" aria-label="Page ${n}"${n === p ? ' aria-current="page"' : ''}>${n}</a></li>`).join('')}
+          </ul>
+          ${p < pages ? `<div class="govuk-pagination__next"><a class="govuk-link govuk-pagination__link" href="${url(p + 1)}" rel="next"><span class="govuk-pagination__link-title">Next<span class="govuk-visually-hidden"> page</span></span><svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13"><path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path></svg></a></div>` : ''}
+        </nav>` : ''}`
+
+      section.addEventListener('click', (e) => {
+        const moveBtn = e.target.closest('[data-move]')
+        const closeLink = e.target.closest('[data-close]')
+        if (moveBtn) {
+          const next = STAGES[stage].next
+          // An interview needs a date, so ask for it first
+          if (next === 'interview') return (location.href = `interview-date.html?job=${moveBtn.dataset.move}`)
+          app.move(jobs, moveBtn.dataset.move, next)
+          location.href = `?stage=${stage}&page=${p}&moved=${moveBtn.dataset.move}#jobs`
+        } else if (closeLink) {
+          e.preventDefault()
+          app.find(jobs, closeLink.dataset.close).closed = true
+          app.save(jobs)
+          location.href = `?stage=${stage}&page=${p}&closed=${closeLink.dataset.close}#jobs`
+        }
+      })
+    }
+
+    document.getElementById('reset').addEventListener('click', (e) => {
+      e.preventDefault()
+      app.reset()
+      location.href = 'index.html'
+    })
+
+    initAll()
   </script>
 </body>
 </html>

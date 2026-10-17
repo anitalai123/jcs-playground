@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Your job search analysis – Intelligent job tracker – Prototype</title>
+  <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
+  <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="govuk-template__body">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- Global header: keep in sync across prototypes/index.html, _template and every prototype page. Dark blue GOV.UK header holds JCS playground; light blue service navigation holds the prototype's name. No crown: that's only for services hosted on GOV.UK -->
+  <header class="govuk-template__header">
+    <div class="govuk-header" data-module="govuk-header">
+      <div class="govuk-header__container govuk-width-container">
+        <div class="govuk-header__logo">
+          <a href="/" class="govuk-header__homepage-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round" class="bi bi-emoji-smile-upside-down" viewBox="-0.5 -0.5 17 17" aria-hidden="true" focusable="false" style="vertical-align: -4px; margin-right: 8px;">
+              <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0"/>
+              <path d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5m4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5"/>
+            </svg><span style="font-size: 1.5rem; font-weight: 700;">JCS playground</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="index.html" class="govuk-service-navigation__link">Intelligent job tracker</a>
+          </span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong>
+        <span class="govuk-phase-banner__text">This is a prototype. Just for fun.</span>
+      </p>
+    </div>
+
+    <main class="govuk-main-wrapper" id="main-content">
+      <a href="stuck-questions.html" class="govuk-back-link">Back</a>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="ijt-loading" id="loading" role="status">
+            <span class="ijt-spinner" aria-hidden="true"></span>
+            <p class="govuk-body-l govuk-!-margin-bottom-0">Looking at your applications and answers…</p>
+          </div>
+          <div id="result" hidden></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <p class="govuk-body-s govuk-!-margin-bottom-0">Prototype – not a real service</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initAll } from '/assets/govuk-frontend.min.js'
+    import * as app from './app.js'
+    const { esc, params, listSentence } = app
+
+    const jobs = app.load()
+    const c = app.counts(jobs)
+    const where = params.get('where') || 'no-reply'
+    const how = (params.get('how') || 'same-cv').split(',').filter(Boolean)
+    const match = params.get('match') || 'some'
+    const hard = (params.get('hard') || '').split(',').filter((h) => h && h !== 'none')
+
+    // Patterns in their data: which kinds of job got interviews, and which got nothing
+    const applied = jobs.filter((j) => j.dates.applied)
+    const byType = {}
+    for (const j of applied) {
+      byType[j.type] ??= { n: 0, interviews: 0 }
+      byType[j.type].n++
+      if (j.dates.interview) byType[j.type].interviews++
+    }
+    const working = Object.keys(byType).filter((t) => byType[t].interviews).sort((a, b) => byType[b].n - byType[a].n).map((t) => t.toLowerCase())
+    const notWorking = Object.entries(byType).filter(([, v]) => !v.interviews && v.n >= 3).sort((a, b) => b[1].n - a[1].n).slice(0, 2)
+    const notWorkingCount = notWorking.reduce((s, [, v]) => s + v.n, 0)
+    const stale = app.staleApplications(jobs)
+    const interviewRate = app.rate(c.interview, c.applied)
+    const offerRate = app.rate(c.offered, c.interview)
+
+    const headings = {
+      'no-reply': 'Why you might not be hearing back',
+      'no-offer': 'Why interviews might not be turning into offers',
+      'no-jobs': 'How to find more jobs worth applying for',
+      unsure: 'What your job search is telling us'
+    }
+
+    const insights = []
+
+    if (notWorking.length && working.length) {
+      insights.push({
+        title: 'You get interviews for some kinds of job, but not others',
+        body: `<p class="govuk-body">Your interviews came from ${listSentence(working)} jobs. None of your ${notWorkingCount} ${listSentence(notWorking.map(([t]) => t.toLowerCase()))} applications led to an interview.</p>
+          <p class="govuk-body">${match === 'new'
+            ? 'You told us you\'re trying something new. That\'s worth doing, but it can take longer. You could split your time: keep applying for jobs that match your experience while you build up towards the new kind of work.'
+            : 'Focusing on the kinds of job where employers are already interested in you could get you more interviews.'}</p>`,
+        action: `Focus on ${listSentence(working.slice(0, 2))} jobs for the next 2 weeks`
+      })
+    }
+
+    if (how.includes('same-cv') || how.includes('quick-apply')) {
+      const both = how.includes('same-cv') && how.includes('quick-apply')
+      insights.push({
+        title: how.includes('same-cv') ? 'You send the same CV for every job' : 'You use "quick apply" a lot',
+        body: `<p class="govuk-body">${both ? 'You send the same CV for every job, often using "quick apply". ' : ''}Employers often get many applications and look for the words and skills in their job advert. A general CV can be skipped even when you'd be good at the job.</p>
+          <p class="govuk-body">Changing the top of your CV for each job – your personal statement and the first few skills you list – usually takes about 10 minutes and can make a big difference.</p>`,
+        action: 'Change your CV to match the advert for your next 3 applications'
+      })
+    } else if (how.includes('tailor-cv')) {
+      insights.push({
+        good: true,
+        title: 'Changing your CV for each job is working',
+        body: '<p class="govuk-body">Keep doing this. It\'s one of the most useful things you can do to get noticed.</p>'
+      })
+    }
+
+    if (stale.length) {
+      insights.push({
+        title: `${stale.length} applications have had no reply for over 2 weeks`,
+        body: `<p class="govuk-body">Many employers don't reply if you're not successful. It's worth following up once on the jobs you care most about – a short, polite email asking if they've made a decision.</p>
+          <p class="govuk-body">If you don't hear back after that, mark them as unsuccessful so your numbers show what's really happening.</p>`,
+        action: `Follow up on your 3 favourite jobs from more than 2 weeks ago`
+      })
+    }
+
+    if (where === 'no-offer' || hard.includes('confidence')) {
+      insights.push({
+        title: 'Interviews could be the place to focus',
+        body: `<p class="govuk-body">You got to interview ${c.interview} times${offerRate ? ` and got ${c.offered === 1 ? 'an offer' : c.offered + ' offers'}` : ''}. Getting to interview means employers like your application. Practising your answers out loud, especially with examples of what you did and what happened, can help you feel more confident.</p>`,
+        action: 'Use interview prep to practise 3 answers before your next interview'
+      })
+    }
+
+    if (where === 'no-jobs') {
+      insights.unshift({
+        title: 'Widen your search a little',
+        body: '<p class="govuk-body">Try searching for skills rather than job titles, for example "customer service" rather than "receptionist". Jobs in housing, health and energy companies often need the same skills under different titles.</p>',
+        action: 'Save 5 new jobs to your shortlist this week'
+      })
+    }
+
+    const support = {
+      gaps: ['Gaps in your work history', 'Be honest and brief. Say what you did in that time – caring, volunteering, learning or looking after your health all count.'],
+      experience: ['Not enough experience', 'Think about skills from everyday life, volunteering or caring, like organising, solving problems or calming people down. These count.'],
+      confidence: ['Confidence', 'Most people feel nervous. Practising answers out loud is the quickest way to feel more ready.'],
+      travel: ['Travel or where you live', 'Look for remote jobs and ask your work coach about help with travel costs to interviews or your first weeks in work.'],
+      caring: ['Childcare or caring for someone', 'Filter for part-time or flexible jobs. Your work coach can tell you about help with childcare costs.'],
+      health: ['A health condition or disability', 'You can ask employers for changes to the interview, like extra time. Your work coach can tell you about Access to Work.']
+    }
+
+    const actions = insights.filter((i) => i.action).map((i) => i.action)
+
+    document.getElementById('result').innerHTML = `
+      <span class="govuk-caption-l">Your job search analysis</span>
+      <h1 class="govuk-heading-xl">${headings[where]}</h1>
+      <p class="govuk-body-l">We looked at your ${c.applied} applications and your answers. Here's what stands out.</p>
+
+      <div class="ijt-summary-row">
+        ${interviewRate ? `<div><strong>1 in ${interviewRate.n}</strong>applications got an interview</div>` : ''}
+        ${offerRate ? `<div><strong>1 in ${offerRate.n}</strong>interviews led to an offer</div>` : ''}
+        <div><strong>${app.waiting(jobs).length}</strong>still waiting to hear</div>
+      </div>
+
+      <h2 class="govuk-heading-l">What we found</h2>
+      ${insights.map((i) => `
+        <div class="ijt-insight${i.good ? ' ijt-insight--good' : ''}">
+          <h3 class="govuk-heading-m">${i.title}</h3>
+          ${i.body}
+        </div>`).join('')}
+
+      ${hard.length ? `
+      <h2 class="govuk-heading-l govuk-!-margin-top-8">Things you told us about</h2>
+      ${hard.map((h) => `<h3 class="govuk-heading-s">${support[h][0]}</h3><p class="govuk-body">${support[h][1]}</p>`).join('')}` : ''}
+
+      <h2 class="govuk-heading-l govuk-!-margin-top-8">What to try next</h2>
+      <ol class="govuk-list govuk-list--number govuk-list--spaced">
+        ${actions.map((a) => `<li>${esc(a)}</li>`).join('')}
+      </ol>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          This analysis is made by AI from your job tracker and answers. It might not be right. Use it as a starting point, and talk to your work coach if you'd like more help.
+        </strong>
+      </div>
+
+      <div class="govuk-button-group">
+        <a href="index.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Back to your job search</a>
+        <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">Talk to a work coach</a>
+      </div>
+
+      <div class="ijt-context govuk-!-margin-top-6" id="helpful">
+        <h2 class="govuk-heading-s">Was this helpful?</h2>
+        <div class="govuk-button-group govuk-!-margin-bottom-0">
+          <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">Yes</button>
+          <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">No</button>
+        </div>
+      </div>`
+
+    document.getElementById('helpful').addEventListener('click', (e) => {
+      if (e.target.closest('button')) document.getElementById('helpful').innerHTML = '<p class="govuk-body govuk-!-margin-bottom-0">Thanks for your feedback. We\'ll use it to make this better.</p>'
+    })
+
+    // Short pause so it feels like the analysis is being worked out
+    setTimeout(() => {
+      document.getElementById('loading').hidden = true
+      const result = document.getElementById('result')
+      result.hidden = false
+      const h1 = result.querySelector('h1')
+      h1.setAttribute('tabindex', '-1')
+      h1.focus()
+    }, 1600)
+
+    initAll()
+  </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Questions about your job search – Intelligent job tracker – Prototype</title>
+  <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
+  <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="govuk-template__body">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- Global header: keep in sync across prototypes/index.html, _template and every prototype page. Dark blue GOV.UK header holds JCS playground; light blue service navigation holds the prototype's name. No crown: that's only for services hosted on GOV.UK -->
+  <header class="govuk-template__header">
+    <div class="govuk-header" data-module="govuk-header">
+      <div class="govuk-header__container govuk-width-container">
+        <div class="govuk-header__logo">
+          <a href="/" class="govuk-header__homepage-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round" class="bi bi-emoji-smile-upside-down" viewBox="-0.5 -0.5 17 17" aria-hidden="true" focusable="false" style="vertical-align: -4px; margin-right: 8px;">
+              <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0"/>
+              <path d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5m4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5"/>
+            </svg><span style="font-size: 1.5rem; font-weight: 700;">JCS playground</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="index.html" class="govuk-service-navigation__link">Intelligent job tracker</a>
+          </span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong>
+        <span class="govuk-phase-banner__text">This is a prototype. Just for fun.</span>
+      </p>
+    </div>
+
+    <main class="govuk-main-wrapper" id="main-content">
+      <a href="stuck.html" class="govuk-back-link" id="back">Back</a>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div id="error-summary"></div>
+
+          <form data-step="1" novalidate>
+            <div class="govuk-form-group" data-required="where">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <span class="govuk-caption-l">Question 1 of 4</span>
+                  <h1 class="govuk-fieldset__heading">Where do you feel most stuck?</h1>
+                </legend>
+                <p class="govuk-error-message" hidden><span class="govuk-visually-hidden">Error:</span> Select where you feel most stuck</p>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item"><input class="govuk-radios__input" id="where" name="where" type="radio" value="no-reply"><label class="govuk-label govuk-radios__label" for="where">I'm not hearing back after I apply</label></div>
+                  <div class="govuk-radios__item"><input class="govuk-radios__input" id="where-2" name="where" type="radio" value="no-offer"><label class="govuk-label govuk-radios__label" for="where-2">I get interviews but not job offers</label></div>
+                  <div class="govuk-radios__item"><input class="govuk-radios__input" id="where-3" name="where" type="radio" value="no-jobs"><label class="govuk-label govuk-radios__label" for="where-3">I can't find jobs I want to apply for</label></div>
+                  <div class="govuk-radios__divider">or</div>
+                  <div class="govuk-radios__item"><input class="govuk-radios__input" id="where-4" name="where" type="radio" value="unsure"><label class="govuk-label govuk-radios__label" for="where-4">I'm not sure</label></div>
+                </div>
+              </fieldset>
+            </div>
+            <button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
+          </form>
+
+          <form data-step="2" novalidate hidden>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="how-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <span class="govuk-caption-l">Question 2 of 4</span>
+                  <h1 class="govuk-fieldset__heading">How do you usually apply for jobs?</h1>
+                </legend>
+                <div id="how-hint" class="govuk-hint">Select all that apply</div>
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="how" name="how" type="checkbox" value="same-cv"><label class="govuk-label govuk-checkboxes__label" for="how">I send the same CV for every job</label></div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="how-2" name="how" type="checkbox" value="tailor-cv"><label class="govuk-label govuk-checkboxes__label" for="how-2">I change my CV for each job</label></div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="how-3" name="how" type="checkbox" value="cover-letter"><label class="govuk-label govuk-checkboxes__label" for="how-3">I write a cover letter</label></div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="how-4" name="how" type="checkbox" value="quick-apply"><label class="govuk-label govuk-checkboxes__label" for="how-4">I use "quick apply" buttons on job websites</label></div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="how-5" name="how" type="checkbox" value="agency"><label class="govuk-label govuk-checkboxes__label" for="how-5">I apply through recruitment agencies</label></div>
+                </div>
+              </fieldset>
+            </div>
+            <button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
+          </form>
+
+          <form data-step="3" novalidate hidden>
+            <div class="govuk-form-group" data-required="match">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <span class="govuk-caption-l">Question 3 of 4</span>
+                  <h1 class="govuk-fieldset__heading">How closely do the jobs you apply for match your experience?</h1>
+                </legend>
+                <p class="govuk-error-message" hidden><span class="govuk-visually-hidden">Error:</span> Select how closely the jobs match your experience</p>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item"><input class="govuk-radios__input" id="match" name="match" type="radio" value="close"><label class="govuk-label govuk-radios__label" for="match">Very closely</label></div>
+                  <div class="govuk-radios__item"><input class="govuk-radios__input" id="match-2" name="match" type="radio" value="some"><label class="govuk-label govuk-radios__label" for="match-2">Some of them do</label></div>
+                  <div class="govuk-radios__item"><input class="govuk-radios__input" id="match-3" name="match" type="radio" value="new"><label class="govuk-label govuk-radios__label" for="match-3">Not much – I'm trying something new</label></div>
+                </div>
+              </fieldset>
+            </div>
+            <button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
+          </form>
+
+          <form data-step="4" novalidate hidden>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="hard-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <span class="govuk-caption-l">Question 4 of 4</span>
+                  <h1 class="govuk-fieldset__heading">Is anything else making your job search harder?</h1>
+                </legend>
+                <div id="hard-hint" class="govuk-hint">Select all that apply</div>
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="hard" name="hard" type="checkbox" value="gaps"><label class="govuk-label govuk-checkboxes__label" for="hard">Gaps in my work history</label></div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="hard-2" name="hard" type="checkbox" value="experience"><label class="govuk-label govuk-checkboxes__label" for="hard-2">Not enough experience</label></div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="hard-3" name="hard" type="checkbox" value="confidence"><label class="govuk-label govuk-checkboxes__label" for="hard-3">Confidence, especially in interviews</label></div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="hard-4" name="hard" type="checkbox" value="travel"><label class="govuk-label govuk-checkboxes__label" for="hard-4">Travel or where I live</label></div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="hard-5" name="hard" type="checkbox" value="caring"><label class="govuk-label govuk-checkboxes__label" for="hard-5">Childcare or caring for someone</label></div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="hard-6" name="hard" type="checkbox" value="health"><label class="govuk-label govuk-checkboxes__label" for="hard-6">A health condition or disability</label></div>
+                  <div class="govuk-checkboxes__divider">or</div>
+                  <div class="govuk-checkboxes__item"><input class="govuk-checkboxes__input" id="hard-7" name="hard" type="checkbox" value="none" data-behaviour="exclusive"><label class="govuk-label govuk-checkboxes__label" for="hard-7">No, nothing else</label></div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="more">Is there anything else you want to tell us? (optional)</label>
+              <textarea class="govuk-textarea" id="more" name="more" rows="4"></textarea>
+            </div>
+            <button type="submit" class="govuk-button" data-module="govuk-button">Get my analysis</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <p class="govuk-body-s govuk-!-margin-bottom-0">Prototype – not a real service</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initAll } from '/assets/govuk-frontend.min.js'
+    const forms = [...document.querySelectorAll('form[data-step]')]
+    const back = document.getElementById('back')
+    const summary = document.getElementById('error-summary')
+    let step = 0
+
+    function show (i) {
+      step = i
+      forms.forEach((f, n) => { f.hidden = n !== i })
+      summary.innerHTML = ''
+      back.setAttribute('href', i === 0 ? 'stuck.html' : '#')
+      window.scrollTo(0, 0)
+      const h1 = forms[i].querySelector('h1')
+      h1.setAttribute('tabindex', '-1')
+      h1.focus()
+    }
+
+    back.addEventListener('click', (e) => {
+      if (step > 0) { e.preventDefault(); show(step - 1) }
+    })
+
+    forms.forEach((form, i) => form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const group = form.querySelector('[data-required]')
+      if (group) {
+        const name = group.dataset.required
+        const ok = !!form.querySelector(`input[name="${name}"]:checked`)
+        const msg = group.querySelector('.govuk-error-message')
+        group.classList.toggle('govuk-form-group--error', !ok)
+        msg.hidden = ok
+        if (!ok) {
+          summary.innerHTML = `
+            <div class="govuk-error-summary" data-module="govuk-error-summary" tabindex="-1">
+              <div role="alert">
+                <h2 class="govuk-error-summary__title">There is a problem</h2>
+                <div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#${name}">${msg.lastChild.textContent.trim()}</a></li></ul></div>
+              </div>
+            </div>`
+          summary.firstElementChild.focus()
+          return
+        }
+      }
+      if (i < forms.length - 1) return show(i + 1)
+
+      const all = (name) => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map((el) => el.value)
+      location.href = 'stuck-analysis.html?' + new URLSearchParams({ where: all('where')[0], match: all('match')[0], how: all('how').join(','), hard: all('hard').join(',') })
+    }))
+
+    initAll()
+  </script>
+</body>
+</html>

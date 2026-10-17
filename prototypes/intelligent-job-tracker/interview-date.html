@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>When is your interview – Intelligent job tracker – Prototype</title>
+  <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
+  <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="govuk-template__body">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- Global header: keep in sync across prototypes/index.html, _template and every prototype page. Dark blue GOV.UK header holds JCS playground; light blue service navigation holds the prototype's name. No crown: that's only for services hosted on GOV.UK -->
+  <header class="govuk-template__header">
+    <div class="govuk-header" data-module="govuk-header">
+      <div class="govuk-header__container govuk-width-container">
+        <div class="govuk-header__logo">
+          <a href="/" class="govuk-header__homepage-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round" class="bi bi-emoji-smile-upside-down" viewBox="-0.5 -0.5 17 17" aria-hidden="true" focusable="false" style="vertical-align: -4px; margin-right: 8px;">
+              <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0"/>
+              <path d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5m4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5"/>
+            </svg><span style="font-size: 1.5rem; font-weight: 700;">JCS playground</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="index.html" class="govuk-service-navigation__link">Intelligent job tracker</a>
+          </span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong>
+        <span class="govuk-phase-banner__text">This is a prototype. Just for fun.</span>
+      </p>
+    </div>
+
+    <main class="govuk-main-wrapper" id="main-content">
+      <a href="index.html?stage=applied#jobs" class="govuk-back-link">Back</a>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form id="form" novalidate>
+            <span class="govuk-caption-l" id="caption"></span>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading">Do you know when your interview is?</h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="known" name="known" type="radio" value="yes" checked data-aria-controls="conditional-known">
+                    <label class="govuk-label govuk-radios__label" for="known">Yes</label>
+                  </div>
+                  <div class="govuk-radios__conditional" id="conditional-known">
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset" role="group" aria-describedby="date-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Date</legend>
+                        <div id="date-hint" class="govuk-hint">For example, 27 3 2027</div>
+                        <div class="govuk-date-input">
+                          <div class="govuk-date-input__item"><div class="govuk-form-group"><label class="govuk-label govuk-date-input__label" for="day">Day</label><input class="govuk-input govuk-date-input__input govuk-input--width-2" id="day" type="text" inputmode="numeric"></div></div>
+                          <div class="govuk-date-input__item"><div class="govuk-form-group"><label class="govuk-label govuk-date-input__label" for="month">Month</label><input class="govuk-input govuk-date-input__input govuk-input--width-2" id="month" type="text" inputmode="numeric"></div></div>
+                          <div class="govuk-date-input__item"><div class="govuk-form-group"><label class="govuk-label govuk-date-input__label" for="year">Year</label><input class="govuk-input govuk-date-input__input govuk-input--width-4" id="year" type="text" inputmode="numeric"></div></div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-label--s" for="time">Time</label>
+                      <div id="time-hint" class="govuk-hint">For example, 2:30pm</div>
+                      <input class="govuk-input govuk-input--width-5" id="time" type="text" aria-describedby="time-hint">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="known-2" name="known" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="known-2">Not yet</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <button type="submit" class="govuk-button" data-module="govuk-button">Save</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <p class="govuk-body-s govuk-!-margin-bottom-0">Prototype – not a real service</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initAll } from '/assets/govuk-frontend.min.js'
+    import * as app from './app.js'
+
+    const jobs = app.load()
+    const job = app.find(jobs, app.params.get('job')) || jobs.find((j) => j.stage === 'applied' && !j.closed)
+    document.getElementById('caption').textContent = `${job.title} at ${job.employer}`
+
+    // Suggest a date a week from now so the example flows straight through
+    const suggested = app.parseDay(app.daysFromToday(7))
+    document.getElementById('day').value = suggested.getDate()
+    document.getElementById('month').value = suggested.getMonth() + 1
+    document.getElementById('year').value = suggested.getFullYear()
+    document.getElementById('time').value = '11am'
+
+    function to24h (t) {
+      const m = t.trim().toLowerCase().match(/^(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)?$/)
+      if (!m) return '09:00'
+      let h = Number(m[1]) % 12
+      if (m[3] === 'pm' || (!m[3] && Number(m[1]) >= 12)) h += 12
+      return `${String(h).padStart(2, '0')}:${m[2] || '00'}`
+    }
+
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault()
+      const known = document.querySelector('input[name="known"]:checked').value === 'yes'
+      const pad = (id) => String(document.getElementById(id).value).padStart(2, '0')
+      const extra = known ? { interviewAt: `${document.getElementById('year').value}-${pad('month')}-${pad('day')}T${to24h(document.getElementById('time').value)}` } : {}
+      app.move(jobs, job.id, 'interview', extra)
+      location.href = `index.html?stage=applied&moved=${job.id}#jobs`
+    })
+
+    initAll()
+  </script>
+</body>
+</html>
