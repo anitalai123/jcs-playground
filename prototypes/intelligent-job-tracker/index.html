@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>JCS playground – Intelligent job tracker</title>
+  <!-- GOV.UK Frontend: https://design-system.service.gov.uk/ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/govuk-frontend@6.5.1/dist/govuk/govuk-frontend.min.css">
+</head>
+<body class="govuk-template__body">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- No GOV.UK header or crown: those are only for services hosted on GOV.UK -->
+  <header class="govuk-template__header">
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="./" class="govuk-service-navigation__link">Intelligent job tracker</a>
+          </span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">Prototype</strong>
+        <span class="govuk-phase-banner__text">This is a prototype. It is not a real service.</span>
+      </p>
+    </div>
+
+    <main class="govuk-main-wrapper" id="main-content">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">JCS playground</h1>
+          <h2 class="govuk-heading-l">Intelligent job tracker</h2>
+          <a href="start.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+            Go to prototype
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <p class="govuk-body-s govuk-!-margin-bottom-0">Prototype – not a real service</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initAll } from 'https://cdn.jsdelivr.net/npm/govuk-frontend@6.5.1/dist/govuk/govuk-frontend.min.js'
+    initAll()
+
+    // Prototype logic goes here
+  </script>
+</body>
+</html>
