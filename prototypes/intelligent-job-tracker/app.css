@@ -60,10 +60,9 @@
 }
 .ijt-stat:focus .ijt-stat__more { color: var(--govuk-focus-text-colour); }
 
-/* "1 in 7" shown as dots: one filled for every N */
-.ijt-dots { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 8px; }
-.ijt-dots i { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--govuk-brand-colour); box-sizing: border-box; }
-.ijt-dots i.on { background: var(--govuk-brand-colour); }
+/* Thin bar showing a percentage */
+.ijt-bar { display: block; height: 8px; margin: 6px 0 8px; background: var(--govuk-border-colour); }
+.ijt-bar i { display: block; height: 100%; background: var(--govuk-brand-colour); }
 
 /* Contextual module */
 
@@ -104,6 +103,11 @@
 /* Buttons and links are stacked on the right, even when they wrap under the job details */
 .ijt-job__side { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; margin-left: auto; }
 .ijt-job__side .govuk-button { margin-bottom: 0; }
+/* On phones, actions line up on the left under the job details, button and link side by side */
+@media (max-width: 40.0525em) {
+  .ijt-job__side { flex: 1 1 100%; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 10px 20px; margin-left: 0; }
+  .ijt-job__side .govuk-button { width: auto; }
+}
 
 /* AI analysis */
 
@@ -157,4 +161,21 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+/* Date picker button on its own line under a date input. The browser's date field stays hidden
+   under the button so its calendar opens in the right place. */
+
+.ijt-date-picker { position: relative; display: block; margin-top: 15px; }
+.ijt-date-picker .govuk-button { width: auto; margin-bottom: 0; }
+.ijt-date-picker__native {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
 }

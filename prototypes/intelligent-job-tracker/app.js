@@ -252,7 +252,7 @@ export function listFor (jobs, stage) {
   return list.sort(newestFirst(stage))
 }
 
-// "1 in 7" style rate: how many of `whole` it took to get one `part`
+// Rate of `part` out of `whole`, as a percentage (and as "1 in 7")
 export function rate (part, whole) {
   if (!part) return null
   const n = Math.max(1, Math.round(whole / part))
@@ -300,3 +300,30 @@ export function listSentence (items) {
 document.addEventListener('click', (e) => {
   if (e.target.closest('a[href="#"]')) e.preventDefault()
 })
+
+// "Choose date" button for a GOV.UK date input. It opens the browser's own calendar and fills in
+// day, month and year. People can still type the date instead.
+const CALENDAR_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z"/><path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/></svg>'
+
+export function addDatePicker (dateInput) {
+  const [day, month, year] = dateInput.querySelectorAll('input')
+  const item = document.createElement('div')
+  item.className = 'govuk-date-input__item ijt-date-picker'
+  item.innerHTML = `
+    <button type="button" class="govuk-button govuk-button--secondary ijt-button-icon" data-module="govuk-button">${CALENDAR_ICON}Choose date</button>
+    <input type="date" class="ijt-date-picker__native" tabindex="-1" aria-hidden="true">`
+  dateInput.appendChild(item)
+  const native = item.querySelector('input')
+  item.querySelector('button').addEventListener('click', () => {
+    if (day.value && month.value && year.value) native.value = `${year.value}-${pad(month.value)}-${pad(day.value)}`
+    try { native.showPicker() } catch { native.focus() }
+  })
+  native.addEventListener('change', () => {
+    if (!native.value) return
+    const [y, m, d] = native.value.split('-')
+    day.value = Number(d)
+    month.value = Number(m)
+    year.value = y
+    day.focus()
+  })
+}

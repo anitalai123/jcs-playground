@@ -121,6 +121,7 @@
     document.getElementById('month').value = suggested.getMonth() + 1
     document.getElementById('year').value = suggested.getFullYear()
     document.getElementById('time').value = '11am'
+    app.addDatePicker(document.querySelector('#conditional-known .govuk-date-input'))
 
     function to24h (t) {
       const m = t.trim().toLowerCase().match(/^(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)?$/)

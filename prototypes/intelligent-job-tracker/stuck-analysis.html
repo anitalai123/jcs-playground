@@ -173,8 +173,8 @@
       <p class="govuk-body-l">We looked at your ${c.applied} applications${dataOnly ? '' : ' and your answers'}. Here's what stands out.</p>
 
       <div class="ijt-summary-row">
-        ${interviewRate ? `<div><strong>1 in ${interviewRate.n}</strong>applications got an interview</div>` : ''}
-        ${offerRate ? `<div><strong>1 in ${offerRate.n}</strong>interviews led to an offer</div>` : ''}
+        ${interviewRate ? `<div><strong>${interviewRate.percent}%</strong>of applications got an interview</div>` : ''}
+        ${offerRate ? `<div><strong>${offerRate.percent}%</strong>of interviews led to an offer</div>` : ''}
         <div><strong>${app.waiting(jobs).length}</strong>still waiting to hear</div>
       </div>
 

@@ -206,7 +206,7 @@
         const [type, v] = notWorking[0]
         const best = byType[working[0]]
         const r = app.rate(best.interviews, best.n)
-        insights.push([`${type} jobs aren't getting interviews`, `None of your ${v.n} ${type.toLowerCase()} applications got an interview, but ${r.exact ? '' : 'about '}1 in ${r.n} ${working[0].toLowerCase()} applications did.`])
+        insights.push([`${type} jobs aren't getting interviews`, `None of your ${v.n} ${type.toLowerCase()} applications got an interview, but ${r.percent}% of your ${working[0].toLowerCase()} applications did.`])
       }
       context.innerHTML = `
         <div class="ijt-context">
@@ -225,12 +225,8 @@
 
     // Big numbers
 
-    const ratePhrase = (r, what) => r.n === 1
-      ? `<strong>Every ${what[0]}</strong> led to ${what[1]}`
-      : `<strong>${r.exact ? '' : 'About '}1 in ${r.n}</strong> ${what[0]}s led to ${what[1]}`
-    const dots = (r) => r.n <= 12
-      ? `<span class="ijt-dots" aria-hidden="true">${Array.from({ length: r.n }, (_, i) => `<i${i === 0 ? ' class="on"' : ''}></i>`).join('')}</span>`
-      : ''
+    const ratePhrase = (r, what) => `<strong>${r.percent}%</strong> of ${what[0]}s led to ${what[1]}`
+    const bar = (r) => `<span class="ijt-bar" aria-hidden="true"><i style="width: ${r.percent}%"></i></span>`
     const cards = [
       ['shortlisted', 'Shortlisted', 'to apply for'],
       ['applied', 'Applied', 'applications sent'],
@@ -243,7 +239,7 @@
           <span class="ijt-stat__label">${label}</span>
           <span class="ijt-stat__number">${c[key]}</span>
           <span class="ijt-stat__rate">${what
-            ? (r ? `${dots(r)}${ratePhrase(r, what)}<span class="govuk-visually-hidden"> (${r.percent}%)</span>` : `No ${what[1].split(' ')[1]}s yet`)
+            ? (r ? `${bar(r)}${ratePhrase(r, what)}` : `No ${what[1].split(' ')[1]}s yet`)
             : `<span class="ijt-muted">${sub}</span>`}</span>
           <span class="ijt-stat__more">${stage === key ? 'Showing below' : 'View jobs'}<span class="govuk-visually-hidden"> – ${label.toLowerCase()}</span></span>
         </a>
