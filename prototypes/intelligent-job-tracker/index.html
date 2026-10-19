@@ -89,6 +89,7 @@
               <li><a class="govuk-link" href="?scenario=checkin">Interview yesterday: ask how it went</a></li>
               <li><a class="govuk-link" href="?scenario=prep">Interview coming up: offer interview prep</a></li>
               <li><a class="govuk-link" href="?scenario=none">Nothing coming up</a></li>
+              <li><a class="govuk-link" href="?scenario=healthcheck">Monthly health check: 30 applications, 3 interviews, no offers</a></li>
             </ul>
             <p class="govuk-body"><a class="govuk-link" href="#" id="reset">Reset the example data</a></p>
           </div>
@@ -112,6 +113,9 @@
     import * as app from './app.js'
     const { esc, params, STAGES, PAGE_SIZE } = app
 
+    // The health check scenario uses its own example data. The other scenarios use the usual one.
+    const scenario = params.get('scenario')
+    if (scenario) app.usePersona(scenario === 'healthcheck' ? 'healthcheck' : 'usual')
     const jobs = app.load()
     const stage = STAGES[params.get('stage')] ? params.get('stage') : null
     const page = Math.max(1, Number(params.get('page')) || 1)
@@ -143,11 +147,11 @@
 
     // Contextual module: check in after yesterday's interview, otherwise offer prep for the next one
 
-    const scenario = params.get('scenario')
     const yesterday = scenario === 'checkin'
       ? jobs.find((j) => j.stage === 'interview' && app.dayDiff(j.interviewAt) === -1)
       : scenario ? null : app.interviewYesterday(jobs)
-    const upcoming = scenario === 'none' ? null : app.upcomingInterview(jobs)
+    const upcoming = scenario === 'none' || scenario === 'healthcheck' ? null : app.upcomingInterview(jobs)
+    const healthCheck = !yesterday && !upcoming && scenario !== 'none' && app.currentPersona() === 'healthcheck'
     const context = document.getElementById('context')
 
     if (yesterday) {
@@ -192,6 +196,32 @@
           <p class="govuk-body"><strong>${esc(upcoming.title)}</strong><br>${app.interviewWhen(upcoming)}</p>
           <p class="govuk-body">Practise answers to the questions you're likely to be asked, find out what the employer is looking for, and check you've got everything ready.</p>
           <a href="interview-prep.html?job=${upcoming.id}" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">Start interview prep</a>
+        </div>`
+    } else if (healthCheck) {
+      // A couple of headline insights from their data. The full analysis has the rest.
+      const { byType, working, notWorking } = app.patterns(jobs)
+      const insights = []
+      if (c.interview && !c.offered) {
+        insights.push(['Interviews are where to focus', `You got ${c.interview} ${c.interview === 1 ? 'interview' : 'interviews'} but no offers yet. Employers like your applications, so practising your answers out loud, with real examples, could make the difference.`])
+      }
+      if (notWorking.length && working.length) {
+        const [type, v] = notWorking[0]
+        const best = byType[working[0]]
+        const r = app.rate(best.interviews, best.n)
+        insights.push([`${type} jobs aren't getting interviews`, `None of your ${v.n} ${type.toLowerCase()} applications got an interview, but ${r.exact ? '' : 'about '}1 in ${r.n} ${working[0].toLowerCase()} applications did.`])
+      }
+      context.innerHTML = `
+        <div class="ijt-context">
+          <p class="ijt-eyebrow">Your monthly health check</p>
+          <h2 class="govuk-heading-m">${c.applied} applications, ${c.interview} interviews and ${c.offered ? c.offered : 'no'} ${c.offered === 1 ? 'offer' : 'offers'} in the last 30 days</h2>
+          <p class="govuk-body">Here's what stands out:</p>
+          ${insights.slice(0, 2).map(([title, text]) => `
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-1">${esc(title)}</h3>
+          <p class="govuk-body">${esc(text)}</p>`).join('')}
+          <div class="govuk-button-group govuk-!-margin-bottom-0">
+            <a href="stuck.html?where=no-offer" role="button" draggable="false" class="govuk-button" data-module="govuk-button">See your full analysis</a>
+            <a href="index.html?scenario=none" class="govuk-link">Not now</a>
+          </div>
         </div>`
     }
 

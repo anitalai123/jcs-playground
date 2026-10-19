@@ -86,15 +86,8 @@
     const hard = (params.get('hard') || '').split(',').filter((h) => h && h !== 'none')
 
     // Patterns in their data: which kinds of job got interviews, and which got nothing
-    const applied = jobs.filter((j) => j.dates.applied)
-    const byType = {}
-    for (const j of applied) {
-      byType[j.type] ??= { n: 0, interviews: 0 }
-      byType[j.type].n++
-      if (j.dates.interview) byType[j.type].interviews++
-    }
-    const working = Object.keys(byType).filter((t) => byType[t].interviews).sort((a, b) => byType[b].n - byType[a].n).map((t) => t.toLowerCase())
-    const notWorking = Object.entries(byType).filter(([, v]) => !v.interviews && v.n >= 3).sort((a, b) => b[1].n - a[1].n).slice(0, 2)
+    const { working: workingTypes, notWorking } = app.patterns(jobs)
+    const working = workingTypes.map((t) => t.toLowerCase())
     const notWorkingCount = notWorking.reduce((s, [, v]) => s + v.n, 0)
     const stale = app.staleApplications(jobs)
     const interviewRate = app.rate(c.interview, c.applied)

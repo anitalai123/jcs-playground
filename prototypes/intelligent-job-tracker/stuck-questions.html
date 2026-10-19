@@ -203,6 +203,11 @@
       location.href = 'stuck-analysis.html?' + new URLSearchParams({ where: all('where')[0], match: all('match')[0], how: all('how').join(','), hard: all('hard').join(',') })
     }))
 
+    // Pre-select where they're stuck if we already know, like from the health check
+    const where = new URLSearchParams(location.search).get('where')
+    const preset = where && document.querySelector(`input[name="where"][value="${CSS.escape(where)}"]`)
+    if (preset) preset.checked = true
+
     initAll()
   </script>
 </body>

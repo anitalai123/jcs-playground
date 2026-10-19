@@ -2,7 +2,7 @@
 // Jobs are kept in localStorage so changes carry across pages. The data reseeds each day,
 // so the "interview yesterday" and "interview coming up" examples always line up with today.
 
-const KEY = 'ijt-data-v2'
+const KEY = 'ijt-data-v3'
 export const PAGE_SIZE = 5
 
 export const STAGES = {
@@ -56,45 +56,100 @@ export const interviewWhen = (j) => `${longDate(j.interviewAt)} at ${time(j.inte
 const SHORTLISTED = [
   // title, employer, location, type, days since added, days until closing date
   ['Bakery team leader', 'Greggs', 'Leeds', 'Bakery supervisor', 0, 6],
-  ['Pastry chef de partie', 'Hotel du Vin', 'York', 'Senior pastry', 1, 3],
+  ['Pastry chef de partie', 'Hotel du Vin', 'York', 'Senior pastry chef', 1, 3],
   ['Senior baker', "GAIL's", 'Harrogate', 'Bakery supervisor', 2, 12],
   ['Bakery manager', 'Cooplands', 'Wakefield', 'Bakery manager', 4, 9],
-  ['Junior pastry sous chef', 'The Queens Hotel', 'Leeds', 'Senior pastry', 6, 2]
+  ['Junior pastry sous chef', 'The Queens Hotel', 'Leeds', 'Senior pastry chef', 6, 2]
 ]
 
 const APPLIED = [
   // title, employer, location, type, days since applied, unsuccessful
   ['Bakery manager', 'Greggs', 'Leeds', 'Bakery manager', 1, false],
-  ['Senior pastry chef', 'Rise & Crumb Patisserie', 'Leeds', 'Senior pastry', 2, false],
+  ['Senior pastry chef', 'Rise & Crumb Patisserie', 'Leeds', 'Senior pastry chef', 2, false],
   ['Bakery team leader', 'M&S Food', 'Bradford', 'Bakery supervisor', 4, false],
   ['Assistant bakery manager', "Sainsbury's", 'Wakefield', 'Bakery manager', 5, true],
-  ['Pastry chef de partie', 'The Grand', 'York', 'Senior pastry', 6, false],
+  ['Pastry chef de partie', 'The Grand', 'York', 'Senior pastry chef', 6, false],
   ['Head baker', "GAIL's", 'York', 'Bakery manager', 9, false],
   ['Shop manager', 'Greggs', 'Huddersfield', 'Bakery manager', 10, true],
-  ['Senior pastry chef', 'Larkspur Patisserie', 'York', 'Senior pastry', 15, false],
+  ['Senior pastry chef', 'Larkspur Patisserie', 'York', 'Senior pastry chef', 15, false],
   ['Bakery supervisor', 'Waitrose', 'Harrogate', 'Bakery supervisor', 16, false],
   ['Bakery department manager', 'Tesco', 'Bradford', 'Bakery manager', 17, true],
   ['Production supervisor', 'Northern Butter Bakehouse', 'Huddersfield', 'Bakery supervisor', 18, true],
   ['Senior baker', 'PAUL', 'Leeds', 'Bakery supervisor', 19, false],
-  ['Pastry section lead', 'Hotel du Vin', 'Harrogate', 'Senior pastry', 20, false],
+  ['Pastry section lead', 'Hotel du Vin', 'Harrogate', 'Senior pastry chef', 20, false],
   ['Bakery manager', 'Cooplands', 'Halifax', 'Bakery manager', 21, true],
   ['Bakery team leader', 'Cooplands', 'Halifax', 'Bakery supervisor', 22, false],
   ['Assistant manager', "GAIL's", 'Leeds', 'Bakery manager', 23, true],
-  ['Senior pastry chef', 'The Ivy', 'Leeds', 'Senior pastry', 24, true],
+  ['Senior pastry chef', 'The Ivy', 'Leeds', 'Senior pastry chef', 24, true],
   ['Bakery supervisor', 'M&S Food', 'Wakefield', 'Bakery supervisor', 25, false],
   ['Bakery manager', 'PAUL', 'York', 'Bakery manager', 26, false],
-  ['Pastry chef de partie', 'Rudding Park', 'Harrogate', 'Senior pastry', 27, true],
+  ['Pastry chef de partie', 'Rudding Park', 'Harrogate', 'Senior pastry chef', 27, true],
   ['Bakery manager', 'Cooplands', 'Huddersfield', 'Bakery manager', 28, true],
   ['Production team leader', 'Greggs', 'Leeds', 'Bakery supervisor', 29, false],
   ['Senior baker', 'Waitrose', 'York', 'Bakery supervisor', 30, false],
-  ['Pastry chef', 'Crumb & Co', 'Bradford', 'Senior pastry', 31, false]
+  ['Pastry chef', 'Crumb & Co', 'Bradford', 'Senior pastry chef', 31, false]
 ]
 
-function seed () {
+// Health check example: lots of senior pastry applications, 3 interviews, no offers.
+// Head pastry chef jobs, a bigger step up, got no interviews at all.
+
+const HEALTH_SHORTLISTED = [
+  ['Senior pastry chef', 'Hotel du Vin', 'York', 'Senior pastry chef', 1, 5],
+  ['Pastry sous chef', 'The Queens Hotel', 'Leeds', 'Senior pastry chef', 2, 8],
+  ['Head pastry chef', 'Grantley Hall', 'Ripon', 'Head pastry chef', 3, 4]
+]
+
+const HEALTH_APPLIED = [
+  ['Senior pastry chef', 'Rise & Crumb Patisserie', 'Leeds', 'Senior pastry chef', 1, false],
+  ['Pastry sous chef', 'The Grand', 'York', 'Senior pastry chef', 2, false],
+  ['Head pastry chef', 'Rudding Park', 'Harrogate', 'Head pastry chef', 3, false],
+  ['Senior pastry chef', 'The Ivy', 'Leeds', 'Senior pastry chef', 3, false],
+  ['Senior pastry chef', 'Larkspur Patisserie', 'York', 'Senior pastry chef', 4, false],
+  ['Pastry sous chef', 'Malmaison', 'Leeds', 'Senior pastry chef', 5, true],
+  ['Head pastry chef', 'Hotel du Vin', 'Harrogate', 'Head pastry chef', 6, false],
+  ['Senior pastry chef', 'Crumb & Co', 'Bradford', 'Senior pastry chef', 7, false],
+  ['Senior pastry chef', 'Bettys', 'York', 'Senior pastry chef', 8, false],
+  ['Pastry sous chef', 'Swinton Estate', 'Masham', 'Senior pastry chef', 9, true],
+  ['Head pastry chef', 'The Star Inn', 'Helmsley', 'Head pastry chef', 10, true],
+  ['Senior pastry chef', 'Ox Club', 'Leeds', 'Senior pastry chef', 11, false],
+  ['Senior pastry chef', 'Northern Butter Bakehouse', 'Huddersfield', 'Senior pastry chef', 13, false],
+  ['Pastry sous chef', 'Oulton Hall', 'Leeds', 'Senior pastry chef', 14, true],
+  ['Head pastry chef', 'The Cow & Calf', 'Ilkley', 'Head pastry chef', 15, true],
+  ['Senior pastry chef', 'Ivy Asia', 'Leeds', 'Senior pastry chef', 16, false],
+  ['Senior pastry chef', "GAIL's", 'York', 'Senior pastry chef', 17, false],
+  ['Pastry sous chef', 'Middlethorpe Hall', 'York', 'Senior pastry chef', 18, true],
+  ['Senior pastry chef', 'Harvey Nichols', 'Leeds', 'Senior pastry chef', 19, false],
+  ['Head pastry chef', 'Ashwood Hall Hotel', 'Harrogate', 'Head pastry chef', 21, true],
+  ['Senior pastry chef', 'PAUL', 'Leeds', 'Senior pastry chef', 22, false],
+  ['Pastry sous chef', 'Wentbridge House', 'Pontefract', 'Senior pastry chef', 23, true],
+  ['Senior pastry chef', 'The Pass', 'Wakefield', 'Senior pastry chef', 24, false],
+  ['Head pastry chef', 'Thorpe Park Hotel', 'Leeds', 'Head pastry chef', 25, true],
+  ['Senior pastry chef', 'Blue Bell Inn', 'Halifax', 'Senior pastry chef', 26, false],
+  ['Pastry sous chef', 'The Devonshire Arms', 'Bolton Abbey', 'Senior pastry chef', 27, true],
+  ['Senior pastry chef', 'Cooplands', 'Halifax', 'Senior pastry chef', 28, false]
+]
+
+export const PERSONAS = { usual: 'Usual example', healthcheck: 'Health check example' }
+
+function seed (persona = 'usual') {
   const jobs = []
   const add = (title, employer, location, type, stage, dates, extra = {}) => {
     const iso = Object.fromEntries(Object.entries(dates).map(([k, v]) => [k, daysFromToday(-v)]))
     jobs.push({ id: String(jobs.length + 1), title, employer, location, type, stage, closed: false, dates: iso, ...extra })
+  }
+  const add3 = (t, e, l, type, applied, interview, interviewAt) =>
+    add(t, e, l, type, 'interview', { shortlisted: applied + 2, applied, interview }, { closed: true, checkin: 'done', interviewAt: daysFromToday(-interviewAt) + 'T10:30' })
+  if (persona === 'healthcheck') {
+    for (const [t, e, l, type, ago, closes] of HEALTH_SHORTLISTED) {
+      add(t, e, l, type, 'shortlisted', { shortlisted: ago }, { closingDate: daysFromToday(closes) })
+    }
+    for (const [t, e, l, type, ago, closed] of HEALTH_APPLIED) {
+      add(t, e, l, type, 'applied', { shortlisted: ago + 2, applied: ago }, { closed })
+    }
+    add3('Senior pastry chef', 'Bettys', 'Harrogate', 'Senior pastry chef', 29, 24, 20)
+    add3('Pastry sous chef', 'Hotel du Vin', 'York', 'Senior pastry chef', 20, 15, 12)
+    add3('Senior pastry chef', 'Larkspur Patisserie', 'Leeds', 'Senior pastry chef', 12, 9, 6)
+    return jobs
   }
   for (const [t, e, l, type, ago, closes] of SHORTLISTED) {
     add(t, e, l, type, 'shortlisted', { shortlisted: ago }, { closingDate: daysFromToday(closes) })
@@ -102,9 +157,9 @@ function seed () {
   for (const [t, e, l, type, ago, closed] of APPLIED) {
     add(t, e, l, type, 'applied', { shortlisted: ago + 2, applied: ago }, { closed })
   }
-  add('Senior pastry chef', 'Harvey Nichols', 'Leeds', 'Senior pastry', 'interview',
+  add('Senior pastry chef', 'Harvey Nichols', 'Leeds', 'Senior pastry chef', 'interview',
     { shortlisted: 34, applied: 32, interview: 26 }, { closed: true, interviewAt: daysFromToday(-21) + 'T11:00' })
-  add('Pastry chef de partie', 'Bettys', 'Harrogate', 'Senior pastry', 'offered',
+  add('Pastry chef de partie', 'Bettys', 'Harrogate', 'Senior pastry chef', 'offered',
     { shortlisted: 30, applied: 28, interview: 22, offered: 10 }, { interviewAt: daysFromToday(-18) + 'T09:30' })
   add('Bakery team leader', "GAIL's", 'Leeds', 'Bakery supervisor', 'interview',
     { shortlisted: 18, applied: 16, interview: 6 }, { interviewAt: daysFromToday(-1) + 'T10:00' })
@@ -116,26 +171,45 @@ function seed () {
 // Storage. If localStorage is unavailable, changes last until the page reloads.
 
 let memory = null
+let persona = 'usual'
 
 export function load () {
   if (memory) return memory
   try {
     const d = JSON.parse(localStorage.getItem(KEY))
-    if (d && d.seededOn === daysFromToday(0)) return (memory = d.jobs)
+    if (d && d.seededOn === daysFromToday(0)) {
+      persona = d.persona || 'usual'
+      return (memory = d.jobs)
+    }
   } catch {}
-  memory = seed()
+  memory = seed(persona)
   save(memory)
   return memory
 }
 
 export function save (jobs) {
   memory = jobs
-  try { localStorage.setItem(KEY, JSON.stringify({ seededOn: daysFromToday(0), jobs })) } catch {}
+  try { localStorage.setItem(KEY, JSON.stringify({ seededOn: daysFromToday(0), persona, jobs })) } catch {}
 }
 
 export function reset () {
   memory = null
   try { localStorage.removeItem(KEY) } catch {}
+}
+
+export function currentPersona () {
+  load()
+  return persona
+}
+
+// Switch to another example data set. Keeps the current data if it's already loaded.
+export function usePersona (name) {
+  load()
+  if (name === persona || !PERSONAS[name]) return memory
+  persona = name
+  memory = seed(name)
+  save(memory)
+  return memory
 }
 
 export const find = (jobs, id) => jobs.find((j) => j.id === id)
@@ -183,6 +257,19 @@ export function rate (part, whole) {
   if (!part) return null
   const n = Math.max(1, Math.round(whole / part))
   return { n, exact: whole % part === 0, percent: Math.round((part / whole) * 100) }
+}
+
+// Which kinds of job lead to interviews, and which get nothing (3 or more applications, no interviews)
+export function patterns (jobs) {
+  const byType = {}
+  for (const j of jobs.filter((j) => j.dates.applied)) {
+    byType[j.type] ??= { n: 0, interviews: 0 }
+    byType[j.type].n++
+    if (j.dates.interview) byType[j.type].interviews++
+  }
+  const working = Object.keys(byType).filter((t) => byType[t].interviews).sort((a, b) => byType[b].n - byType[a].n)
+  const notWorking = Object.entries(byType).filter(([, v]) => !v.interviews && v.n >= 3).sort((a, b) => b[1].n - a[1].n).slice(0, 2)
+  return { byType, working, notWorking }
 }
 
 export const waiting = (jobs) => jobs.filter((j) => j.stage === 'applied' && !j.closed)
