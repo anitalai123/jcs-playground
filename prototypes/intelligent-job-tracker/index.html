@@ -239,7 +239,7 @@
     ]
     document.getElementById('stats').innerHTML = cards.map(([key, label, sub, r, what]) => `
       <li>
-        <a class="ijt-stat" href="?stage=${key}#jobs"${stage === key ? ' aria-current="true"' : ''}>
+        <a class="ijt-stat" href="?${scenario ? `scenario=${encodeURIComponent(scenario)}&` : ''}stage=${key}#jobs"${stage === key ? ' aria-current="true"' : ''}>
           <span class="ijt-stat__label">${label}</span>
           <span class="ijt-stat__number">${c[key]}</span>
           <span class="ijt-stat__rate">${what
@@ -260,7 +260,7 @@
       const p = Math.min(page, pages)
       const shown = list.slice((p - 1) * PAGE_SIZE, p * PAGE_SIZE)
       const headings = { shortlisted: 'Jobs you\'ve shortlisted', applied: 'Jobs you\'ve applied for', interview: 'Jobs you got an interview for', offered: 'Jobs you got an offer for' }
-      const url = (n) => `?stage=${stage}&page=${n}#jobs`
+      const url = (n) => `?${scenario ? `scenario=${encodeURIComponent(scenario)}&` : ''}stage=${stage}&page=${n}#jobs`
 
       const status = (j) => j.closed
         ? '<strong class="govuk-tag govuk-tag--grey">Unsuccessful</strong>'
@@ -322,6 +322,23 @@
         }
       })
     }
+
+    // Switching between the numbers keeps the page where it was, so the cards don't jump
+    const SCROLL_KEY = 'ijt-scroll'
+    document.getElementById('stats').addEventListener('click', (e) => {
+      const card = e.target.closest('a.ijt-stat')
+      if (!card) return
+      e.preventDefault()
+      // Remember where the cards sat on screen, then put them back there after the page loads
+      try { sessionStorage.setItem(SCROLL_KEY, String(card.getBoundingClientRect().top)) } catch {}
+      location.href = card.href.split('#')[0]
+    })
+    try {
+      const top = sessionStorage.getItem(SCROLL_KEY)
+      const card = document.querySelector('a.ijt-stat[aria-current]')
+      if (top !== null && card) window.scrollBy(0, card.getBoundingClientRect().top - Number(top))
+      sessionStorage.removeItem(SCROLL_KEY)
+    } catch {}
 
     document.getElementById('reset').addEventListener('click', (e) => {
       e.preventDefault()
