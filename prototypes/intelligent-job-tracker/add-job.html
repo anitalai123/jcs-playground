@@ -206,7 +206,7 @@
         dates: stage === 'applied' ? { shortlisted: today, applied: today } : { shortlisted: today },
         ...(d && m && y ? { closingDate: `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}` } : {})
       })
-      location.href = `index.html?stage=${stage}&added=${id}#jobs`
+      location.href = `index.html?stage=${stage}&added=${id}`
     })
 
     initAll()

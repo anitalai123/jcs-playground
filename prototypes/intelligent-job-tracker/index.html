@@ -58,9 +58,7 @@
         <a href="add-job.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add a job</a>
       </div>
 
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds" id="context"></div>
-      </div>
+      <div id="context"></div>
 
       <div class="ijt-heading-row">
         <div>
@@ -140,7 +138,7 @@
       else if (params.has('added')) banner(`Added ${name}`, `It's in your ${STAGES[acted.stage].label.toLowerCase()} jobs.`)
       else if (params.has('closed')) banner(`${name} marked as unsuccessful`, 'Hearing no is part of every job search. If it keeps happening, <a class="govuk-notification-banner__link" href="stuck.html">we can help you work out why</a>.')
       else if (acted.stage === 'applied') banner(`${name} marked as applied`, 'Good luck. We\'ll remind you to follow up if you haven\'t heard back in 2 weeks.')
-      else if (acted.stage === 'interview') banner(`You got an interview with ${esc(acted.employer)}`, acted.interviewAt ? `It's on ${app.interviewWhen(acted)}. <a class="govuk-notification-banner__link" href="interview-prep.html?job=${acted.id}">Start preparing</a>` : 'Add the date when you know it, and we\'ll help you prepare.')
+      else if (acted.stage === 'interview') banner(`You got an interview with ${esc(acted.employer)}`, acted.interviewAt ? `It's on ${app.interviewWhen(acted)}.` : 'Add the date when you know it.')
       else if (acted.stage === 'offered') banner(`Congratulations on your offer from ${esc(acted.employer)}`)
     }
     if (params.get('checkin') === 'done') banner('Thanks for telling us how your interview went', 'We\'ll remind you to follow up if you haven\'t heard back.')
@@ -195,7 +193,7 @@
           <h2 class="govuk-heading-m">Get ready for your interview with ${esc(upcoming.employer)}</h2>
           <p class="govuk-body"><strong>${esc(upcoming.title)}</strong><br>${app.interviewWhen(upcoming)}</p>
           <p class="govuk-body">Practise answers to the questions you're likely to be asked, find out what the employer is looking for, and check you've got everything ready.</p>
-          <a href="interview-prep.html?job=${upcoming.id}" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">Start interview prep</a>
+          <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">Start interview prep</a>
         </div>`
     } else if (healthCheck) {
       // A couple of headline insights from their data. The full analysis has the rest.
@@ -219,7 +217,7 @@
           <h3 class="govuk-heading-s govuk-!-margin-bottom-1">${esc(title)}</h3>
           <p class="govuk-body">${esc(text)}</p>`).join('')}
           <div class="govuk-button-group govuk-!-margin-bottom-0">
-            <a href="stuck.html?where=no-offer" role="button" draggable="false" class="govuk-button" data-module="govuk-button">See your full analysis</a>
+            <a href="stuck-analysis.html?where=no-offer" role="button" draggable="false" class="govuk-button" data-module="govuk-button">See your full analysis</a>
             <a href="index.html?scenario=none" class="govuk-link">Not now</a>
           </div>
         </div>`
@@ -278,12 +276,10 @@
 
       // Jobs sitting at this stage can be moved straight to the next one
       const actions = (j) => {
-        if (j.closed || j.stage !== stage || !STAGES[stage].next) return status(j)
+        if (j.closed || j.stage !== stage || !STAGES[stage].next) return ''
         const more = []
-        if (stage === 'interview' && app.dayDiff(j.interviewAt) >= 0) more.push(`<a class="govuk-link" href="interview-prep.html?job=${j.id}">Prepare<span class="govuk-visually-hidden"> for ${esc(j.title)}</span></a>`)
         if (stage !== 'shortlisted') more.push(`<a class="govuk-link" href="#" data-close="${j.id}">Not successful<span class="govuk-visually-hidden">: ${esc(j.title)}</span></a>`)
-        return `${status(j)}
-          <button type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-move="${j.id}">${STAGES[stage].action}<span class="govuk-visually-hidden">: ${esc(j.title)} at ${esc(j.employer)}</span></button>
+        return `<button type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-move="${j.id}">${STAGES[stage].action}<span class="govuk-visually-hidden">: ${esc(j.title)} at ${esc(j.employer)}</span></button>
           ${more.join('')}`
       }
 
@@ -296,8 +292,9 @@
               <h3 class="govuk-heading-s"><a class="govuk-link" href="edit-job.html?job=${j.id}&from=${stage}">${esc(j.title)}</a></h3>
               <p class="govuk-body-s">${esc(j.employer)} · ${esc(j.location)}</p>
               <p class="govuk-body-s ijt-muted">${detail(j)}</p>
+              <p class="govuk-body-s">${status(j)}</p>
             </div>
-            <div class="ijt-job__side">${actions(j)}</div>
+            ${actions(j) ? `<div class="ijt-job__side">${actions(j)}</div>` : ''}
           </li>`).join('')}</ul>` : '<p class="govuk-body">No jobs here yet.</p>'}
         ${pages > 1 ? `
         <nav class="govuk-pagination" aria-label="Pages of ${headings[stage].toLowerCase()}">
@@ -316,12 +313,12 @@
           // An interview needs a date, so ask for it first
           if (next === 'interview') return (location.href = `interview-date.html?job=${moveBtn.dataset.move}`)
           app.move(jobs, moveBtn.dataset.move, next)
-          location.href = `?stage=${stage}&page=${p}&moved=${moveBtn.dataset.move}#jobs`
+          location.href = `?stage=${stage}&page=${p}&moved=${moveBtn.dataset.move}`
         } else if (closeLink) {
           e.preventDefault()
           app.find(jobs, closeLink.dataset.close).closed = true
           app.save(jobs)
-          location.href = `?stage=${stage}&page=${p}&closed=${closeLink.dataset.close}#jobs`
+          location.href = `?stage=${stage}&page=${p}&closed=${closeLink.dataset.close}`
         }
       })
     }

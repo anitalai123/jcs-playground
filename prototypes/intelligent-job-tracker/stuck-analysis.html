@@ -50,12 +50,12 @@
     </div>
 
     <main class="govuk-main-wrapper" id="main-content">
-      <a href="stuck-questions.html" class="govuk-back-link">Back</a>
+      <a href="stuck-questions.html" class="govuk-back-link" id="back">Back</a>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <div class="ijt-loading" id="loading" role="status">
             <span class="ijt-spinner" aria-hidden="true"></span>
-            <p class="govuk-body-l govuk-!-margin-bottom-0">Looking at your applications and answers…</p>
+            <p class="govuk-body-l govuk-!-margin-bottom-0" id="loading-text">Looking at your applications and answers…</p>
           </div>
           <div id="result" hidden></div>
         </div>
@@ -81,7 +81,9 @@
     const jobs = app.load()
     const c = app.counts(jobs)
     const where = params.get('where') || 'no-reply'
-    const how = (params.get('how') || 'same-cv').split(',').filter(Boolean)
+    // Straight from the health check there are no answers yet, so we only use their job data
+    const dataOnly = !params.has('how')
+    const how = (params.get('how') || '').split(',').filter(Boolean)
     const match = params.get('match') || 'some'
     const hard = (params.get('hard') || '').split(',').filter((h) => h && h !== 'none')
 
@@ -142,7 +144,7 @@
       insights.push({
         title: 'Interviews could be the place to focus',
         body: `<p class="govuk-body">You got to interview ${c.interview} times${offerRate ? ` and got ${c.offered === 1 ? 'an offer' : c.offered + ' offers'}` : ''}. Getting to interview means employers like your application. Practising your answers out loud, especially with examples of what you did and what happened, can help you feel more confident.</p>`,
-        action: 'Use interview prep to practise 3 answers before your next interview'
+        action: 'Practise 3 answers out loud before your next interview'
       })
     }
 
@@ -166,9 +168,9 @@
     const actions = insights.filter((i) => i.action).map((i) => i.action)
 
     document.getElementById('result').innerHTML = `
-      <span class="govuk-caption-l">Your job search analysis</span>
+      <span class="govuk-caption-l">${dataOnly ? 'Your monthly health check' : 'Your job search analysis'}</span>
       <h1 class="govuk-heading-xl">${headings[where]}</h1>
-      <p class="govuk-body-l">We looked at your ${c.applied} applications and your answers. Here's what stands out.</p>
+      <p class="govuk-body-l">We looked at your ${c.applied} applications${dataOnly ? '' : ' and your answers'}. Here's what stands out.</p>
 
       <div class="ijt-summary-row">
         ${interviewRate ? `<div><strong>1 in ${interviewRate.n}</strong>applications got an interview</div>` : ''}
@@ -186,6 +188,13 @@
       ${hard.length ? `
       <h2 class="govuk-heading-l govuk-!-margin-top-8">Things you told us about</h2>
       ${hard.map((h) => `<h3 class="govuk-heading-s">${support[h][0]}</h3><p class="govuk-body">${support[h][1]}</p>`).join('')}` : ''}
+
+      ${dataOnly ? `
+      <div class="ijt-context govuk-!-margin-top-8">
+        <h2 class="govuk-heading-m">Make this more useful</h2>
+        <p class="govuk-body">This is based on your job tracker only. Answer 4 quick questions about how you apply and what you find hard, and we'll add suggestions that fit you. It takes about 2 minutes.</p>
+        <a href="stuck-questions.html?where=${encodeURIComponent(where)}" role="button" draggable="false" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">Answer 4 questions</a>
+      </div>` : ''}
 
       <h2 class="govuk-heading-l govuk-!-margin-top-8">What to try next</h2>
       <ol class="govuk-list govuk-list--number govuk-list--spaced">
@@ -216,6 +225,12 @@
     document.getElementById('helpful').addEventListener('click', (e) => {
       if (e.target.closest('button')) document.getElementById('helpful').innerHTML = '<p class="govuk-body govuk-!-margin-bottom-0">Thanks for your feedback. We\'ll use it to make this better.</p>'
     })
+
+    if (dataOnly) {
+      document.getElementById('back').href = 'index.html'
+      document.getElementById('back').textContent = 'Back to your job search'
+      document.getElementById('loading-text').textContent = 'Looking at your applications…'
+    }
 
     // Short pause so it feels like the analysis is being worked out
     setTimeout(() => {

@@ -136,7 +136,7 @@
       const pad = (id) => String(document.getElementById(id).value).padStart(2, '0')
       const extra = known ? { interviewAt: `${document.getElementById('year').value}-${pad('month')}-${pad('day')}T${to24h(document.getElementById('time').value)}` } : {}
       app.move(jobs, job.id, 'interview', extra)
-      location.href = `index.html?stage=applied&moved=${job.id}#jobs`
+      location.href = `index.html?stage=applied&moved=${job.id}`
     })
 
     initAll()

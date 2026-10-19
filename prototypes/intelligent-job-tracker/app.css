@@ -101,7 +101,8 @@
 .ijt-job__main { flex: 1 1 320px; }
 .ijt-job__main > * { margin-bottom: 5px; }
 .ijt-job__main > :last-child { margin-bottom: 0; }
-.ijt-job__side { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+/* Buttons and links are stacked on the right, even when they wrap under the job details */
+.ijt-job__side { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; margin-left: auto; }
 .ijt-job__side .govuk-button { margin-bottom: 0; }
 
 /* AI analysis */

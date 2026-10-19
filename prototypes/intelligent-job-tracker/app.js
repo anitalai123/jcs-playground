@@ -295,3 +295,8 @@ export function listSentence (items) {
   if (items.length < 2) return items.join('')
   return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`
 }
+
+// Placeholder links (href="#") are dead ends in the prototype. Stop them jumping to the top of the page.
+document.addEventListener('click', (e) => {
+  if (e.target.closest('a[href="#"]')) e.preventDefault()
+})

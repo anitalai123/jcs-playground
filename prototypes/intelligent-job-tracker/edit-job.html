@@ -248,7 +248,7 @@
       job.closed = chosen === 'closed'
       if (job.closed) {
         app.save(jobs)
-        return (location.href = `index.html?stage=${from}&closed=${job.id}#jobs`)
+        return (location.href = `index.html?stage=${from}&closed=${job.id}`)
       }
 
       // Stages up to the chosen one get a date (today if we don't know), later ones are cleared
@@ -279,7 +279,7 @@
       job.stage = stage
 
       app.save(jobs)
-      location.href = `index.html?stage=${stage}&edited=${job.id}#jobs`
+      location.href = `index.html?stage=${stage}&edited=${job.id}`
     })
 
     initAll()
