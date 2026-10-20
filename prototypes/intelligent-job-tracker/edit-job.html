@@ -98,6 +98,15 @@
               <input class="govuk-input" id="link" name="link" type="url" spellcheck="false">
             </div>
 
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="cv">CV used (optional)</label>
+              <div id="cv-hint" class="govuk-hint">Which version of your CV you sent</div>
+              <div class="ijt-field-with-button">
+                <select class="govuk-select" id="cv" name="cv" aria-describedby="cv-hint"></select>
+                <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">Add a CV</a>
+              </div>
+            </div>
+
             <div class="govuk-button-group">
               <button type="submit" class="govuk-button" data-module="govuk-button">Save changes</button>
               <a class="govuk-link" href="index.html" id="cancel">Cancel</a>
@@ -148,7 +157,9 @@
     header()
     document.title = `${job.title} – Edit job details – Intelligent job tracker – Prototype`
 
-    for (const f of ['title', 'employer', 'location', 'salary', 'link']) $(f).value = job[f] && job[f] !== 'Not given' ? job[f] : ''
+    for (const f of ['title', 'employer', 'location', 'salary', 'link', 'cv']) $(f).value = job[f] && job[f] !== 'Not given' ? job[f] : ''
+
+    app.fillCVSelect($('cv'), jobs, job.cv)
 
     // Stage radios. Each one reveals the dates that matter at that stage.
 
@@ -244,7 +255,7 @@
         return
       }
 
-      for (const f of ['title', 'employer', 'location', 'salary', 'link']) job[f] = $(f).value.trim()
+      for (const f of ['title', 'employer', 'location', 'salary', 'link', 'cv']) job[f] = $(f).value.trim()
       if (!job.location) job.location = 'Not given'
       const chosen = document.querySelector('input[name="stage"]:checked').value
       job.closed = chosen === 'closed'

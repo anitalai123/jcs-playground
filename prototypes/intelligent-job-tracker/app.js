@@ -2,7 +2,7 @@
 // Jobs are kept in localStorage so changes carry across pages. The data reseeds each day,
 // so the "interview yesterday" and "interview coming up" examples always line up with today.
 
-const KEY = 'ijt-data-v3'
+const KEY = 'ijt-data-v4'
 export const PAGE_SIZE = 5
 
 export const STAGES = {
@@ -168,6 +168,35 @@ function seed (persona = 'usual') {
   return jobs
 }
 
+// Which CV each applied job used. In the health check example every job got the same CV.
+const CV_FOR_TYPE = {
+  'Senior pastry chef': 'Pastry chef CV',
+  'Bakery supervisor': 'Bakery supervisor CV',
+  'Bakery manager': 'Bakery supervisor CV'
+}
+
+function withCVs (jobs, persona) {
+  for (const j of jobs) {
+    if (j.dates.applied) j.cv = persona === 'healthcheck' ? 'Pastry chef CV' : CV_FOR_TYPE[j.type] || 'Pastry chef CV'
+  }
+  return jobs
+}
+
+// CVs used so far, most used first, to suggest when adding or editing a job
+export function cvsUsed (jobs) {
+  const n = {}
+  for (const j of jobs) if (j.cv) n[j.cv] = (n[j.cv] || 0) + 1
+  return Object.keys(n).sort((a, b) => n[b] - n[a])
+}
+
+// Options for a "CV used" select: the CVs used so far, plus the job's own CV if it's not one of them
+export function fillCVSelect (select, jobs, current = '') {
+  const cvs = cvsUsed(jobs)
+  if (current && !cvs.includes(current)) cvs.push(current)
+  select.innerHTML = '<option value="">Choose a CV</option>' +
+    cvs.map((cv) => `<option value="${esc(cv)}"${cv === current ? ' selected' : ''}>${esc(cv)}</option>`).join('')
+}
+
 // Storage. If localStorage is unavailable, changes last until the page reloads.
 
 let memory = null
@@ -182,7 +211,7 @@ export function load () {
       return (memory = d.jobs)
     }
   } catch {}
-  memory = seed(persona)
+  memory = withCVs(seed(persona), persona)
   save(memory)
   return memory
 }
@@ -207,7 +236,7 @@ export function usePersona (name) {
   load()
   if (name === persona || !PERSONAS[name]) return memory
   persona = name
-  memory = seed(name)
+  memory = withCVs(seed(name), name)
   save(memory)
   return memory
 }

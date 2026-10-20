@@ -179,3 +179,8 @@
   opacity: 0;
   pointer-events: none;
 }
+
+/* A field with a button beside it, like "CV used" with "Add a CV" */
+
+.ijt-field-with-button { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; }
+.ijt-field-with-button .govuk-button { width: auto; margin-bottom: 0; }

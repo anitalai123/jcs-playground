@@ -92,6 +92,15 @@
             </div>
 
             <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="cv">CV used (optional)</label>
+              <div id="cv-hint" class="govuk-hint">Which version of your CV you sent</div>
+              <div class="ijt-field-with-button">
+                <select class="govuk-select" id="cv" name="cv" aria-describedby="cv-hint"></select>
+                <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">Add a CV</a>
+              </div>
+            </div>
+
+            <div class="govuk-form-group">
               <fieldset class="govuk-fieldset" role="group" aria-describedby="closing-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Closing date (optional)</legend>
                 <div id="closing-hint" class="govuk-hint">For example, 27 3 2027. We'll remind you before it closes.</div>
@@ -145,6 +154,7 @@
 
     const $ = (id) => document.getElementById(id)
     const status = $('fetch-status')
+    app.fillCVSelect($('cv'), app.load())
 
     // Pretend to read the advert
     $('fetch').addEventListener('click', () => {
@@ -200,6 +210,7 @@
         employer: $('employer').value.trim(),
         location: $('location').value.trim() || 'Not given',
         salary: $('salary').value.trim(),
+        cv: $('cv').value.trim(),
         link: $('link').value.trim(),
         type: 'Other',
         stage,
