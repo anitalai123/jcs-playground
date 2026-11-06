@@ -43,6 +43,18 @@
     .jcs-mega-menu__item--with-icon { display: flex; align-items: center; gap: 4px; }
     .jcs-mega-menu__item--with-icon img { flex: none; }
     .jcs-mega-menu__description { margin: 5px 0 0; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: var(--govuk-secondary-text-colour); }
+    /* Homepage wireframe: light grey placeholder boxes with rounded corners */
+    .jcs-box { border-radius: 12px; background: #f3f3f3; }
+    .jcs-box--hero { height: 300px; }
+    .jcs-box--portrait { aspect-ratio: 9 / 16; }
+    .jcs-box--square { aspect-ratio: 1 / 1; }
+    .jcs-boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .jcs-section { margin-bottom: 40px; }
+    .jcs-section__header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 5px 20px; margin-bottom: 20px; }
+    @media (min-width: 40.0625em) {
+      .jcs-boxes { gap: 30px; }
+      .jcs-section { margin-bottom: 60px; }
+    }
   </style>
 </head>
 <body class="govuk-template__body">
@@ -196,14 +208,80 @@
     </div>
 
     <main class="govuk-main-wrapper" id="main-content">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <span class="govuk-caption-l">Menu &amp; navigation design: option 1</span>
-          <h1 class="govuk-heading-xl">Mega menu</h1>
-          <p class="govuk-body-l">A GOV.UK style mega menu, grouped by what someone is trying to do rather than which department or campaign runs it.</p>
-          <p class="govuk-body">Select "Menu" in the Work hub bar to open it. This page stands in for the Work hub homepage, so the menu has somewhere to sit.</p>
-        </div>
+      <h1 class="govuk-visually-hidden">Work hub</h1>
+      <!-- Homepage wireframe: grey placeholder boxes stand in for real content -->
+      <div class="jcs-box jcs-box--hero govuk-!-margin-bottom-6"></div>
+      <div class="jcs-boxes jcs-section">
+        <div class="jcs-box jcs-box--portrait"></div>
+        <div class="jcs-box jcs-box--portrait"></div>
+        <div class="jcs-box jcs-box--portrait"></div>
       </div>
+      <section class="jcs-section">
+        <div class="jcs-section__header">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Explore what I can do</h2>
+          <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Explore what I can do</span></a>
+        </div>
+        <div class="jcs-boxes">
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+        </div>
+      </section>
+      <section class="jcs-section">
+        <div class="jcs-section__header">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Get my CV together</h2>
+          <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Get my CV together</span></a>
+        </div>
+        <div class="jcs-boxes">
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+        </div>
+      </section>
+      <section class="jcs-section">
+        <div class="jcs-section__header">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Prepare for an interview</h2>
+          <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Prepare for an interview</span></a>
+        </div>
+        <div class="jcs-boxes">
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+        </div>
+      </section>
+      <section class="jcs-section">
+        <div class="jcs-section__header">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Build skills &amp; experience</h2>
+          <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Build skills &amp; experience</span></a>
+        </div>
+        <div class="jcs-boxes">
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+        </div>
+      </section>
+      <section class="jcs-section">
+        <div class="jcs-section__header">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Find jobs &amp; opportunities</h2>
+          <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Find jobs &amp; opportunities</span></a>
+        </div>
+        <div class="jcs-boxes">
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+        </div>
+      </section>
+      <section class="jcs-section">
+        <div class="jcs-section__header">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Not sure where to start?</h2>
+          <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Not sure where to start?</span></a>
+        </div>
+        <div class="jcs-boxes">
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+        </div>
+      </section>
     </main>
   </div>
 
