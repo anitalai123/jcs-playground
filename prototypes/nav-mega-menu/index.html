@@ -31,8 +31,9 @@
     .jcs-mega-menu .govuk-list { margin-bottom: 30px; }
     .jcs-mega-menu .govuk-list li { margin-bottom: 20px; }
     .jcs-mega-menu__link { font-size: 1rem; font-weight: 700; }
-    /* Tags match the 16px links they label (the www.gov.uk menu has no tags to copy) */
-    .jcs-mega-menu .govuk-tag { margin-left: 5px; font-size: 1rem; vertical-align: middle; }
+    /* Tags match the 16px links they label (the www.gov.uk menu has no tags to copy). They always sit
+       on their own line under the link, so tagged items look the same whether or not they'd fit inline. */
+    .jcs-mega-menu .govuk-tag { display: table; margin: 8px 0 0; font-size: 1rem; }
   </style>
 </head>
 <body class="govuk-template__body">
