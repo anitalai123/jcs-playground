@@ -6,83 +6,28 @@
   <meta name="theme-color" content="#1d70b8">
   <!-- Prototypes shouldn't show up in search results -->
   <meta name="robots" content="noindex, nofollow">
-  <title>Option 1: Mega menu – Menu & navigation design – Prototype</title>
+  <title>Option 1: Mega menu – Work hub – Prototype</title>
   <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
   <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
   <style>
-    /* GOV.UK-style mega menu. Not an official govuk-frontend component: govuk-frontend's
-       service navigation only collapses a flat link list on mobile, so this is hand-built,
-       reusing the same visual language (colours, focus states, link styles). */
+    /* GOV.UK Frontend 6's header has no slot for links, so lay out the logo and a
+       right-aligned "Sign in" link ourselves */
+    .jcs-header__container { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .jcs-header__sign-in { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
 
-    .jcs-nav-bar {
-      border-bottom: 1px solid var(--govuk-border-colour);
-    }
-    .jcs-nav-bar__inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px 20px;
-      padding: 15px 0;
-    }
-    .jcs-nav-bar__name {
-      font-family: "GDS Transport", arial, sans-serif;
-      font-weight: 700;
-      font-size: 1.1875rem;
-    }
-    .jcs-menu-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border: 2px solid var(--govuk-text-colour);
-      background: transparent;
-      font-family: "GDS Transport", arial, sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--govuk-text-colour);
-      cursor: pointer;
-    }
-    .jcs-menu-toggle:hover { background: #f3f3f3; }
-    .jcs-menu-toggle:focus {
-      outline: 3px solid transparent;
-      background-color: var(--govuk-focus-colour, #fd0);
-      box-shadow: 0 -2px var(--govuk-focus-colour, #fd0), 0 4px var(--govuk-text-colour, #0b0c0c);
-    }
-    .jcs-menu-toggle__icon { transition: transform 0.15s ease; }
-    .jcs-menu-toggle[aria-expanded="true"] .jcs-menu-toggle__icon { transform: rotate(180deg); }
+    /* "Menu" in the service navigation is a button that opens the mega menu. It borrows the
+       service navigation link styles, with a chevron like the GOV.UK menu button. */
+    .jcs-menu-button { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 0; border: 0; background: none; font: inherit; font-weight: 700; color: var(--govuk-link-colour); cursor: pointer; }
+    .jcs-menu-button:hover { color: var(--govuk-link-hover-colour); text-decoration: underline; text-decoration-thickness: 3px; }
+    .jcs-menu-button:focus { outline: 3px solid transparent; color: var(--govuk-focus-text-colour); background-color: var(--govuk-focus-colour); box-shadow: 0 -2px var(--govuk-focus-colour), 0 4px var(--govuk-focus-text-colour); text-decoration: none; }
+    .jcs-menu-button__icon { transition: transform 0.15s ease; }
+    .jcs-menu-button[aria-expanded="true"] .jcs-menu-button__icon { transform: rotate(180deg); }
 
-    .jcs-mega-menu {
-      border-bottom: 4px solid var(--govuk-brand-colour);
-      box-shadow: 0 8px 12px -8px rgba(11, 12, 12, 0.3);
-    }
+    /* Mega menu panel: GOV.UK grid, headings, lists and tags on the service navigation's light blue */
+    .jcs-mega-menu { padding: 30px 0 10px; border-bottom: 1px solid var(--govuk-surface-border-colour, #8eb8dc); background: var(--govuk-surface-background-colour, #f4f8fb); }
     .jcs-mega-menu[hidden] { display: none; }
-    .jcs-mega-menu__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 30px 20px;
-      padding: 30px 0;
-    }
-    .jcs-mega-menu__category-title {
-      margin: 0 0 10px;
-      font-family: "GDS Transport", arial, sans-serif;
-      font-weight: 700;
-      font-size: 1.1875rem;
-    }
-    .jcs-mega-menu__list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .jcs-mega-menu__list li {
-      margin-bottom: 10px;
-    }
-    .jcs-mega-menu__list li:last-child { margin-bottom: 0; }
-    .jcs-mega-menu__tag {
-      display: inline-block;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
+    .jcs-mega-menu .govuk-list li { margin-bottom: 10px; }
+    .jcs-mega-menu .govuk-tag { margin-left: 5px; vertical-align: middle; }
   </style>
 </head>
 <body class="govuk-template__body">
@@ -90,10 +35,12 @@
 
   <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
 
-  <!-- Global header: keep in sync across prototypes/index.html, _template and every prototype page. Dark blue header matches the GOV.UK header style, with the GOV.UK logo. Light blue service navigation holds the prototype's name. -->
+  <!-- Header for the menu & navigation prototypes: GOV.UK header with a Sign in link, then the Work hub
+       service navigation (Menu opens the mega menu, language switcher in the inline end slot). Unlike
+       other prototypes, the service navigation holds the service being designed, not the prototype's name. -->
   <header class="govuk-template__header">
     <div class="govuk-header" data-module="govuk-header">
-      <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__container govuk-width-container jcs-header__container">
         <div class="govuk-header__logo">
           <a href="/" class="govuk-header__homepage-link">
             <svg
@@ -124,17 +71,105 @@
             </svg>
           </a>
         </div>
+        <a href="#" class="govuk-link govuk-link--inverse govuk-link--no-underline jcs-header__sign-in">Sign in</a>
       </div>
     </div>
     <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
-      <div class="govuk-width-container">
+      <div class="govuk-width-container govuk-service-navigation__inlining-container">
         <div class="govuk-service-navigation__container">
           <span class="govuk-service-navigation__service-name">
-            <a href="../index.html" class="govuk-service-navigation__link">Menu &amp; navigation design</a>
+            <a href="index.html" class="govuk-service-navigation__link">Work hub</a>
           </span>
+          <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+            <ul class="govuk-service-navigation__list">
+              <li class="govuk-service-navigation__item">
+                <button type="button" class="jcs-menu-button" id="mega-menu-toggle" aria-expanded="false" aria-controls="mega-menu">
+                  Menu
+                  <svg class="jcs-menu-button__icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 12 1 4h14z"/></svg>
+                </button>
+              </li>
+            </ul>
+          </nav>
         </div>
+        <nav class="govuk-language-navigation" aria-label="Language">
+          <ul class="govuk-language-navigation__list">
+            <li class="govuk-language-navigation__list-item">
+              <span class="govuk-language-navigation__text" aria-current="true" lang="en">English</span>
+            </li>
+            <li class="govuk-language-navigation__list-item">
+              <a class="govuk-language-navigation__link" href="#" rel="alternate" lang="cy" hreflang="cy">Cymraeg</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </section>
+
+    <!-- Mega menu, grouped by what someone is trying to do -->
+    <div class="jcs-mega-menu" id="mega-menu" hidden>
+      <div class="govuk-width-container">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Explore what I can do</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link" href="#">Jobs and career quiz</a></li>
+                <li><a class="govuk-link" href="#">Learn about different jobs and sectors</a></li>
+                <li><a class="govuk-link" href="#">Talk to AI about different jobs</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+              </ul>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Get my CV together</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link" href="#">Build a CV</a></li>
+                <li><a class="govuk-link" href="#">Get CV feedback</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link" href="#">CV support</a></li>
+              </ul>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Prepare for an interview</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link" href="#">Mock interview</a> <strong class="govuk-tag govuk-tag--yellow">Experimental</strong></li>
+                <li><a class="govuk-link" href="#">Talk to AI about an interview</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link" href="#">Interview guidance</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Build skills &amp; experience</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link" href="#">Discover your skills</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link" href="#">Find a course</a></li>
+                <li><a class="govuk-link" href="#">Find T-levels</a></li>
+                <li><a class="govuk-link" href="#">Find university courses on UCAS</a></li>
+              </ul>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Find jobs &amp; opportunities</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link" href="#">Find a job</a></li>
+                <li><a class="govuk-link" href="#">Find seasonal jobs</a></li>
+                <li><a class="govuk-link" href="#">Find an apprenticeship</a></li>
+              </ul>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Not sure where to start?</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link" href="#">Build an action plan</a></li>
+                <li><a class="govuk-link" href="#">Chat with AI work assistant</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Get support</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link" href="#">Disabilities and work</a></li>
+                <li><a class="govuk-link" href="#">Mental health support</a></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
   </header>
 
   <div class="govuk-width-container">
@@ -144,35 +179,14 @@
         <span class="govuk-phase-banner__text">This is a prototype.</span>
       </p>
     </div>
-  </div>
 
-  <!-- The bit being tested: a GOV.UK-style "Menu" button that opens a mega menu grouped by intent -->
-  <div class="jcs-nav-bar">
-    <div class="govuk-width-container jcs-nav-bar__inner">
-      <span class="jcs-nav-bar__name">Get help to find work</span>
-      <button type="button" class="jcs-menu-toggle" id="mega-menu-toggle" aria-expanded="false" aria-controls="mega-menu">
-        Menu
-        <svg class="jcs-menu-toggle__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
-          <path d="M8 11 2 5h12z"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <div class="jcs-mega-menu" id="mega-menu" hidden>
-    <div class="govuk-width-container">
-      <div class="jcs-mega-menu__grid" id="mega-menu-grid"></div>
-    </div>
-  </div>
-
-  <div class="govuk-width-container">
     <main class="govuk-main-wrapper" id="main-content">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-          <span class="govuk-caption-l">Option 1</span>
+          <span class="govuk-caption-l">Menu &amp; navigation design: option 1</span>
           <h1 class="govuk-heading-xl">Mega menu</h1>
-          <p class="govuk-body-l">A GOV.UK style mega menu, grouped by what someone's trying to do rather than which department or campaign runs it. Click "Menu" above to try it.</p>
-          <p class="govuk-body">This page stands in for an employment support service's homepage, so the menu has somewhere real to sit. The content below is just placeholder text.</p>
+          <p class="govuk-body-l">A GOV.UK style mega menu, grouped by what someone is trying to do rather than which department or campaign runs it.</p>
+          <p class="govuk-body">Select "Menu" in the Work hub bar to open it. This page stands in for the Work hub homepage, so the menu has somewhere to sit.</p>
         </div>
       </div>
     </main>
@@ -191,56 +205,7 @@
   <script type="module">
     import { initAll } from '/assets/govuk-frontend.min.js'
 
-    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
-    const tag = (text, colour) => ` <strong class="govuk-tag govuk-tag--${colour} jcs-mega-menu__tag">${esc(text)}</strong>`
-
-    // 7 categories, grouped by intent rather than by department or campaign
-    const categories = [
-      ['Explore what I can do', [
-        ['Jobs and career quiz'],
-        ['Learn about different jobs and sectors'],
-        ['Talk to AI about different jobs', tag('AI work assistant', 'green')]
-      ]],
-      ['Get my CV together', [
-        ['Build a CV'],
-        ['Get CV feedback', tag('AI work assistant', 'green')],
-        ['CV support']
-      ]],
-      ['Prepare for an interview', [
-        ['Mock interview', tag('Experimental', 'yellow')],
-        ['Talk to AI about an interview', tag('AI work assistant', 'green')],
-        ['Interview guidance']
-      ]],
-      ['Build skills & experience', [
-        ['Discover your skills', tag('AI work assistant', 'green')],
-        ['Find a course'],
-        ['Find T-levels'],
-        ['Find university courses on UCAS']
-      ]],
-      ['Find jobs & opportunities', [
-        ['Find a job'],
-        ['Find seasonal jobs'],
-        ['Find an apprenticeship']
-      ]],
-      ['Not sure where to start?', [
-        ['Build an action plan'],
-        ['Chat with AI work assistant']
-      ]],
-      ['Get support', [
-        ['Disabilities and work'],
-        ['Mental health support']
-      ]]
-    ]
-
-    document.getElementById('mega-menu-grid').innerHTML = categories.map(([title, items]) => `
-      <div>
-        <p class="jcs-mega-menu__category-title">${esc(title)}</p>
-        <ul class="jcs-mega-menu__list">
-          ${items.map(([label, tagHtml = '']) => `<li><a class="govuk-link govuk-link--no-visited-state" href="#">${esc(label)}</a>${tagHtml}</li>`).join('')}
-        </ul>
-      </div>`).join('')
-
-    // Menu toggle: show/hide the panel, close on Escape or an outside click
+    // Menu button opens and closes the mega menu. Escape closes it and returns focus to the button.
     const toggle = document.getElementById('mega-menu-toggle')
     const menu = document.getElementById('mega-menu')
     const setOpen = (open) => {
@@ -248,12 +213,14 @@
       menu.hidden = !open
     }
     toggle.addEventListener('click', () => setOpen(menu.hidden))
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) { setOpen(false); toggle.focus() } })
-    document.addEventListener('click', (e) => {
-      if (!menu.hidden && !menu.contains(e.target) && e.target !== toggle && !toggle.contains(e.target)) setOpen(false)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.hidden) {
+        setOpen(false)
+        toggle.focus()
+      }
     })
 
-    // Dead-end links (href="#") in this prototype shouldn't jump the page to the top
+    // Placeholder links (href="#") are dead ends in the prototype. Stop them jumping to the top of the page.
     document.addEventListener('click', (e) => {
       if (e.target.closest('a[href="#"]')) e.preventDefault()
     })
