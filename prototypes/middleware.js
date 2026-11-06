@@ -1,8 +1,8 @@
 // Password protection for the whole site, using the browser's standard sign-in box (HTTP Basic auth).
 // Vercel's own password protection isn't available on the Hobby plan, so this runs before every
 // request and only serves the site once the right password is given.
-// The password lives in the SITE_PASSWORD environment variable in Vercel, never in this code.
-// Any username works; only the password is checked.
+// The username and password live in the SITE_USERNAME and SITE_PASSWORD environment variables in
+// Vercel, never in this code.
 
 export const config = { matcher: '/:path*' }
 
@@ -12,14 +12,16 @@ const askForPassword = (message) => new Response(message, {
 })
 
 export default function middleware (request) {
+  const username = process.env.SITE_USERNAME
   const password = process.env.SITE_PASSWORD
-  // Fail closed: if the password setting goes missing, keep the site locked rather than open
-  if (!password) return askForPassword('This site is password protected, but no password is set up yet.')
+  // Fail closed: if either setting goes missing, keep the site locked rather than open
+  if (!username || !password) return askForPassword('This site is password protected, but the sign in details are not set up yet.')
 
   const [scheme, encoded] = (request.headers.get('authorization') || '').split(' ')
   if (scheme === 'Basic' && encoded) {
     const decoded = new TextDecoder().decode(Uint8Array.from(atob(encoded), (c) => c.charCodeAt(0)))
-    if (decoded.slice(decoded.indexOf(':') + 1) === password) return
+    const split = decoded.indexOf(':')
+    if (decoded.slice(0, split) === username && decoded.slice(split + 1) === password) return
   }
   return askForPassword('Password required')
 }
