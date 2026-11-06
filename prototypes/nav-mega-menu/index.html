@@ -28,6 +28,11 @@
     .jcs-mega-menu { padding: 30px 0 10px; border-bottom: 1px solid var(--govuk-surface-border-colour, #8eb8dc); background: var(--govuk-surface-background-colour, #f4f8fb); }
     @media (min-width: 48.0625em) { .jcs-mega-menu { padding-top: 50px; } }
     .jcs-mega-menu[hidden] { display: none; }
+    /* Wider gap between the menu's columns than GOV.UK's standard 30px: 50px on desktop */
+    @media (min-width: 40.0625em) {
+      .jcs-mega-menu .govuk-grid-row { margin-right: -25px; margin-left: -25px; }
+      .jcs-mega-menu .govuk-grid-column-one-third { padding-right: 25px; padding-left: 25px; }
+    }
     .jcs-mega-menu .govuk-list { margin-bottom: 30px; }
     .jcs-mega-menu .govuk-list li { margin-bottom: 20px; }
     .jcs-mega-menu__link { font-size: 1rem; font-weight: 700; }
