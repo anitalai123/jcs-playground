@@ -36,9 +36,8 @@
     .jcs-mega-menu .govuk-list { margin-bottom: 30px; }
     .jcs-mega-menu .govuk-list li { margin-bottom: 20px; }
     .jcs-mega-menu__link { font-size: 1rem; font-weight: 700; }
-    /* Tags match the 16px links they label (the www.gov.uk menu has no tags to copy). They always sit
-       on their own line under the link, so tagged items look the same whether or not they'd fit inline. */
-    .jcs-mega-menu .govuk-tag { display: table; margin: 8px 0 0; font-size: 1rem; }
+    /* Grey text under a link, like the descriptions under some www.gov.uk menu links: 16px, 5px below */
+    .jcs-mega-menu__description { margin: 5px 0 0; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: var(--govuk-secondary-text-colour); }
   </style>
 </head>
 <body class="govuk-template__body">
@@ -124,22 +123,22 @@
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Jobs and career quiz</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Learn about different jobs and sectors</a></li>
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">Talk to AI about different jobs</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Talk to AI about different jobs</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
               <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Get my CV together</a></h2>
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Build a CV</a></li>
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">Get CV feedback</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Get CV feedback</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">CV support</a></li>
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
               <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Prepare for an interview</a></h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">Mock interview</a> <strong class="govuk-tag govuk-tag--yellow">Experimental</strong></li>
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">Talk to AI about an interview</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Mock interview</a><p class="jcs-mega-menu__description">Experimental</p></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Talk to AI about an interview</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Interview guidance</a></li>
               </ul>
             </div>
@@ -148,7 +147,7 @@
             <div class="govuk-grid-column-one-third">
               <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Build skills &amp; experience</a></h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">Discover your skills</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Discover your skills</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Find a course</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Find T-levels</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Find university courses on UCAS</a></li>
