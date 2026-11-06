@@ -203,6 +203,19 @@ for (const el of document.querySelectorAll('[data-shared]')) {
   el.outerHTML = parts[el.dataset.shared]
 }
 
+// Sign in opens the signed in menu (nav-signed-in), remembering which option you came from. On the
+// signed in page (<body data-signed-in>) it becomes Sign out and takes you back there.
+const signIn = document.querySelector('.jcs-header__sign-in')
+if (signIn) {
+  if (document.body.hasAttribute('data-signed-in')) {
+    const from = new URLSearchParams(location.search).get('from')
+    signIn.textContent = 'Sign out'
+    signIn.href = from && from.startsWith('/') ? from : '/nav-mega-menu/'
+  } else {
+    signIn.href = `/nav-signed-in/?from=${encodeURIComponent(location.pathname)}`
+  }
+}
+
 // Menu buttons (class jcs-menu-button) each open the panel named in their aria-controls: the mega menu
 // in Options 1 and 2, a dropdown per stage in Option 3. Only one panel is open at a time. Escape
 // closes it and returns focus to its button.
