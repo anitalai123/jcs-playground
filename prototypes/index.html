@@ -9,6 +9,12 @@
   <title>JCS playground</title>
   <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
   <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <style>
+    /* Cards for a prototype's design options: 3 columns on desktop (from the grid's
+       one-third columns), stacked on mobile. Not an official GOV.UK component. */
+    .jcs-option { display: flex; flex-direction: column; height: 100%; padding: 20px; margin-bottom: 20px; border: 1px solid var(--govuk-border-colour); border-top: 4px solid var(--govuk-brand-colour); }
+    .jcs-option > :last-child { margin-top: auto; margin-bottom: 0; }
+  </style>
 </head>
 <body class="govuk-template__body">
   <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
@@ -63,13 +69,39 @@
 
     <main class="govuk-main-wrapper" id="main-content">
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-grid-column-full">
           <h1 class="govuk-heading-xl">JCS playground</h1>
           <!-- prototypes:start -->
           <h2 class="govuk-heading-l">Menu &amp; navigation design</h2>
-          <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-9" data-module="govuk-button">
-            Go to prototype
-          </a>
+          <div class="govuk-grid-row govuk-!-margin-bottom-9">
+            <div class="govuk-grid-column-one-third">
+              <div class="jcs-option">
+                <strong class="govuk-tag govuk-!-margin-bottom-2" style="align-self: flex-start;">Option 1</strong>
+                <p class="govuk-body">Add a short description of what this option includes.</p>
+                <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+                  Launch prototype
+                </a>
+              </div>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <div class="jcs-option">
+                <strong class="govuk-tag govuk-!-margin-bottom-2" style="align-self: flex-start;">Option 2</strong>
+                <p class="govuk-body">Add a short description of what this option includes.</p>
+                <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+                  Launch prototype
+                </a>
+              </div>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <div class="jcs-option">
+                <strong class="govuk-tag govuk-!-margin-bottom-2" style="align-self: flex-start;">Option 3</strong>
+                <p class="govuk-body">Add a short description of what this option includes.</p>
+                <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+                  Launch prototype
+                </a>
+              </div>
+            </div>
+          </div>
 
           <h2 class="govuk-heading-l">Intelligent job tracker</h2>
           <a href="intelligent-job-tracker/" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
