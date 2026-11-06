@@ -57,11 +57,14 @@
     }
     /* Persistent bottom menu, like the docked menu on www.youngminds.org.uk: GOV.UK blue, fixed to
        the bottom of the screen, rounded top corners, white links each with space for an icon */
-    .jcs-dock { position: fixed; z-index: 100; right: 0; bottom: 0; left: 0; }
-    .jcs-dock__inner { max-width: 960px; margin: 0 auto; border-radius: 16px 16px 0 0; background: var(--govuk-brand-colour, #1d70b8); box-shadow: 0 -2px 12px rgba(11, 12, 12, 0.2); }
+    .jcs-dock { position: fixed; z-index: 100; right: 0; bottom: 0; left: 0; transition: transform 0.25s ease; }
+    /* Slides out of the way at the very bottom of the page, and back when you scroll up */
+    .jcs-dock--hidden { transform: translateY(110%); }
+    @media (prefers-reduced-motion: reduce) { .jcs-dock { transition: none; } }
+    .jcs-dock__inner { max-width: 960px; margin: 0 auto; border-radius: 24px 24px 0 0; background: var(--govuk-brand-colour, #1d70b8); box-shadow: 0 -2px 12px rgba(11, 12, 12, 0.2); }
     .jcs-dock__list { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 0; list-style: none; }
     .jcs-dock__item + .jcs-dock__item { border-left: 1px solid rgba(255, 255, 255, 0.3); }
-    .jcs-dock__link { display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; box-sizing: border-box; padding: 12px 10px 14px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.25; text-align: center; color: #fff; text-decoration: none; }
+    .jcs-dock__link { display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; box-sizing: border-box; padding: 12px 10px 14px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.25; text-align: center; color: #fff; text-decoration: none; }
     .jcs-dock__link:link, .jcs-dock__link:visited { color: #fff; }
     .jcs-dock__link:hover .jcs-dock__text { text-decoration: underline; text-decoration-thickness: 3px; }
     .jcs-dock__link:focus { outline: 3px solid transparent; color: var(--govuk-focus-text-colour, #0b0c0c); background-color: var(--govuk-focus-colour, #fd0); box-shadow: inset 0 -4px var(--govuk-focus-text-colour, #0b0c0c); }
@@ -71,12 +74,9 @@
     @media (min-width: 40.0625em) {
       .jcs-dock__link { flex-direction: row; justify-content: center; gap: 12px; padding: 18px 20px; font-size: 1.1875rem; text-align: left; }
     }
-    /* Leave room at the bottom of the page so the menu never covers the footer */
-    .jcs-has-dock { padding-bottom: 110px; }
-    @media (min-width: 40.0625em) { .jcs-has-dock { padding-bottom: 90px; } }
   </style>
 </head>
-<body class="govuk-template__body jcs-has-dock">
+<body class="govuk-template__body">
   <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
   <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
@@ -381,7 +381,7 @@
   </footer>
 
   <!-- Persistent bottom menu: entry points by who someone is -->
-  <nav class="jcs-dock" aria-label="Find help for you">
+  <nav class="jcs-dock" id="dock" aria-label="Find help for you">
     <div class="jcs-dock__inner">
       <ul class="jcs-dock__list">
         <li class="jcs-dock__item"><a class="jcs-dock__link" href="#"><span class="jcs-dock__icon" aria-hidden="true"></span><span class="jcs-dock__text">I am looking for my first job</span></a></li>
@@ -408,6 +408,18 @@
         toggle.focus()
       }
     })
+
+    // Bottom menu hides at the very bottom of the page (so it doesn't cover the footer) and comes
+    // back as soon as you scroll up. While hidden it's inert, so keyboard users can't tab into it.
+    const dock = document.getElementById('dock')
+    const updateDock = () => {
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+      dock.classList.toggle('jcs-dock--hidden', atBottom)
+      dock.inert = atBottom
+    }
+    window.addEventListener('scroll', updateDock, { passive: true })
+    window.addEventListener('resize', updateDock)
+    updateDock()
 
     // Placeholder links (href="#") are dead ends in the prototype. Stop them jumping to the top of the page.
     document.addEventListener('click', (e) => {
