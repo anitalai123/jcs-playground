@@ -48,6 +48,9 @@
     .jcs-box--hero { height: 300px; }
     .jcs-box--portrait { aspect-ratio: 3 / 4; }
     .jcs-box--square { aspect-ratio: 1 / 1; }
+    /* Thin full-width strip, half the height of a square box */
+    .jcs-box--strip { height: calc((min(100vw - 30px, 960px) - 30px) / 6); }
+    @media (min-width: 40.0625em) { .jcs-box--strip { height: calc((min(100vw - 60px, 960px) - 60px) / 6); } }
     .jcs-boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
     .jcs-section { margin-bottom: 40px; }
     .jcs-section__header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 5px 20px; margin-bottom: 20px; }
@@ -270,6 +273,13 @@
       </section>
       <section class="jcs-section">
         <div class="jcs-section__header">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Not sure where to start?</h2>
+          <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Not sure where to start?</span></a>
+        </div>
+        <div class="jcs-box jcs-box--strip"></div>
+      </section>
+      <section class="jcs-section">
+        <div class="jcs-section__header">
           <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Build skills &amp; experience</h2>
           <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Build skills &amp; experience</span></a>
         </div>
@@ -283,17 +293,6 @@
         <div class="jcs-section__header">
           <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Find jobs &amp; opportunities</h2>
           <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Find jobs &amp; opportunities</span></a>
-        </div>
-        <div class="jcs-boxes">
-          <div class="jcs-box jcs-box--square"></div>
-          <div class="jcs-box jcs-box--square"></div>
-          <div class="jcs-box jcs-box--square"></div>
-        </div>
-      </section>
-      <section class="jcs-section">
-        <div class="jcs-section__header">
-          <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Not sure where to start?</h2>
-          <a class="govuk-link" href="#">View all<span class="govuk-visually-hidden"> – Not sure where to start?</span></a>
         </div>
         <div class="jcs-boxes">
           <div class="jcs-box jcs-box--square"></div>
