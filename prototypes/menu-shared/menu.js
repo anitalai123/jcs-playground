@@ -203,18 +203,27 @@ for (const el of document.querySelectorAll('[data-shared]')) {
   el.outerHTML = parts[el.dataset.shared]
 }
 
-// The Menu (or More) button opens and closes the mega menu. Escape closes it and returns focus to the button.
-const toggle = document.getElementById('mega-menu-toggle')
-const menu = document.getElementById('mega-menu')
-const setOpen = (open) => {
+// Menu buttons (class jcs-menu-button) each open the panel named in their aria-controls: the mega menu
+// in Options 1 and 2, a dropdown per stage in Option 3. Only one panel is open at a time. Escape
+// closes it and returns focus to its button.
+const toggles = [...document.querySelectorAll('.jcs-menu-button[aria-controls]')]
+const panelFor = (t) => document.getElementById(t.getAttribute('aria-controls'))
+const setOpen = (toggle, open) => {
   toggle.setAttribute('aria-expanded', String(open))
-  menu.hidden = !open
+  panelFor(toggle).hidden = !open
 }
-toggle.addEventListener('click', () => setOpen(menu.hidden))
+for (const toggle of toggles) {
+  toggle.addEventListener('click', () => {
+    const open = panelFor(toggle).hidden
+    for (const other of toggles) if (other !== toggle) setOpen(other, false)
+    setOpen(toggle, open)
+  })
+}
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !menu.hidden) {
-    setOpen(false)
-    toggle.focus()
+  const open = toggles.find((t) => !panelFor(t).hidden)
+  if (e.key === 'Escape' && open) {
+    setOpen(open, false)
+    open.focus()
   }
 })
 
