@@ -1,0 +1,76 @@
+/* Shared styles for the menu & navigation prototypes (nav-mega-menu, nav-hero-tools, ...) */
+
+/* GOV.UK Frontend 6's header has no slot for links, so lay out the logo and a
+   right-aligned "Sign in" link ourselves */
+.jcs-header__container { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.jcs-header__sign-in { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
+
+/* The service navigation button ("Menu" or "More") that opens the mega menu. It borrows the
+   service navigation link styles, with a chevron like the GOV.UK menu button. */
+.jcs-menu-button { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 0; border: 0; background: none; font: inherit; font-weight: 700; color: var(--govuk-link-colour); cursor: pointer; }
+.jcs-menu-button--regular { font-weight: 400; }
+.jcs-menu-button:hover { color: var(--govuk-link-hover-colour); text-decoration: underline; text-decoration-thickness: 3px; }
+.jcs-menu-button:focus { outline: 3px solid transparent; color: var(--govuk-focus-text-colour); background-color: var(--govuk-focus-colour); box-shadow: 0 -2px var(--govuk-focus-colour), 0 4px var(--govuk-focus-text-colour); text-decoration: none; }
+.jcs-menu-button__icon { transition: transform 0.15s ease; }
+.jcs-menu-button[aria-expanded="true"] .jcs-menu-button__icon { transform: rotate(180deg); }
+
+/* Mega menu panel: GOV.UK grid, headings, lists and tags on the service navigation's light blue.
+   Category headings are 19px bold black links with no underline; links below match the www.gov.uk menu at 16px bold. */
+.jcs-mega-menu { padding: 30px 0 10px; border-bottom: 1px solid var(--govuk-surface-border-colour, #8eb8dc); background: var(--govuk-surface-background-colour, #f4f8fb); }
+@media (min-width: 48.0625em) { .jcs-mega-menu { padding-top: 50px; } }
+.jcs-mega-menu[hidden] { display: none; }
+/* Wider gap between the menu's columns than GOV.UK's standard 30px: 50px on desktop */
+@media (min-width: 40.0625em) {
+  .jcs-mega-menu .govuk-grid-row { margin-right: -25px; margin-left: -25px; }
+  .jcs-mega-menu .govuk-grid-column-one-third { padding-right: 25px; padding-left: 25px; }
+}
+.jcs-mega-menu .govuk-list { margin-bottom: 30px; }
+.jcs-mega-menu .govuk-list li { margin-bottom: 20px; }
+.jcs-mega-menu__link { font-size: 1rem; font-weight: 700; }
+/* Grey text under a link, like the descriptions under some www.gov.uk menu links: 16px, 5px below */
+/* Tags sit beside the link at the same 16px size */
+.jcs-mega-menu .govuk-tag { margin-left: 5px; font-size: 1rem; vertical-align: middle; }
+/* Chat illustration (from www.jobs.service.gov.uk) to the left of "Chat with AI work assistant" */
+.jcs-mega-menu__item--with-icon { display: flex; align-items: center; gap: 4px; }
+.jcs-mega-menu__item--with-icon img { flex: none; }
+.jcs-mega-menu__description { margin: 5px 0 0; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: var(--govuk-secondary-text-colour); }
+/* Homepage wireframe: light grey placeholder boxes with rounded corners */
+.jcs-box { border-radius: 12px; background: #f3f3f3; }
+.jcs-box--hero { height: 300px; }
+.jcs-box--portrait { aspect-ratio: 3 / 4; }
+.jcs-box--square { aspect-ratio: 1 / 1; }
+/* Thin full-width strip, half the height of a square box */
+.jcs-box--strip { display: flex; align-items: center; box-sizing: border-box; padding: 0 20px; height: calc((min(100vw - 30px, 960px) - 30px) / 6); }
+@media (min-width: 40.0625em) { .jcs-box--strip { padding: 0 30px; height: calc((min(100vw - 60px, 960px) - 60px) / 6); } }
+.jcs-boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.jcs-section { margin-bottom: 40px; }
+.jcs-section__header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 5px 20px; margin-bottom: 20px; }
+@media (min-width: 40.0625em) {
+  .jcs-boxes { gap: 30px; }
+  .jcs-section { margin-bottom: 60px; }
+}
+/* Persistent bottom menu, like the docked menu on www.youngminds.org.uk: GOV.UK blue, fixed to
+   the bottom of the screen, rounded top corners, white links each with space for an icon */
+.jcs-dock { position: fixed; z-index: 100; right: 0; bottom: 0; left: 0; transition: transform 0.25s ease; }
+/* Slides out of the way at the very bottom of the page, and back when you scroll up */
+.jcs-dock--hidden { transform: translateY(110%); }
+@media (prefers-reduced-motion: reduce) { .jcs-dock { transition: none; } }
+.jcs-dock__inner { max-width: 960px; margin: 0 auto; border-radius: 24px 24px 0 0; background: var(--govuk-brand-colour, #1d70b8); box-shadow: 0 -2px 12px rgba(11, 12, 12, 0.2); }
+.jcs-dock__list { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 0; list-style: none; }
+.jcs-dock__item + .jcs-dock__item { border-left: 1px solid rgba(255, 255, 255, 0.3); }
+.jcs-dock__link { display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; box-sizing: border-box; padding: 10px 10px 11px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.25; text-align: center; color: #fff; text-decoration: none; }
+.jcs-dock__link:link, .jcs-dock__link:visited { color: #fff; }
+/* Chevron after each label, kept on the same line as the last word */
+.jcs-dock__nowrap { white-space: nowrap; }
+.jcs-dock__chevron { margin-left: 8px; vertical-align: -1px; }
+.jcs-dock__link:hover .jcs-dock__text { text-decoration: underline; text-decoration-thickness: 3px; }
+.jcs-dock__link:focus { outline: 3px solid transparent; color: var(--govuk-focus-text-colour, #0b0c0c); background-color: var(--govuk-focus-colour, #fd0); box-shadow: inset 0 -4px var(--govuk-focus-text-colour, #0b0c0c); }
+/* Person illustrations from www.jobs.service.gov.uk, in a white circle so the blue figures
+   stand out against the blue bar */
+/* Each illustration is cropped to its person: --x0/--y0 are where the crop starts and --cw how
+   much of the illustration's width it covers (all as fractions); --aspect is height ÷ width */
+.jcs-dock__icon { position: relative; flex: none; width: 56px; height: 56px; overflow: hidden; border-radius: 50%; background: #fff; }
+.jcs-dock__icon img { position: absolute; width: calc(100% / var(--cw)); max-width: none; height: auto; left: calc(-100% * var(--x0) / var(--cw)); top: calc(-100% * var(--y0) * var(--aspect) / var(--cw)); }
+@media (min-width: 40.0625em) {
+  .jcs-dock__link { flex-direction: row; justify-content: center; gap: 12px; padding: 15.5px 20px; font-size: 1.1875rem; text-align: left; }
+}
