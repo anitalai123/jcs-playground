@@ -23,11 +23,16 @@
     .jcs-menu-button__icon { transition: transform 0.15s ease; }
     .jcs-menu-button[aria-expanded="true"] .jcs-menu-button__icon { transform: rotate(180deg); }
 
-    /* Mega menu panel: GOV.UK grid, headings, lists and tags on the service navigation's light blue */
+    /* Mega menu panel: GOV.UK grid, headings, lists and tags on the service navigation's light blue.
+       Text sizes and spacing match the www.gov.uk menu: 24px headings, 16px bold links. */
     .jcs-mega-menu { padding: 30px 0 10px; border-bottom: 1px solid var(--govuk-surface-border-colour, #8eb8dc); background: var(--govuk-surface-background-colour, #f4f8fb); }
+    @media (min-width: 48.0625em) { .jcs-mega-menu { padding-top: 50px; } }
     .jcs-mega-menu[hidden] { display: none; }
-    .jcs-mega-menu .govuk-list li { margin-bottom: 10px; }
-    .jcs-mega-menu .govuk-tag { margin-left: 5px; vertical-align: middle; }
+    .jcs-mega-menu .govuk-list { margin-bottom: 30px; }
+    .jcs-mega-menu .govuk-list li { margin-bottom: 20px; }
+    .jcs-mega-menu__link { font-size: 1rem; font-weight: 700; }
+    /* Tags match the 16px links they label (the www.gov.uk menu has no tags to copy) */
+    .jcs-mega-menu .govuk-tag { margin-left: 5px; font-size: 1rem; vertical-align: middle; }
   </style>
 </head>
 <body class="govuk-template__body">
@@ -109,62 +114,62 @@
       <div class="govuk-width-container">
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Explore what I can do</h2>
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-4">Explore what I can do</h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link" href="#">Jobs and career quiz</a></li>
-                <li><a class="govuk-link" href="#">Learn about different jobs and sectors</a></li>
-                <li><a class="govuk-link" href="#">Talk to AI about different jobs</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Jobs and career quiz</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Learn about different jobs and sectors</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Talk to AI about different jobs</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Get my CV together</h2>
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-4">Get my CV together</h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link" href="#">Build a CV</a></li>
-                <li><a class="govuk-link" href="#">Get CV feedback</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
-                <li><a class="govuk-link" href="#">CV support</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Build a CV</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Get CV feedback</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">CV support</a></li>
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Prepare for an interview</h2>
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-4">Prepare for an interview</h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link" href="#">Mock interview</a> <strong class="govuk-tag govuk-tag--yellow">Experimental</strong></li>
-                <li><a class="govuk-link" href="#">Talk to AI about an interview</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
-                <li><a class="govuk-link" href="#">Interview guidance</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Build skills &amp; experience</h2>
-              <ul class="govuk-list">
-                <li><a class="govuk-link" href="#">Discover your skills</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
-                <li><a class="govuk-link" href="#">Find a course</a></li>
-                <li><a class="govuk-link" href="#">Find T-levels</a></li>
-                <li><a class="govuk-link" href="#">Find university courses on UCAS</a></li>
-              </ul>
-            </div>
-            <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Find jobs &amp; opportunities</h2>
-              <ul class="govuk-list">
-                <li><a class="govuk-link" href="#">Find a job</a></li>
-                <li><a class="govuk-link" href="#">Find seasonal jobs</a></li>
-                <li><a class="govuk-link" href="#">Find an apprenticeship</a></li>
-              </ul>
-            </div>
-            <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Not sure where to start?</h2>
-              <ul class="govuk-list">
-                <li><a class="govuk-link" href="#">Build an action plan</a></li>
-                <li><a class="govuk-link" href="#">Chat with AI work assistant</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Mock interview</a> <strong class="govuk-tag govuk-tag--yellow">Experimental</strong></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Talk to AI about an interview</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Interview guidance</a></li>
               </ul>
             </div>
           </div>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Get support</h2>
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-4">Build skills &amp; experience</h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link" href="#">Disabilities and work</a></li>
-                <li><a class="govuk-link" href="#">Mental health support</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Discover your skills</a> <strong class="govuk-tag govuk-tag--green">AI work assistant</strong></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Find a course</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Find T-levels</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Find university courses on UCAS</a></li>
+              </ul>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-4">Find jobs &amp; opportunities</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Find a job</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Find seasonal jobs</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Find an apprenticeship</a></li>
+              </ul>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-4">Not sure where to start?</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Build an action plan</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI work assistant</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-4">Get support</h2>
+              <ul class="govuk-list">
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Disabilities and work</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Mental health support</a></li>
               </ul>
             </div>
           </div>
