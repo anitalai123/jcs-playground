@@ -69,6 +69,9 @@
     .jcs-dock__item + .jcs-dock__item { border-left: 1px solid rgba(255, 255, 255, 0.3); }
     .jcs-dock__link { display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; box-sizing: border-box; padding: 12px 10px 14px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.25; text-align: center; color: #fff; text-decoration: none; }
     .jcs-dock__link:link, .jcs-dock__link:visited { color: #fff; }
+    /* Chevron after each label, kept on the same line as the last word */
+    .jcs-dock__nowrap { white-space: nowrap; }
+    .jcs-dock__chevron { margin-left: 8px; vertical-align: -1px; }
     .jcs-dock__link:hover .jcs-dock__text { text-decoration: underline; text-decoration-thickness: 3px; }
     .jcs-dock__link:focus { outline: 3px solid transparent; color: var(--govuk-focus-text-colour, #0b0c0c); background-color: var(--govuk-focus-colour, #fd0); box-shadow: inset 0 -4px var(--govuk-focus-text-colour, #0b0c0c); }
     /* Person illustrations from www.jobs.service.gov.uk, in a white circle so the blue figures
@@ -384,9 +387,9 @@
   <nav class="jcs-dock" id="dock" aria-label="Find help for you">
     <div class="jcs-dock__inner">
       <ul class="jcs-dock__list">
-        <li class="jcs-dock__item"><a class="jcs-dock__link" href="#"><span class="jcs-dock__icon" aria-hidden="true"><img src="images/person_phone.svg" alt="" style="--x0: 0.40; --y0: 0.03; --cw: 0.60; --aspect: 1.226"></span><span class="jcs-dock__text">Looking for my first job</span></a></li>
-        <li class="jcs-dock__item"><a class="jcs-dock__link" href="#"><span class="jcs-dock__icon" aria-hidden="true"><img src="images/person_yellow_boxes.svg" alt="" style="--x0: 0.20; --y0: 0.42; --cw: 0.50; --aspect: 0.896"></span><span class="jcs-dock__text">Looking to switch career</span></a></li>
-        <li class="jcs-dock__item"><a class="jcs-dock__link" href="#"><span class="jcs-dock__icon" aria-hidden="true"><img src="images/person_laptop.svg" alt="" style="--x0: 0.40; --y0: 0; --cw: 0.60; --aspect: 0.994"></span><span class="jcs-dock__text">New to the UK looking for work</span></a></li>
+        <li class="jcs-dock__item"><a class="jcs-dock__link" href="#"><span class="jcs-dock__icon" aria-hidden="true"><img src="images/person_phone.svg" alt="" style="--x0: 0.40; --y0: 0.03; --cw: 0.60; --aspect: 1.226"></span><span class="jcs-dock__text">Looking for my first <span class="jcs-dock__nowrap">job<svg class="jcs-dock__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path d="M1.5 1.5 6 6.5l-4.5 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a></li>
+        <li class="jcs-dock__item"><a class="jcs-dock__link" href="#"><span class="jcs-dock__icon" aria-hidden="true"><img src="images/person_yellow_boxes.svg" alt="" style="--x0: 0.20; --y0: 0.42; --cw: 0.50; --aspect: 0.896"></span><span class="jcs-dock__text">Looking to switch <span class="jcs-dock__nowrap">career<svg class="jcs-dock__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path d="M1.5 1.5 6 6.5l-4.5 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a></li>
+        <li class="jcs-dock__item"><a class="jcs-dock__link" href="#"><span class="jcs-dock__icon" aria-hidden="true"><img src="images/person_laptop.svg" alt="" style="--x0: 0.40; --y0: 0; --cw: 0.60; --aspect: 0.994"></span><span class="jcs-dock__text">New to the UK looking for <span class="jcs-dock__nowrap">work<svg class="jcs-dock__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path d="M1.5 1.5 6 6.5l-4.5 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></a></li>
       </ul>
     </div>
   </nav>
