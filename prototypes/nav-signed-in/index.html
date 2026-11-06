@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#1d70b8">
   <!-- Prototypes shouldn't show up in search results -->
   <meta name="robots" content="noindex, nofollow">
-  <title>My career profile – Signed in menu – Work hub – Prototype</title>
+  <title>Account home – Signed in menu – Work hub – Prototype</title>
   <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
   <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
   <link rel="stylesheet" href="/menu-shared/menu.css">
@@ -18,7 +18,8 @@
 
   <!-- Header for the menu & navigation prototypes. The GOV.UK header (with Sign in), mega menu, footer
        and bottom menu are shared: see /menu-shared/menu.js. This is the signed in view, using Option 1's
-       service navigation. data-signed-in on <body> turns Sign in into Sign out. Unlike other prototypes, it holds the service being designed. -->
+       service navigation. data-signed-in on <body> turns Sign in into Sign out.
+       No bottom menu here: signed in users have the account menu instead. Unlike other prototypes, it holds the service being designed. -->
   <header class="govuk-template__header">
     <div data-shared="header"></div>
     <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
@@ -67,7 +68,8 @@
       <div class="jcs-account">
         <nav class="jcs-account-nav" aria-label="Your account">
           <ul class="jcs-account-nav__list">
-            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#" aria-current="page"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My career profile</a></li>
+            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#" aria-current="page"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Account home</a></li>
+            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My career profile</a></li>
             <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Jobs activity</a></li>
             <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My CVs</a></li>
             <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My action plan</a></li>
@@ -78,7 +80,7 @@
         </nav>
         <div class="jcs-account__content">
           <span class="govuk-caption-l">Your account</span>
-          <h1 class="govuk-heading-l">My career profile</h1>
+          <h1 class="govuk-heading-l">Account home</h1>
           <!-- Wireframe: grey placeholder boxes stand in for real content -->
           <div class="jcs-box jcs-box--hero govuk-!-margin-bottom-6"></div>
           <div class="jcs-boxes">
@@ -93,7 +95,6 @@
 
   <div data-shared="footer"></div>
 
-  <div data-shared="dock"></div>
 
   <script type="module">
     // Shared header, mega menu, footer and bottom menu (see /menu-shared/menu.js)

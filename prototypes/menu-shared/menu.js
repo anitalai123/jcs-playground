@@ -242,15 +242,18 @@ document.addEventListener('keydown', (e) => {
 
 // Bottom menu hides at the very bottom of the page (so it doesn't cover the footer) and comes
 // back as soon as you scroll up. While hidden it's inert, so keyboard users can't tab into it.
+// Pages without a bottom menu (like the signed in view) skip this.
 const dock = document.getElementById('dock')
-const updateDock = () => {
-  const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
-  dock.classList.toggle('jcs-dock--hidden', atBottom)
-  dock.inert = atBottom
+if (dock) {
+  const updateDock = () => {
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+    dock.classList.toggle('jcs-dock--hidden', atBottom)
+    dock.inert = atBottom
+  }
+  window.addEventListener('scroll', updateDock, { passive: true })
+  window.addEventListener('resize', updateDock)
+  updateDock()
 }
-window.addEventListener('scroll', updateDock, { passive: true })
-window.addEventListener('resize', updateDock)
-updateDock()
 
 // Placeholder links (href="#") are dead ends in the prototype. Stop them jumping to the top of the page.
 document.addEventListener('click', (e) => {
