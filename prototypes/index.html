@@ -12,8 +12,12 @@
   <style>
     /* Cards for a prototype's design options: 3 columns on desktop (from the grid's
        one-third columns), stacked on mobile. Not an official GOV.UK component. */
-    .jcs-option { display: flex; flex-direction: column; height: 100%; padding: 20px; margin-bottom: 20px; background: #f3f3f3; }
+    .jcs-option { display: flex; flex-direction: column; height: 100%; margin-bottom: 20px; }
     .jcs-option > :last-child { margin-top: auto; margin-bottom: 0; }
+    /* Hairline divider between options, only once they sit side by side (matches the grid's own breakpoint) */
+    @media (min-width: 40.0625em) {
+      .jcs-options > .govuk-grid-column-one-third:not(:first-child) .jcs-option { border-left: 1px solid var(--govuk-border-colour); padding-left: 20px; }
+    }
   </style>
 </head>
 <body class="govuk-template__body">
@@ -73,7 +77,7 @@
           <h1 class="govuk-heading-xl">JCS playground</h1>
           <!-- prototypes:start -->
           <h2 class="govuk-heading-l">Menu &amp; navigation design</h2>
-          <div class="govuk-grid-row govuk-!-margin-bottom-9">
+          <div class="govuk-grid-row jcs-options govuk-!-margin-bottom-9">
             <div class="govuk-grid-column-one-third">
               <div class="jcs-option">
                 <strong class="govuk-tag govuk-!-margin-bottom-2" style="align-self: flex-start;">Option 1</strong>
