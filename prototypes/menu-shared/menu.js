@@ -113,6 +113,51 @@ const parts = {
       </div>
     </div>`,
 
+  // GOV.UK cookie banner: https://design-system.service.gov.uk/components/cookie-banner/default/
+  'cookie-banner': `
+  <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on Work hub" id="cookie-banner">
+    <div class="govuk-cookie-banner__message govuk-width-container" data-cookie-step="question">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on Work hub</h2>
+          <div class="govuk-cookie-banner__content">
+            <p class="govuk-body">We use some essential cookies to make this service work.</p>
+            <p class="govuk-body">We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-button-group">
+        <button type="button" class="govuk-button" data-module="govuk-button" data-cookie-choice="accepted">Accept analytics cookies</button>
+        <button type="button" class="govuk-button" data-module="govuk-button" data-cookie-choice="rejected">Reject analytics cookies</button>
+        <a class="govuk-link" href="#">View cookies</a>
+      </div>
+    </div>
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" tabindex="-1" hidden data-cookie-step="accepted">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-cookie-banner__content">
+            <p class="govuk-body">You’ve accepted analytics cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-button-group">
+        <button type="button" class="govuk-button" data-module="govuk-button" data-cookie-hide>Hide cookie message</button>
+      </div>
+    </div>
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" tabindex="-1" hidden data-cookie-step="rejected">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-cookie-banner__content">
+            <p class="govuk-body">You’ve rejected analytics cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-button-group">
+        <button type="button" class="govuk-button" data-module="govuk-button" data-cookie-hide>Hide cookie message</button>
+      </div>
+    </div>
+  </div>`,
+
   footer: `
   <!-- GOV.UK footer without the crown. Navigation above the line; below it, the same links as
        the current Work hub footer (www.jobs.service.gov.uk) -->
@@ -207,6 +252,28 @@ const showAdSpace = !!document.querySelector('[data-shared="mega-menu"][data-ad-
 for (const el of document.querySelectorAll('[data-shared]')) {
   el.outerHTML = parts[el.dataset.shared]
 }
+// Cookie banner: answering swaps in the confirmation message, Hide removes the banner. The choice is
+// remembered for this browser tab only (sessionStorage), so the banner shows again in a new session.
+const cookieBanner = document.getElementById('cookie-banner')
+if (cookieBanner) {
+  let answered = null
+  try { answered = sessionStorage.getItem('jcs-cookie-banner') } catch {}
+  if (answered) cookieBanner.hidden = true
+  const remember = () => { try { sessionStorage.setItem('jcs-cookie-banner', 'done') } catch {} }
+  for (const button of cookieBanner.querySelectorAll('[data-cookie-choice]')) {
+    button.addEventListener('click', () => {
+      cookieBanner.querySelector('[data-cookie-step="question"]').hidden = true
+      const confirmation = cookieBanner.querySelector(`[data-cookie-step="${button.dataset.cookieChoice}"]`)
+      confirmation.hidden = false
+      confirmation.focus()
+      remember()
+    })
+  }
+  for (const button of cookieBanner.querySelectorAll('[data-cookie-hide]')) {
+    button.addEventListener('click', () => { cookieBanner.hidden = true })
+  }
+}
+
 if (!showAdSpace) for (const ad of document.querySelectorAll('.jcs-mega-menu__ad-column')) ad.remove()
 
 // Sign in opens the signed in menu (nav-signed-in), remembering which option you came from. On the
