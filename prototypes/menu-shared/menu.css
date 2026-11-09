@@ -96,9 +96,9 @@
 .jcs-account-nav__icon { flex: none; width: 24px; height: 24px; box-sizing: border-box; border: 2px dashed #b1b4b6; border-radius: 6px; }
 
 /* Single entry point version of the bottom menu (Option 2): light yellow, with illustration, a title
-   and line of text in GOV.UK text colour, and a white GOV.UK start button. Text and button stack on phones. */
+   and line of text in dark blue (#0f385c), and a white GOV.UK start button. Text and button stack on phones. */
 .jcs-dock__single { background: #fff7bf; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; box-sizing: border-box; padding: 14px 20px; }
-.jcs-dock__single-text { flex: 1 1 180px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; line-height: 1.25; color: var(--govuk-text-colour, #0b0c0c); }
+.jcs-dock__single-text { flex: 1 1 180px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; line-height: 1.25; color: #0f385c; }
 .jcs-dock__single-text p { margin: 0; }
 .jcs-dock__single-button { margin-bottom: 0; }
 @media (max-width: 40.0525em) { .jcs-dock__single-button { flex: 1 1 100%; } }
