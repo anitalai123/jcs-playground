@@ -112,6 +112,3 @@
 .jcs-mega-menu__ad { display: flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: 150px; height: calc(100% - 30px); border-radius: 12px; background: #e5e5e5; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: #505a5f; }
 /* Skip the middle column so the ad sits under Get support, level with Not sure where to start? */
 @media (min-width: 40.0625em) { .jcs-mega-menu__ad-column { margin-left: 33.3333%; } }
-
-/* GOV.UK cookie banner: make sure hidden steps stay hidden */
-.govuk-cookie-banner[hidden], .govuk-cookie-banner__message[hidden] { display: none; }
