@@ -105,6 +105,10 @@ const parts = {
                 <li class="jcs-mega-menu__item--with-icon"><img src="/menu-shared/images/chat-icon.svg" width="49" height="40" alt="" aria-hidden="true"><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI work assistant</a></li>
               </ul>
             </div>
+            <!-- Placeholder for a potential advert. Only shown where the page asks for it (data-ad-space) -->
+            <div class="govuk-grid-column-two-thirds jcs-mega-menu__ad-column">
+              <div class="jcs-mega-menu__ad" aria-hidden="true">Ad space</div>
+            </div>
           </div>
       </div>
     </div>`,
@@ -199,9 +203,11 @@ const parts = {
   </nav>`
 }
 
+const showAdSpace = !!document.querySelector('[data-shared="mega-menu"][data-ad-space]')
 for (const el of document.querySelectorAll('[data-shared]')) {
   el.outerHTML = parts[el.dataset.shared]
 }
+if (!showAdSpace) for (const ad of document.querySelectorAll('.jcs-mega-menu__ad-column')) ad.remove()
 
 // Sign in opens the signed in menu (nav-signed-in), remembering which option you came from. On the
 // signed in page (<body data-signed-in>) it becomes Sign out and takes you back there.
