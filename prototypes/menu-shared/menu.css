@@ -16,7 +16,8 @@
 
 /* Mega menu panel: GOV.UK grid, headings, lists and tags on the service navigation's light blue.
    Category headings are 19px bold black links with no underline; links below match the www.gov.uk menu at 16px bold. */
-.jcs-mega-menu { padding: 30px 0 10px; border-bottom: 1px solid var(--govuk-surface-border-colour, #8eb8dc); background: var(--govuk-surface-background-colour, #f4f8fb); }
+/* Open menus sit above the bottom menu (z-index 100) where they overlap */
+.jcs-mega-menu { position: relative; z-index: 101; padding: 30px 0 10px; border-bottom: 1px solid var(--govuk-surface-border-colour, #8eb8dc); background: var(--govuk-surface-background-colour, #f4f8fb); }
 @media (min-width: 48.0625em) { .jcs-mega-menu { padding-top: 50px; } }
 .jcs-mega-menu[hidden] { display: none; }
 /* Wider gap between the menu's columns than GOV.UK's standard 30px: 50px on desktop */
