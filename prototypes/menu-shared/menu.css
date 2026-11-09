@@ -120,3 +120,21 @@
 @media (min-width: 40.0625em) { .jcs-box--location { padding: 0 30px; min-height: calc((min(100vw - 60px, 960px) - 60px) / 12); } }
 .jcs-location__text { display: flex; align-items: center; gap: 10px; }
 .jcs-location__icon { flex: none; }
+
+/* Signed in view as a web app (<body class="jcs-app-page">): header, banner and footer run full width,
+   the account menu is a full height panel down the left edge, and the page fills the rest. */
+.jcs-app-page .govuk-width-container { max-width: none; }
+@media (min-width: 40.0625em) { .jcs-app-page .govuk-width-container { margin-right: 30px; margin-left: 30px; } }
+.jcs-app { display: grid; border-top: 1px solid #b1b4b6; }
+.jcs-app-page .govuk-phase-banner { border-bottom: 0; }
+.jcs-app__sidebar { background: #f8f8f8; }
+.jcs-app__sidebar .jcs-account-nav { padding: 20px 0; border-radius: 0; background: none; }
+.jcs-app__content { box-sizing: border-box; max-width: 1020px; padding: 30px 15px 40px; }
+@media (min-width: 40.0625em) { .jcs-app__content { padding: 40px 30px 60px; } }
+@media (min-width: 48.0625em) {
+  .jcs-app { grid-template-columns: 280px 1fr; min-height: 100vh; }
+  .jcs-app__sidebar { border-right: 1px solid #b1b4b6; }
+  /* The menu stays in view while the page scrolls */
+  .jcs-app__sidebar .jcs-account-nav { position: sticky; top: 0; max-height: 100vh; overflow-y: auto; box-sizing: border-box; }
+  .jcs-app__content { padding: 40px; }
+}

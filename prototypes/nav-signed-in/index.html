@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
   <link rel="stylesheet" href="/menu-shared/menu.css">
 </head>
-<body class="govuk-template__body" data-signed-in>
+<body class="govuk-template__body jcs-app-page" data-signed-in>
   <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
   <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
@@ -71,32 +71,35 @@
         <span class="govuk-phase-banner__text">This is a prototype.</span>
       </p>
     </div>
+  </div>
 
-    <main class="govuk-main-wrapper" id="main-content">
-      <!-- Signed in: account menu in a panel on the left, the chosen page on the right -->
-      <div class="jcs-account">
-        <nav class="jcs-account-nav" aria-label="Your account">
-          <ul class="jcs-account-nav__list">
-            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#" aria-current="page"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Account home</a></li>
-            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My career profile</a></li>
-            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Jobs activity</a></li>
-            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My CVs</a></li>
-            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My action plan</a></li>
-            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Chat history</a></li>
-            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Mock interview sessions</a></li>
-            <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Manage my account</a></li>
-          </ul>
-        </nav>
-        <div class="jcs-account__content">
-          <span class="govuk-caption-l">Your account</span>
-          <h1 class="govuk-heading-l">Account home</h1>
-          <!-- Wireframe: grey placeholder boxes stand in for real content -->
-          <div class="jcs-box jcs-box--hero govuk-!-margin-bottom-6"></div>
-          <div class="jcs-boxes">
-            <div class="jcs-box jcs-box--square"></div>
-            <div class="jcs-box jcs-box--square"></div>
-            <div class="jcs-box jcs-box--square"></div>
-          </div>
+  <!-- Signed in, laid out like a web app: the account menu is a full height panel down the left edge
+       and the chosen page fills the rest of the screen -->
+  <div class="jcs-app">
+    <aside class="jcs-app__sidebar">
+      <nav class="jcs-account-nav" aria-label="Your account">
+        <ul class="jcs-account-nav__list">
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#" aria-current="page"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Account home</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My career profile</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Jobs activity</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My CVs</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My action plan</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Chat history</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Mock interview sessions</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Manage my account</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="jcs-app__main" id="main-content">
+      <div class="jcs-app__content">
+        <span class="govuk-caption-l">Your account</span>
+        <h1 class="govuk-heading-l">Account home</h1>
+        <!-- Wireframe: grey placeholder boxes stand in for real content -->
+        <div class="jcs-box jcs-box--hero govuk-!-margin-bottom-6"></div>
+        <div class="jcs-boxes">
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
         </div>
       </div>
     </main>
