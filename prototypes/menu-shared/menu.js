@@ -216,7 +216,7 @@ if (signIn) {
   if (document.body.hasAttribute('data-signed-in')) {
     const from = new URLSearchParams(location.search).get('from')
     signIn.textContent = 'Sign out'
-    signIn.href = from && from.startsWith('/') ? from : '/nav-mega-menu/'
+    signIn.href = from && from.startsWith('/') ? from : '/nav-hero-tools/'
   } else {
     signIn.href = `/nav-signed-in/?from=${encodeURIComponent(location.pathname)}`
   }

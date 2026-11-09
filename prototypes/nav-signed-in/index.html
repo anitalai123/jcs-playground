@@ -17,7 +17,7 @@
   <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
 
   <!-- Header for the menu & navigation prototypes. The GOV.UK header (with Sign in), mega menu, footer
-       and bottom menu are shared: see /menu-shared/menu.js. This is the signed in view, using Option 1's
+       and bottom menu are shared: see /menu-shared/menu.js. This is the signed in view, using Option 2's
        service navigation. data-signed-in on <body> turns Sign in into Sign out.
        No bottom menu here: signed in users have the account menu instead. Unlike other prototypes, it holds the service being designed. -->
   <header class="govuk-template__header">
@@ -28,11 +28,20 @@
           <span class="govuk-service-navigation__service-name">
             <a href="index.html" class="govuk-service-navigation__link">Work hub</a>
           </span>
+          <!-- 4 hero tools, then "More" opens the full mega menu. On phones, GOV.UK service navigation
+               tucks these behind its own Menu toggle. -->
           <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
-            <ul class="govuk-service-navigation__list">
+            <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden aria-hidden="true">
+              Menu
+            </button>
+            <ul class="govuk-service-navigation__list" id="navigation">
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">AI work assistant</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Find a job</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Build a CV</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Action plan</a></li>
               <li class="govuk-service-navigation__item">
-                <button type="button" class="jcs-menu-button" id="mega-menu-toggle" aria-expanded="false" aria-controls="mega-menu">
-                  Menu
+                <button type="button" class="jcs-menu-button jcs-menu-button--regular" id="mega-menu-toggle" aria-expanded="false" aria-controls="mega-menu">
+                  More
                   <svg class="jcs-menu-button__icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 12 1 4h14z"/></svg>
                 </button>
               </li>
@@ -52,7 +61,7 @@
       </div>
     </section>
 
-    <div data-shared="mega-menu" data-ad-space></div>
+    <div data-shared="mega-menu"></div>
   </header>
 
   <div class="govuk-width-container">
