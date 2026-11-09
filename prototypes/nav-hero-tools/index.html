@@ -145,7 +145,15 @@
 
   <div data-shared="footer"></div>
 
-  <div data-shared="dock"></div>
+  <!-- Option 2's bottom menu: a single entry point for young people, instead of the shared three-item
+       menu. Same blue bar and behaviour (id="dock" hides it at the very bottom of the page). -->
+  <aside class="jcs-dock" id="dock" aria-label="Support for young people">
+    <div class="jcs-dock__inner jcs-dock__single">
+      <span class="jcs-dock__icon" aria-hidden="true"><img src="/menu-shared/images/person_phone.svg" alt="" style="--x0: 0.40; --y0: 0.03; --cw: 0.60; --aspect: 1.226"></span>
+      <p class="jcs-dock__single-text">I am a young person looking for a job</p>
+      <a href="#" role="button" draggable="false" class="govuk-button govuk-button--inverse jcs-dock__single-button" data-module="govuk-button">Explore support</a>
+    </div>
+  </aside>
 
   <script type="module">
     // Shared header, mega menu, footer and bottom menu (see /menu-shared/menu.js)
