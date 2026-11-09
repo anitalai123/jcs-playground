@@ -102,7 +102,6 @@
 .jcs-dock__single-text p { margin: 0; }
 .jcs-dock__single-title { font-weight: 700; }
 .jcs-dock__single-button { margin-bottom: 0; }
-.jcs-dock__single-button:link, .jcs-dock__single-button:visited, .jcs-dock__single-button:hover, .jcs-dock__single-button:active { color: #0f385c; }
 @media (max-width: 40.0525em) { .jcs-dock__single-button { flex: 1 1 100%; } }
 @media (min-width: 40.0625em) {
   .jcs-dock__single { padding: 14px 30px; gap: 20px; }
