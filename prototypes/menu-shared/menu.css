@@ -26,7 +26,8 @@
   .jcs-mega-menu .govuk-grid-column-one-third { padding-right: 25px; padding-left: 25px; }
 }
 .jcs-mega-menu .govuk-list { margin-bottom: 30px; }
-.jcs-mega-menu .govuk-list li { margin-bottom: 20px; }
+/* Rows sized for the 16px links (as on www.gov.uk) rather than GOV.UK's 19px body text: links 40px apart */
+.jcs-mega-menu .govuk-list li { margin-bottom: 20px; font-size: 1rem; line-height: 1.25; }
 .jcs-mega-menu__link { font-size: 1rem; font-weight: 700; }
 /* Grey text under a link, like the descriptions under some www.gov.uk menu links: 16px, 5px below */
 /* Tags sit beside the link at the same 16px size */
