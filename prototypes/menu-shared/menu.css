@@ -115,6 +115,6 @@
 
 /* Location strip: half the height of the "Not sure where to start?" strip on desktop. On narrow screens
    it grows to fit, with the button wrapping under the text. */
-.jcs-box--location { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; box-sizing: border-box; padding: 15px 20px; }
+.jcs-box--location { background: #e8f1f8; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; box-sizing: border-box; padding: 15px 20px; }
 .jcs-box--location .govuk-link { margin-left: 5px; }
 @media (min-width: 40.0625em) { .jcs-box--location { padding: 0 30px; min-height: calc((min(100vw - 60px, 960px) - 60px) / 12); } }
