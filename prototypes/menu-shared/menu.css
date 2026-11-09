@@ -87,7 +87,7 @@
 @media (min-width: 48.0625em) { .jcs-account { grid-template-columns: 280px 1fr; gap: 40px; align-items: start; } }
 .jcs-account-nav { padding: 10px 0; border-radius: 12px; background: #f8f8f8; }
 .jcs-account-nav__list { margin: 0; padding: 0; list-style: none; }
-.jcs-account-nav__link { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-left: 4px solid transparent; font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; line-height: 1.3; text-decoration: none; }
+.jcs-account-nav__link { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-left: 4px solid transparent; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; line-height: 1.25; text-decoration: none; }
 .jcs-account-nav__link:link, .jcs-account-nav__link:visited { color: var(--govuk-link-colour); }
 .jcs-account-nav__link:hover { color: var(--govuk-link-hover-colour); text-decoration: underline; text-decoration-thickness: 3px; }
 .jcs-account-nav__link[aria-current] { border-left-color: var(--govuk-brand-colour); font-weight: 700; color: var(--govuk-text-colour); }
@@ -142,7 +142,7 @@
 /* "Feeling stuck?" entry point at the foot of the signed in menu */
 .jcs-account-help { display: flex; align-items: flex-start; gap: 12px; margin: 0 20px; padding: 20px 0; border-top: 1px solid #b1b4b6; background: #f8f8f8; font-family: "GDS Transport", arial, sans-serif; }
 .jcs-account-help__icon { flex: none; }
-.jcs-account-help__title { margin: 0 0 5px; font-size: 1.1875rem; line-height: 1.3; font-weight: 700; color: var(--govuk-text-colour); }
+.jcs-account-help__title { margin: 0 0 5px; font-size: 1rem; line-height: 1.25; font-weight: 700; color: var(--govuk-text-colour); }
 .jcs-account-help__link { font-size: 1rem; line-height: 1.25; }
 @media (min-width: 48.0625em) {
   .jcs-app__sidebar { display: flex; flex-direction: column; }
