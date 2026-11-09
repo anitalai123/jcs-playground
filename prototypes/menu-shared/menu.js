@@ -106,8 +106,9 @@ const parts = {
               </ul>
             </div>
             <!-- Placeholder for a potential advert. Only shown where the page asks for it (data-ad-space) -->
-            <div class="govuk-grid-column-two-thirds jcs-mega-menu__ad-column">
-              <div class="jcs-mega-menu__ad" aria-hidden="true">Ad space</div>
+            <div class="govuk-grid-column-one-third jcs-mega-menu__ad-column"></div>
+            <div class="govuk-grid-column-one-third jcs-mega-menu__ad-column">
+              <div class="jcs-mega-menu__ad" aria-hidden="true">Potential ad space</div>
             </div>
           </div>
       </div>

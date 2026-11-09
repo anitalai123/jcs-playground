@@ -108,5 +108,5 @@
   .jcs-dock__single-title { font-size: 1.1875rem; }
 }
 
-/* Potential advert space in the mega menu (Option 1): a grey box filling two columns */
+/* Potential advert space in the mega menu (Option 1): a grey box in the third column */
 .jcs-mega-menu__ad { display: flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: 150px; height: calc(100% - 30px); border-radius: 12px; background: #e5e5e5; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: #505a5f; }
