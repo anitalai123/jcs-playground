@@ -58,7 +58,7 @@ const parts = {
               <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Get my CV together</a></h2>
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Build a CV</a></li>
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">CV support</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">CV guidance</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Get CV feedback</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
               </ul>
             </div>
@@ -149,7 +149,7 @@ const parts = {
         <div class="govuk-footer__section govuk-grid-column-one-quarter">
           <h2 class="govuk-footer__heading govuk-heading-m">Resources</h2>
           <ul class="govuk-footer__list">
-            <li class="govuk-footer__list-item"><a class="govuk-footer__link" href="#">CV support</a></li>
+            <li class="govuk-footer__list-item"><a class="govuk-footer__link" href="#">CV guidance</a></li>
             <li class="govuk-footer__list-item"><a class="govuk-footer__link" href="#">Interview support</a></li>
             <li class="govuk-footer__list-item"><a class="govuk-footer__link" href="#">Explore jobs and sectors</a></li>
             <li class="govuk-footer__list-item"><a class="govuk-footer__link" href="#">Support with barriers &amp; circumstances</a></li>
