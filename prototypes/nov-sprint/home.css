@@ -70,7 +70,7 @@
    20px above and below. */
 .jcs-mega-menu { padding-bottom: 0; }
 .jcs-mega-menu__strap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 30px; margin-top: 10px; padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #dbdad9; }
-.jcs-mega-menu__strap-title { margin: 0; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.25; color: var(--govuk-secondary-text-colour, #505a5f); }
+.jcs-mega-menu__strap-title { margin: 0; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.25; color: var(--govuk-text-colour, #0b0c0c); }
 .jcs-mega-menu__strap-list { display: flex; flex-wrap: wrap; gap: 10px 30px; margin: 0; padding: 0; list-style: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; line-height: 1.25; }
 /* Keep "Chat with AI work assistant" on one line beside its icon. On narrow desktops it runs into the
    empty middle column rather than wrapping. */
