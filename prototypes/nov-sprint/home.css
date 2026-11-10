@@ -57,3 +57,15 @@
 .jcs-home-feedback { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 32px; background: #f8f8f8; text-align: center; }
 /* Keep Explore buttons button-sized on phones, as on the live site */
 .jcs-home-card .govuk-button { width: auto; }
+
+/* Mega menu (this page has its own copy, see index.html) */
+/* YP entry point skips the middle column, like the ad space in Option 1 */
+@media (min-width: 40.0625em) {
+  .jcs-mega-menu__yp-column { margin-left: 33.3333%; }
+  /* Same 50px gutter as the menu's one-third columns */
+  .jcs-mega-menu .govuk-grid-column-two-thirds { padding-right: 25px; padding-left: 25px; }
+}
+/* Other UK career services: thin strap, title and links side by side, links separated by bullets */
+.jcs-mega-menu__strap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 5px 20px; box-sizing: border-box; margin-bottom: 30px; padding: 15px 20px; border-radius: 12px; background: #fff; }
+.jcs-mega-menu__strap-list { display: flex; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; line-height: 1.25; }
+.jcs-mega-menu__strap-list li + li::before { content: "•"; margin: 0 10px; color: #505a5f; }
