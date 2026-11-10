@@ -66,6 +66,6 @@
   .jcs-mega-menu .govuk-grid-column-two-thirds { padding-right: 25px; padding-left: 25px; }
 }
 /* Other UK career services: thin strap, title and links side by side, links separated by bullets */
-.jcs-mega-menu__strap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 5px 20px; box-sizing: border-box; margin-bottom: 30px; padding: 15px 20px; border-radius: 12px; background: #fff; }
+.jcs-mega-menu__strap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 5px 20px; margin-bottom: 30px; }
 .jcs-mega-menu__strap-list { display: flex; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; line-height: 1.25; }
 .jcs-mega-menu__strap-list li + li::before { content: "•"; margin: 0 10px; color: #505a5f; }
