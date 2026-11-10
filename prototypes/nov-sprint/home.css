@@ -1,0 +1,59 @@
+/* Homepage content for the November sprint, rebuilt from the live Work hub homepage
+   (www.jobs.service.gov.uk), using its sizes and colours */
+
+/* Blue hero */
+.jcs-home-hero { padding-top: 40px; background: #1d70b8; }
+.jcs-home-hero__inner { display: flex; flex-direction: column; }
+.jcs-home-hero__image { order: -1; align-self: flex-start; width: 100%; max-width: 343px; height: auto; margin-bottom: 20px; }
+.jcs-home-hero__text { padding-bottom: 40px; }
+.jcs-home-hero__heading { margin-bottom: 12px; color: #fff; }
+.jcs-home-hero__body { margin-bottom: 0; color: #fff; }
+@media (min-width: 48em) {
+  .jcs-home-hero__inner { flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; }
+  .jcs-home-hero__image { order: 1; width: auto; }
+  .jcs-home-hero__text { order: -1; max-width: 36rem; }
+}
+
+.jcs-home-section { margin-top: 40px; margin-bottom: 40px; }
+.jcs-home-section:first-child { margin-top: 50px; }
+
+/* How we can help: links with an arrow in a grey circle */
+.jcs-home-help, .jcs-home-chat__links { margin: 0; padding: 0; list-style: none; }
+.jcs-home-help__item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.jcs-home-help__circle, .jcs-home-chat__circle { display: flex; flex: none; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #eeefef; }
+.jcs-home-chat__circle { background: #1d70b8; }
+.jcs-home-help__link, .jcs-home-chat__link { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
+
+/* Chat with AI panel */
+.jcs-home-chat { display: flex; flex-direction: column; gap: 32px; margin-right: -15px; margin-left: -15px; padding: 32px; background: #d2e2f1; }
+.jcs-home-chat__item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.jcs-home-chat__item:last-child { margin-bottom: 0; }
+@media (min-width: 40em) { .jcs-home-chat { margin-right: 0; margin-left: 0; border-radius: 4px; } }
+@media (min-width: 48em) {
+  .jcs-home-chat { flex-direction: row; align-items: center; justify-content: space-between; gap: 0; }
+  .jcs-home-chat__intro { flex: 0 0 57.2%; }
+  .jcs-home-chat__links { flex: 0 0 31.4%; }
+}
+
+/* Not sure where to start? cards */
+.jcs-home-notsure { padding-bottom: 16px; text-align: center; }
+.jcs-home-cards { display: flex; flex-direction: column; gap: 24px; }
+@media (min-width: 48em) { .jcs-home-cards { display: grid; grid-template-columns: repeat(2, 1fr); } }
+.jcs-home-card { position: relative; overflow: hidden; box-sizing: border-box; height: 100%; padding: 16px; }
+.jcs-home-card__title { margin: 0 0 10px; font-family: "GDS Transport", arial, sans-serif; font-size: 1.75rem; font-weight: 700; line-height: 1.25; color: #0b0c0c; }
+.jcs-home-card__content { position: relative; z-index: 2; max-width: calc(100% - 100px); }
+.jcs-home-card__lead { margin-bottom: 15px; color: #505a5f; }
+.jcs-home-card__content .govuk-list { margin-bottom: 20px; font-size: 1.125rem; }
+.jcs-home-card__illustration { position: absolute; right: 0; bottom: 0; width: 150px; height: 150px; pointer-events: none; }
+@media (min-width: 57.25em) {
+  .jcs-home-card { padding: 32px; }
+  .jcs-home-card__title { font-size: 2.25rem; }
+  .jcs-home-card__content { max-width: calc(100% - 150px); }
+  .jcs-home-card__content .govuk-list { font-size: 1.1875rem; }
+  .jcs-home-card__illustration { width: 200px; height: 200px; }
+}
+
+/* Give us feedback */
+.jcs-home-feedback { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 32px; background: #f8f8f8; text-align: center; }
+/* Keep Explore buttons button-sized on phones, as on the live site */
+.jcs-home-card .govuk-button { width: auto; }

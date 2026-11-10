@@ -10,6 +10,7 @@
   <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
   <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
   <link rel="stylesheet" href="/menu-shared/menu.css">
+  <link rel="stylesheet" href="home.css">
   <!-- No footer on this page, so keep the area below the content white rather than GOV.UK's template colour -->
   <style>.govuk-template { background-color: #fff; }</style>
 </head>
@@ -72,16 +73,107 @@
         <span class="govuk-phase-banner__text">This is a prototype.</span>
       </p>
     </div>
+  </div>
 
-    <main class="govuk-main-wrapper" id="main-content">
-      <h1 class="govuk-visually-hidden">Work hub</h1>
-      <!-- Homepage wireframe: grey placeholder boxes stand in for real content -->
-      <div class="jcs-box jcs-box--hero govuk-!-margin-bottom-6"></div>
-      <div class="jcs-boxes jcs-section">
-        <div class="jcs-box jcs-box--portrait"></div>
-        <div class="jcs-box jcs-box--portrait"></div>
-        <div class="jcs-box jcs-box--portrait"></div>
+  <!-- Homepage content rebuilt from the live Work hub homepage (www.jobs.service.gov.uk) -->
+  <div class="jcs-home-hero">
+    <div class="govuk-width-container jcs-home-hero__inner">
+      <img class="jcs-home-hero__image" src="/menu-shared/images/work_that_works_for_you.svg" alt="" aria-hidden="true" width="343" height="201">
+      <div class="jcs-home-hero__text">
+        <h1 class="govuk-heading-xl jcs-home-hero__heading">Get work that works for you</h1>
+        <p class="govuk-body-l jcs-home-hero__body">Build skills, gain experience and find opportunities today.</p>
       </div>
+    </div>
+  </div>
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-!-padding-top-0" id="main-content">
+      <section class="jcs-home-section">
+        <h2 class="govuk-heading-m">How we can help:</h2>
+        <ul class="jcs-home-help">
+          <li class="jcs-home-help__item"><span class="jcs-home-help__circle"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect y="8.975" width="2.662" height="22.626" rx="1.331" transform="rotate(-90 0 8.975)" fill="#0B0C0C"/><rect x="13.69" y="1.882" width="2.662" height="10.838" rx="1.331" transform="rotate(-45 13.69 1.882)" fill="#0B0C0C"/><rect x="15.591" y="15.44" width="2.662" height="10.838" rx="1.331" transform="rotate(-135 15.591 15.44)" fill="#0B0C0C"/></svg></span><a class="govuk-link jcs-home-help__link" href="#">Explore with AI work assistant</a></li>
+          <li class="jcs-home-help__item"><span class="jcs-home-help__circle"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect y="8.975" width="2.662" height="22.626" rx="1.331" transform="rotate(-90 0 8.975)" fill="#0B0C0C"/><rect x="13.69" y="1.882" width="2.662" height="10.838" rx="1.331" transform="rotate(-45 13.69 1.882)" fill="#0B0C0C"/><rect x="15.591" y="15.44" width="2.662" height="10.838" rx="1.331" transform="rotate(-135 15.591 15.44)" fill="#0B0C0C"/></svg></span><a class="govuk-link jcs-home-help__link" href="#">Build a CV</a></li>
+          <li class="jcs-home-help__item"><span class="jcs-home-help__circle"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect y="8.975" width="2.662" height="22.626" rx="1.331" transform="rotate(-90 0 8.975)" fill="#0B0C0C"/><rect x="13.69" y="1.882" width="2.662" height="10.838" rx="1.331" transform="rotate(-45 13.69 1.882)" fill="#0B0C0C"/><rect x="15.591" y="15.44" width="2.662" height="10.838" rx="1.331" transform="rotate(-135 15.591 15.44)" fill="#0B0C0C"/></svg></span><a class="govuk-link jcs-home-help__link" href="#">Find a job</a></li>
+          <li class="jcs-home-help__item"><span class="jcs-home-help__circle"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect y="8.975" width="2.662" height="22.626" rx="1.331" transform="rotate(-90 0 8.975)" fill="#0B0C0C"/><rect x="13.69" y="1.882" width="2.662" height="10.838" rx="1.331" transform="rotate(-45 13.69 1.882)" fill="#0B0C0C"/><rect x="15.591" y="15.44" width="2.662" height="10.838" rx="1.331" transform="rotate(-135 15.591 15.44)" fill="#0B0C0C"/></svg></span><a class="govuk-link jcs-home-help__link" href="#">Find a course</a></li>
+        </ul>
+      </section>
+
+      <section class="jcs-home-section jcs-home-chat">
+        <div class="jcs-home-chat__intro">
+          <img src="/menu-shared/images/chat-icon.svg" width="98" height="80" alt="" aria-hidden="true">
+          <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-2">Chat with AI</h2>
+          <p class="govuk-body govuk-!-margin-bottom-0">Choose what you’d like help with to start a chat.</p>
+        </div>
+        <ul class="jcs-home-chat__links">
+          <li class="jcs-home-chat__item"><span class="jcs-home-chat__circle"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect y="8.975" width="2.662" height="22.626" rx="1.331" transform="rotate(-90 0 8.975)" fill="white"/><rect x="13.69" y="1.882" width="2.662" height="10.838" rx="1.331" transform="rotate(-45 13.69 1.882)" fill="white"/><rect x="15.591" y="15.44" width="2.662" height="10.838" rx="1.331" transform="rotate(-135 15.591 15.44)" fill="white"/></svg></span><a class="govuk-link govuk-link--text-colour jcs-home-chat__link" href="#">Discover your skills</a></li>
+          <li class="jcs-home-chat__item"><span class="jcs-home-chat__circle"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect y="8.975" width="2.662" height="22.626" rx="1.331" transform="rotate(-90 0 8.975)" fill="white"/><rect x="13.69" y="1.882" width="2.662" height="10.838" rx="1.331" transform="rotate(-45 13.69 1.882)" fill="white"/><rect x="15.591" y="15.44" width="2.662" height="10.838" rx="1.331" transform="rotate(-135 15.591 15.44)" fill="white"/></svg></span><a class="govuk-link govuk-link--text-colour jcs-home-chat__link" href="#">Explore jobs you can do</a></li>
+          <li class="jcs-home-chat__item"><span class="jcs-home-chat__circle"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect y="8.975" width="2.662" height="22.626" rx="1.331" transform="rotate(-90 0 8.975)" fill="white"/><rect x="13.69" y="1.882" width="2.662" height="10.838" rx="1.331" transform="rotate(-45 13.69 1.882)" fill="white"/><rect x="15.591" y="15.44" width="2.662" height="10.838" rx="1.331" transform="rotate(-135 15.591 15.44)" fill="white"/></svg></span><a class="govuk-link govuk-link--text-colour jcs-home-chat__link" href="#">Get help with your CV</a></li>
+          <li class="jcs-home-chat__item"><span class="jcs-home-chat__circle"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect y="8.975" width="2.662" height="22.626" rx="1.331" transform="rotate(-90 0 8.975)" fill="white"/><rect x="13.69" y="1.882" width="2.662" height="10.838" rx="1.331" transform="rotate(-45 13.69 1.882)" fill="white"/><rect x="15.591" y="15.44" width="2.662" height="10.838" rx="1.331" transform="rotate(-135 15.591 15.44)" fill="white"/></svg></span><a class="govuk-link govuk-link--text-colour jcs-home-chat__link" href="#">Prepare for interviews</a></li>
+        </ul>
+      </section>
+
+      <section class="jcs-home-section">
+        <div class="jcs-home-notsure">
+          <h2 class="govuk-heading-m">Not sure where to start?</h2>
+          <p class="govuk-body govuk-!-colour-secondary">Try one of these options</p>
+        </div>
+        <div class="jcs-home-cards">
+        <div class="jcs-home-card" style="background-color: #FFF7BF">
+          <p class="jcs-home-card__title">I’ve applied for so many jobs, I’m not getting anywhere.</p>
+          <div class="jcs-home-card__content">
+            <p class="govuk-body-s jcs-home-card__lead">We can help you:</p>
+            <ul class="govuk-list govuk-list--bullet"><li>plan your next steps</li><li>stay motivated</li><li>feel more confident</li></ul>
+            <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start govuk-button--inverse govuk-!-margin-bottom-0" data-module="govuk-button">
+              Explore
+              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/></svg>
+            </a>
+          </div>
+          <img class="jcs-home-card__illustration" src="/menu-shared/images/person_phone.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="jcs-home-card" style="background-color: #D2E2F1">
+          <p class="jcs-home-card__title">I’m in a rut. I want a change but I don’t know how.</p>
+          <div class="jcs-home-card__content">
+            <p class="govuk-body-s jcs-home-card__lead">We can help you:</p>
+            <ul class="govuk-list govuk-list--bullet"><li>explore different roles</li><li>identify your skills</li><li>build a strong CV</li></ul>
+            <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start govuk-button--inverse govuk-!-margin-bottom-0" data-module="govuk-button">
+              Explore
+              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/></svg>
+            </a>
+          </div>
+          <img class="jcs-home-card__illustration" src="/menu-shared/images/person_yellow_boxes.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="jcs-home-card" style="background-color: #DBD5E9">
+          <p class="jcs-home-card__title">I look at plenty of jobs but I rarely apply.</p>
+          <div class="jcs-home-card__content">
+            <p class="govuk-body-s jcs-home-card__lead">We can help you:</p>
+            <ul class="govuk-list govuk-list--bullet"><li>remain positive</li><li>overcome setbacks</li><li>find training courses</li></ul>
+            <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start govuk-button--inverse govuk-!-margin-bottom-0" data-module="govuk-button">
+              Explore
+              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/></svg>
+            </a>
+          </div>
+          <img class="jcs-home-card__illustration" src="/menu-shared/images/person_laptop.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="jcs-home-card" style="background-color: #CCE2D8">
+          <p class="jcs-home-card__title">How do I stand out from other applicants?</p>
+          <div class="jcs-home-card__content">
+            <p class="govuk-body-s jcs-home-card__lead">We can help you:</p>
+            <ul class="govuk-list govuk-list--bullet"><li>prepare for interviews</li><li>refine job applications</li><li>communicate your skillset</li></ul>
+            <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start govuk-button--inverse govuk-!-margin-bottom-0" data-module="govuk-button">
+              Explore
+              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/></svg>
+            </a>
+          </div>
+          <img class="jcs-home-card__illustration" src="/menu-shared/images/person_standout_applicant.svg" alt="" aria-hidden="true">
+        </div>
+        </div>
+      </section>
+
+      <section class="jcs-home-section jcs-home-feedback">
+        <h2 class="govuk-heading-l">Give us feedback</h2>
+        <p class="govuk-body govuk-!-colour-secondary govuk-!-margin-bottom-6">This is a new service. Your feedback will help us improve it.</p>
+        <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">Give feedback</a>
+      </section>
     </main>
   </div>
 
