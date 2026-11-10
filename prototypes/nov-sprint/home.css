@@ -67,12 +67,11 @@
 }
 /* Other UK career services: a thin strip at the foot of the menu. Hairline across the content width only,
    title styled like the "AI work assistant" labels (16px, secondary grey), links evenly spaced with no bullets,
-   20px above and below. Snapped to the grid: title in the first column, links from the second. */
+   20px above and below. */
 .jcs-mega-menu { padding-bottom: 0; }
-.jcs-mega-menu__strap { margin-top: 10px; padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #dbdad9; }
-.jcs-mega-menu__strap-title { margin: 0 0 10px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.25; color: var(--govuk-secondary-text-colour, #505a5f); }
+.jcs-mega-menu__strap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 30px; margin-top: 10px; padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #dbdad9; }
+.jcs-mega-menu__strap-title { margin: 0; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.25; color: var(--govuk-secondary-text-colour, #505a5f); }
 .jcs-mega-menu__strap-list { display: flex; flex-wrap: wrap; gap: 10px 30px; margin: 0; padding: 0; list-style: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; line-height: 1.25; }
 /* Keep "Chat with AI work assistant" on one line beside its icon. On narrow desktops it runs into the
    empty middle column rather than wrapping. */
 .jcs-mega-menu__item--with-icon .jcs-mega-menu__link { white-space: nowrap; }
-@media (min-width: 40.0625em) { .jcs-mega-menu__strap-title { margin-bottom: 0; } }
