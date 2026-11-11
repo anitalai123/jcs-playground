@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Account home – November sprint – Work hub – Prototype</title>
+  <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
+  <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="/menu-shared/menu.css">
+  <link rel="stylesheet" href="../home.css">
+</head>
+<body class="govuk-template__body jcs-app-page" data-signed-in>
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- Signed in account home. Reached from Sign in on the November sprint homepage; data-signed-in on <body>
+       turns Sign in into Sign out, which goes back there. The GOV.UK header is shared (/menu-shared/menu.js);
+       the mega menu and footer are shared with the homepage (../parts.js). Layout from the Signed in menu
+       prototype (nav-signed-in). -->
+  <header class="govuk-template__header">
+    <div data-shared="header"></div>
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container govuk-service-navigation__inlining-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="./" class="govuk-service-navigation__link">Work hub</a>
+          </span>
+          <!-- Signed in service navigation: Account home first, then the tools, then "More" opens the mega menu.
+               On phones, GOV.UK service navigation tucks these behind its own Menu toggle. -->
+          <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+            <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden aria-hidden="true">
+              Menu
+            </button>
+            <ul class="govuk-service-navigation__list" id="navigation">
+              <li class="govuk-service-navigation__item govuk-service-navigation__item--active"><a class="govuk-service-navigation__link" href="./" aria-current="page"><strong class="govuk-service-navigation__active-fallback">Account home</strong></a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">AI work assistant</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Jobs</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">CV</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Action plan</a></li>
+              <li class="govuk-service-navigation__item">
+                <button type="button" class="jcs-menu-button jcs-menu-button--regular" id="mega-menu-toggle" aria-expanded="false" aria-controls="mega-menu">
+                  More
+                  <svg class="jcs-menu-button__icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 12 1 4h14z"/></svg>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <nav class="govuk-language-navigation" aria-label="Language">
+          <ul class="govuk-language-navigation__list">
+            <li class="govuk-language-navigation__list-item">
+              <span class="govuk-language-navigation__text" aria-current="true" lang="en">English</span>
+            </li>
+            <li class="govuk-language-navigation__list-item">
+              <a class="govuk-language-navigation__link" href="#" rel="alternate" lang="cy" hreflang="cy">Cymraeg</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <div data-nov-sprint="mega-menu"></div>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <a href="/" class="govuk-link govuk-link--no-underline"><strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong><span class="govuk-visually-hidden"> – go to all prototypes</span></a>
+        <span class="govuk-phase-banner__text">This is a prototype: November sprint</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Signed in, laid out like a web app: the account menu is a full height panel down the left edge
+       and the chosen page fills the rest of the screen -->
+  <div class="jcs-app">
+    <aside class="jcs-app__sidebar">
+      <nav class="jcs-account-nav" aria-label="Your account">
+        <ul class="jcs-account-nav__list">
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="./" aria-current="page"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Account home</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My career profile</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Jobs activity</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My CVs</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>My action plan</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Chat history</a></li>
+          <li class="jcs-account-nav__item"><a class="jcs-account-nav__link" href="#"><span class="jcs-account-nav__icon" aria-hidden="true"></span>Manage my account</a></li>
+        </ul>
+      </nav>
+      <!-- Help entry point at the foot of the menu, held at the bottom of the screen on desktop, using the AI work assistant illustration from the mega menu -->
+      <div class="jcs-account-help">
+        <img class="jcs-account-help__icon" src="/menu-shared/images/chat-icon.svg" width="49" height="40" alt="" aria-hidden="true">
+        <div>
+          <p class="jcs-account-help__title">Feeling stuck?</p>
+          <a class="govuk-link jcs-account-help__link" href="#">Chat with AI work assistant</a>
+        </div>
+      </div>
+    </aside>
+    <main class="jcs-app__main" id="main-content">
+      <div class="jcs-app__content">
+        <span class="govuk-caption-l">Your account</span>
+        <h1 class="govuk-heading-l">Account home</h1>
+        <!-- Wireframe: grey placeholder boxes stand in for real content -->
+        <div class="jcs-box jcs-box--hero govuk-!-margin-bottom-6"></div>
+        <div class="jcs-boxes">
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+          <div class="jcs-box jcs-box--square"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div data-nov-sprint="footer"></div>
+
+  <script type="module">
+    // Shared header (via /menu-shared/menu.js), plus this sprint's mega menu and footer (see ../parts.js)
+    import '/nov-sprint/parts.js'
+    import { initAll } from '/assets/govuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+</html>
