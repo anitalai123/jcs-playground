@@ -75,3 +75,48 @@
 /* Keep "Chat with AI work assistant" on one line beside its icon. On narrow desktops it runs into the
    empty middle column rather than wrapping. */
 .jcs-mega-menu__item--with-icon .jcs-mega-menu__link { white-space: nowrap; }
+
+/* Mobile menu, modelled on the GOV.UK Design System website (design-system.service.gov.uk): full-width rows
+   with a hairline above each, link text indented to line up behind a chevron, and "More" opens the mega menu
+   in place as a white panel running edge to edge. parts.js moves the mega menu inside the More item on phones. */
+@media (max-width: 40.0525em) {
+  .govuk-service-navigation__toggle { display: flex; width: 100%; margin: 0; padding: 10px 0; text-align: left; }
+  .govuk-service-navigation__toggle::after { display: none; }
+  .govuk-service-navigation__toggle[aria-expanded="true"]::after { display: none; }
+  /* Chevron, as on the Design System site: points down when closed, up when open */
+  .govuk-service-navigation__toggle::before,
+  .jcs-menu-button::before { content: ""; display: inline-block; position: relative; bottom: 0.21em; flex: none; width: 6px; height: 6px; margin: 0 12px 0 10px; transform: rotate(135deg); border-top: 2px solid; border-right: 2px solid; vertical-align: baseline; }
+  .govuk-service-navigation__toggle { align-items: baseline; }
+  .govuk-service-navigation__toggle[aria-expanded="true"]::before,
+  .jcs-menu-button[aria-expanded="true"]::before { bottom: 0.05em; transform: rotate(-45deg); }
+
+  /* Menu rows run the full width */
+  .govuk-service-navigation__container { align-items: stretch; }
+  .govuk-service-navigation__inlining-container .govuk-service-navigation__container:not(:last-child) { margin-right: 0; }
+  .govuk-service-navigation__wrapper { width: 100%; }
+  .govuk-service-navigation__list { margin: 0; border-bottom: 1px solid var(--govuk-border-colour, #cecece); }
+  .govuk-service-navigation__list + * { margin-top: 0; }
+  .govuk-language-navigation { margin-top: 15px; margin-bottom: 15px; }
+  /* Each item is a row: hairline above, text lined up with the toggles' text (behind the 30px chevron space) */
+  .govuk-service-navigation__item,
+  .govuk-service-navigation__item:first-child { display: block; margin: 0; padding: 10px 0 10px 30.5px; border: 0; border-top: 1px solid var(--govuk-border-colour, #cecece); }
+  .govuk-service-navigation__link:not(:hover):not(:active) { text-decoration: none; }
+  /* Current page: a 5px bar at the screen edge, as on the Design System site */
+  .govuk-service-navigation__item--active { margin-left: 0; padding-left: 30.5px; border-left-width: 0; }
+  .govuk-service-navigation__item--active::before { content: ""; position: absolute; top: 0; bottom: 0; left: calc(-1 * max(15px, calc(15px + env(safe-area-inset-left)))); border-left: 5px solid var(--govuk-link-colour, #1a65a6); }
+  .govuk-service-navigation__item--active .govuk-service-navigation__active-fallback { font-weight: 700; }
+
+  /* More: a full-width toggle row like the Design System site's sections */
+  .jcs-menu-item--more,
+  .jcs-menu-item--more:first-child { padding: 0; }
+  .jcs-menu-item--more .jcs-menu-button { display: flex; align-items: baseline; gap: 0; width: 100%; padding: 10px 0; text-align: left; font-size: 1.1875rem; line-height: 1.3157894737; }
+  .jcs-menu-item--more .jcs-menu-button:hover { text-decoration: none; }
+  .jcs-menu-item--more .jcs-menu-button__icon { display: none; }
+
+  /* The mega menu opened inside More: white panel to both screen edges, content lined up with the menu text */
+  .jcs-menu-item--more .jcs-mega-menu { position: relative; z-index: 0; padding: 15px 0 5px 30.5px; border-bottom: 0; background: none; }
+  .jcs-menu-item--more .jcs-mega-menu::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: calc(-1 * max(15px, calc(15px + env(safe-area-inset-left)))); right: calc(-1 * max(15px, calc(15px + env(safe-area-inset-right)))); background: #fff; }
+  .jcs-menu-item--more .jcs-mega-menu .govuk-width-container { margin-right: 0; margin-left: 0; }
+  .jcs-menu-item--more .jcs-mega-menu .govuk-heading-s { margin-top: 10px; }
+  .jcs-menu-item--more .jcs-mega-menu__strap { margin-top: 0; }
+}

@@ -129,3 +129,17 @@ for (const el of document.querySelectorAll('[data-nov-sprint]')) {
 
 const signIn = document.querySelector('.jcs-header__sign-in')
 if (signIn) signIn.href = document.body.hasAttribute('data-signed-in') ? '/nov-sprint/' : '/nov-sprint/account/'
+
+// Phones: the mega menu opens in place under More, like the sections of the GOV.UK Design System website's
+// mobile menu, so it moves inside the More item. On wider screens it goes back under the service navigation.
+const megaMenu = document.getElementById('mega-menu')
+const moreItem = document.getElementById('mega-menu-toggle')?.closest('li')
+if (megaMenu && moreItem) {
+  moreItem.classList.add('jcs-menu-item--more')
+  const home = document.createComment('mega menu sits here on wider screens')
+  megaMenu.before(home)
+  const phone = window.matchMedia('(max-width: 40.0525em)')
+  const place = () => (phone.matches ? moreItem.append(megaMenu) : home.after(megaMenu))
+  phone.addEventListener('change', place)
+  place()
+}
