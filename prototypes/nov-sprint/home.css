@@ -118,5 +118,7 @@
   .jcs-menu-item--more .jcs-mega-menu::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: calc(-1 * max(15px, calc(15px + env(safe-area-inset-left)))); right: calc(-1 * max(15px, calc(15px + env(safe-area-inset-right)))); background: #fff; }
   .jcs-menu-item--more .jcs-mega-menu .govuk-width-container { margin-right: 0; margin-left: 0; }
   .jcs-menu-item--more .jcs-mega-menu .govuk-heading-s { margin-top: 10px; }
-  .jcs-menu-item--more .jcs-mega-menu__strap { margin-top: 0; }
+  /* No YP entry point on phones. Other UK career services keeps its grey hairline above, as on desktop */
+  .jcs-menu-item--more .jcs-mega-menu__yp-column { display: none; }
+  .jcs-menu-item--more .jcs-mega-menu__strap { margin-top: 0; border-top: 1px solid #dbdad9; }
 }
