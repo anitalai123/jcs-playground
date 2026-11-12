@@ -80,7 +80,8 @@
    with a hairline above each, link text indented to line up behind a chevron, and "More" opens the mega menu
    in place as a white panel running edge to edge. parts.js moves the mega menu inside the More item on phones. */
 @media (max-width: 40.0525em) {
-  .govuk-service-navigation__toggle { display: flex; width: 100%; margin: 0; padding: 10px 0; text-align: left; }
+  /* Spacing matches the live Work hub (www.jobs.service.gov.uk) on phones: rows 35px apart, 15px under the last one */
+  .govuk-service-navigation__toggle { display: flex; width: 100%; margin: 0; padding: 0 0 5px; text-align: left; }
   .govuk-service-navigation__toggle::after { display: none; }
   .govuk-service-navigation__toggle[aria-expanded="true"]::after { display: none; }
   /* Chevron, as on the Design System site: points down when closed, up when open */
@@ -94,12 +95,12 @@
   .govuk-service-navigation__container { align-items: stretch; }
   .govuk-service-navigation__inlining-container .govuk-service-navigation__container:not(:last-child) { margin-right: 0; }
   .govuk-service-navigation__wrapper { width: 100%; }
-  .govuk-service-navigation__list { margin: 0; border-bottom: 1px solid var(--govuk-border-colour, #cecece); }
+  .govuk-service-navigation__list { margin: 0; padding-bottom: 10px; border-bottom: 1px solid var(--govuk-border-colour, #cecece); }
   .govuk-service-navigation__list + * { margin-top: 0; }
   .govuk-service-navigation .govuk-language-navigation { margin-top: 15px; margin-bottom: 15px; }
   /* Each item is a row (no hairlines between them), text lined up with the toggles' text (behind the 30px chevron space) */
   .govuk-service-navigation__item,
-  .govuk-service-navigation__item:first-child { display: block; margin: 0; padding: 10px 0 10px 30.5px; border: 0; }
+  .govuk-service-navigation__item:first-child { display: block; margin: 0; padding: 5px 0 5px 30.5px; border: 0; }
   .govuk-service-navigation__link:not(:hover):not(:active) { text-decoration: none; }
   /* Current page: a 5px bar at the screen edge, as on the Design System site */
   .govuk-service-navigation__item--active { margin-left: 0; padding-left: 30.5px; border-left-width: 0; }
@@ -109,7 +110,7 @@
   /* More: a full-width toggle row like the Design System site's sections */
   .jcs-menu-item--panel,
   .jcs-menu-item--panel:first-child { padding: 0; }
-  .jcs-menu-item--panel .jcs-menu-button { display: flex; align-items: baseline; gap: 0; width: 100%; padding: 10px 0; text-align: left; font-size: 1.1875rem; line-height: 1.3157894737; }
+  .jcs-menu-item--panel .jcs-menu-button { display: flex; align-items: baseline; gap: 0; width: 100%; padding: 5px 0; text-align: left; font-size: 1.1875rem; line-height: 1.3157894737; }
   .jcs-menu-item--panel .jcs-menu-button:hover { text-decoration: none; }
   .jcs-menu-item--panel .jcs-menu-button__icon { display: none; }
 
