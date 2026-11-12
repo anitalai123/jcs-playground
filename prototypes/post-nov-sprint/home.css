@@ -97,9 +97,9 @@
   .govuk-service-navigation__list { margin: 0; border-bottom: 1px solid var(--govuk-border-colour, #cecece); }
   .govuk-service-navigation__list + * { margin-top: 0; }
   .govuk-service-navigation .govuk-language-navigation { margin-top: 15px; margin-bottom: 15px; }
-  /* Each item is a row: hairline above, text lined up with the toggles' text (behind the 30px chevron space) */
+  /* Each item is a row (no hairlines between them), text lined up with the toggles' text (behind the 30px chevron space) */
   .govuk-service-navigation__item,
-  .govuk-service-navigation__item:first-child { display: block; margin: 0; padding: 10px 0 10px 30.5px; border: 0; border-top: 1px solid var(--govuk-border-colour, #cecece); }
+  .govuk-service-navigation__item:first-child { display: block; margin: 0; padding: 10px 0 10px 30.5px; border: 0; }
   .govuk-service-navigation__link:not(:hover):not(:active) { text-decoration: none; }
   /* Current page: a 5px bar at the screen edge, as on the Design System site */
   .govuk-service-navigation__item--active { margin-left: 0; padding-left: 30.5px; border-left-width: 0; }
