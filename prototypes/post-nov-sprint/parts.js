@@ -16,7 +16,7 @@ const parts = {
       <div class="govuk-width-container">
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Explore what I can do</a></h2>
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Explore what I can do</h2>
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about jobs you can do</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Learn about different jobs and sectors</a></li>
@@ -24,7 +24,7 @@ const parts = {
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Get my CV together</a></h2>
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Get my CV together</h2>
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about your CV</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Build a CV</a></li>
@@ -32,7 +32,7 @@ const parts = {
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Prepare for an interview</a></h2>
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Prepare for an interview</h2>
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about an interview</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Interview guidance</a></li>
@@ -41,7 +41,7 @@ const parts = {
           </div>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Build skills &amp; experience</a></h2>
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Build skills &amp; experience</h2>
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about your skills</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Find a course</a></li>
@@ -50,7 +50,7 @@ const parts = {
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Find jobs &amp; opportunities</a></h2>
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Find jobs &amp; opportunities</h2>
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Find a job</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Find seasonal jobs</a></li>
@@ -58,7 +58,7 @@ const parts = {
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Get support</a></h2>
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Get support</h2>
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Disabilities and work</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Mental health support</a></li>
@@ -67,7 +67,7 @@ const parts = {
           </div>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-4"><a class="govuk-link govuk-link--text-colour govuk-link--no-underline" href="#">Not sure where to start?</a></h2>
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Not sure where to start?</h2>
               <ul class="govuk-list">
                 <li class="jcs-mega-menu__item--with-icon"><img src="/menu-shared/images/chat-icon.svg" width="49" height="40" alt="" aria-hidden="true"><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI work assistant</a></li>
               </ul>
