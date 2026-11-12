@@ -96,7 +96,7 @@
   .govuk-service-navigation__wrapper { width: 100%; }
   .govuk-service-navigation__list { margin: 0; border-bottom: 1px solid var(--govuk-border-colour, #cecece); }
   .govuk-service-navigation__list + * { margin-top: 0; }
-  .govuk-language-navigation { margin-top: 15px; margin-bottom: 15px; }
+  .govuk-service-navigation .govuk-language-navigation { margin-top: 15px; margin-bottom: 15px; }
   /* Each item is a row: hairline above, text lined up with the toggles' text (behind the 30px chevron space) */
   .govuk-service-navigation__item,
   .govuk-service-navigation__item:first-child { display: block; margin: 0; padding: 10px 0 10px 30.5px; border: 0; border-top: 1px solid var(--govuk-border-colour, #cecece); }
