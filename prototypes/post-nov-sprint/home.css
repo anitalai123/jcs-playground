@@ -1,0 +1,156 @@
+/* Homepage content for the post-November sprint prototype (copied from the November sprint), rebuilt from the live Work hub homepage
+   (www.jobs.service.gov.uk), using its sizes and colours */
+
+/* Blue hero */
+.jcs-home-hero { padding-top: 40px; background: #1d70b8; }
+.jcs-home-hero__inner { display: flex; flex-direction: column; }
+.jcs-home-hero__image { order: -1; align-self: flex-start; width: 100%; max-width: 343px; height: auto; margin-bottom: 20px; }
+.jcs-home-hero__text { padding-bottom: 40px; }
+.jcs-home-hero__heading { margin-bottom: 12px; color: #fff; }
+.jcs-home-hero__body { margin-bottom: 0; color: #fff; }
+@media (min-width: 48em) {
+  .jcs-home-hero__inner { flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; }
+  .jcs-home-hero__image { order: 1; width: auto; }
+  .jcs-home-hero__text { order: -1; max-width: 36rem; }
+}
+
+.jcs-home-section { margin-top: 40px; margin-bottom: 40px; }
+.jcs-home-section:first-child { margin-top: 50px; }
+
+/* How we can help: links with an arrow in a grey circle */
+.jcs-home-help, .jcs-home-chat__links { margin: 0; padding: 0; list-style: none; }
+.jcs-home-help__item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.jcs-home-help__circle, .jcs-home-chat__circle { display: flex; flex: none; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #eeefef; }
+.jcs-home-chat__circle { background: #1d70b8; }
+.jcs-home-help__link, .jcs-home-chat__link { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
+
+/* Chat with AI panel */
+.jcs-home-chat { display: flex; flex-direction: column; gap: 32px; margin-right: -15px; margin-left: -15px; padding: 32px; background: #d2e2f1; }
+.jcs-home-chat__item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.jcs-home-chat__item:last-child { margin-bottom: 0; }
+@media (min-width: 40em) { .jcs-home-chat { margin-right: 0; margin-left: 0; border-radius: 4px; } }
+@media (min-width: 48em) {
+  .jcs-home-chat { flex-direction: row; align-items: center; justify-content: space-between; gap: 0; }
+  .jcs-home-chat__intro { flex: 0 0 57.2%; }
+  .jcs-home-chat__links { flex: 0 0 31.4%; }
+}
+
+/* Not sure where to start? cards */
+.jcs-home-notsure { padding-bottom: 16px; text-align: center; }
+.jcs-home-cards { display: flex; flex-direction: column; gap: 24px; }
+@media (min-width: 48em) { .jcs-home-cards { display: grid; grid-template-columns: repeat(2, 1fr); } }
+.jcs-home-card { position: relative; overflow: hidden; box-sizing: border-box; height: 100%; padding: 16px; }
+.jcs-home-card__title { margin: 0 0 10px; font-family: "GDS Transport", arial, sans-serif; font-size: 1.75rem; font-weight: 700; line-height: 1.25; color: #0b0c0c; }
+.jcs-home-card__content { position: relative; z-index: 2; max-width: calc(100% - 100px); }
+.jcs-home-card__lead { margin-bottom: 15px; color: #505a5f; }
+.jcs-home-card__content .govuk-list { margin-bottom: 20px; font-size: 1.125rem; }
+.jcs-home-card__illustration { position: absolute; right: 0; bottom: 0; width: 150px; height: 150px; pointer-events: none; }
+@media (min-width: 57.25em) {
+  .jcs-home-card { padding: 32px; }
+  .jcs-home-card__title { font-size: 2.25rem; }
+  .jcs-home-card__content { max-width: calc(100% - 150px); }
+  .jcs-home-card__content .govuk-list { font-size: 1.1875rem; }
+  .jcs-home-card__illustration { width: 200px; height: 200px; }
+}
+
+/* Give us feedback */
+.jcs-home-feedback { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 32px; background: #f8f8f8; text-align: center; }
+/* Keep Explore buttons button-sized on phones, as on the live site */
+.jcs-home-card .govuk-button { width: auto; }
+
+/* Mega menu (this page has its own copy, see index.html) */
+/* YP entry point skips the middle column, like the ad space in Option 1 */
+@media (min-width: 40.0625em) {
+  .jcs-mega-menu__yp-column { margin-left: 33.3333%; }
+  /* Same 50px gutter as the menu's one-third columns */
+  .jcs-mega-menu .govuk-grid-column-two-thirds { padding-right: 25px; padding-left: 25px; }
+}
+/* Other UK career services: a thin strip at the foot of the menu. Hairline across the content width only,
+   title styled like the "AI work assistant" labels (16px, secondary grey), links evenly spaced with no bullets,
+   20px above and below. */
+.jcs-mega-menu { padding-bottom: 0; }
+.jcs-mega-menu__strap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 30px; margin-top: 10px; padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #dbdad9; }
+.jcs-mega-menu__strap-title { margin: 0; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.25; color: var(--govuk-text-colour, #0b0c0c); }
+.jcs-mega-menu__strap-list { display: flex; flex-wrap: wrap; gap: 10px 30px; margin: 0; padding: 0; list-style: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; line-height: 1.25; }
+/* Keep "Chat with AI work assistant" on one line beside its icon. On narrow desktops it runs into the
+   empty middle column rather than wrapping. */
+.jcs-mega-menu__item--with-icon .jcs-mega-menu__link { white-space: nowrap; }
+
+/* Mobile menu, modelled on the GOV.UK Design System website (design-system.service.gov.uk): full-width rows
+   with a hairline above each, link text indented to line up behind a chevron, and "More" opens the mega menu
+   in place as a white panel running edge to edge. parts.js moves the mega menu inside the More item on phones. */
+@media (max-width: 40.0525em) {
+  .govuk-service-navigation__toggle { display: flex; width: 100%; margin: 0; padding: 10px 0; text-align: left; }
+  .govuk-service-navigation__toggle::after { display: none; }
+  .govuk-service-navigation__toggle[aria-expanded="true"]::after { display: none; }
+  /* Chevron, as on the Design System site: points down when closed, up when open */
+  .govuk-service-navigation__toggle::before,
+  .jcs-menu-button::before { content: ""; display: inline-block; position: relative; bottom: 0.21em; flex: none; width: 6px; height: 6px; margin: 0 12px 0 10px; transform: rotate(135deg); border-top: 2px solid; border-right: 2px solid; vertical-align: baseline; }
+  .govuk-service-navigation__toggle { align-items: baseline; }
+  .govuk-service-navigation__toggle[aria-expanded="true"]::before,
+  .jcs-menu-button[aria-expanded="true"]::before { bottom: 0.05em; transform: rotate(-45deg); }
+
+  /* Menu rows run the full width */
+  .govuk-service-navigation__container { align-items: stretch; }
+  .govuk-service-navigation__inlining-container .govuk-service-navigation__container:not(:last-child) { margin-right: 0; }
+  .govuk-service-navigation__wrapper { width: 100%; }
+  .govuk-service-navigation__list { margin: 0; border-bottom: 1px solid var(--govuk-border-colour, #cecece); }
+  .govuk-service-navigation__list + * { margin-top: 0; }
+  .govuk-language-navigation { margin-top: 15px; margin-bottom: 15px; }
+  /* Each item is a row: hairline above, text lined up with the toggles' text (behind the 30px chevron space) */
+  .govuk-service-navigation__item,
+  .govuk-service-navigation__item:first-child { display: block; margin: 0; padding: 10px 0 10px 30.5px; border: 0; border-top: 1px solid var(--govuk-border-colour, #cecece); }
+  .govuk-service-navigation__link:not(:hover):not(:active) { text-decoration: none; }
+  /* Current page: a 5px bar at the screen edge, as on the Design System site */
+  .govuk-service-navigation__item--active { margin-left: 0; padding-left: 30.5px; border-left-width: 0; }
+  .govuk-service-navigation__item--active::before { content: ""; position: absolute; top: 0; bottom: 0; left: calc(-1 * max(15px, calc(15px + env(safe-area-inset-left)))); border-left: 5px solid var(--govuk-link-colour, #1a65a6); }
+  .govuk-service-navigation__item--active .govuk-service-navigation__active-fallback { font-weight: 700; }
+
+  /* More: a full-width toggle row like the Design System site's sections */
+  .jcs-menu-item--panel,
+  .jcs-menu-item--panel:first-child { padding: 0; }
+  .jcs-menu-item--panel .jcs-menu-button { display: flex; align-items: baseline; gap: 0; width: 100%; padding: 10px 0; text-align: left; font-size: 1.1875rem; line-height: 1.3157894737; }
+  .jcs-menu-item--panel .jcs-menu-button:hover { text-decoration: none; }
+  .jcs-menu-item--panel .jcs-menu-button__icon { display: none; }
+
+  /* The mega menu opened inside More: white panel to both screen edges, content lined up with the menu text */
+  .jcs-menu-item--panel .jcs-mega-menu { position: relative; z-index: 0; padding: 15px 0 5px 30.5px; border-bottom: 0; background: none; }
+  .jcs-menu-item--panel .jcs-mega-menu::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: calc(-1 * max(15px, calc(15px + env(safe-area-inset-left)))); right: calc(-1 * max(15px, calc(15px + env(safe-area-inset-right)))); background: #fff; }
+  .jcs-menu-item--panel .jcs-mega-menu .govuk-width-container { margin-right: 0; margin-left: 0; }
+  .jcs-menu-item--panel .jcs-mega-menu .govuk-heading-s { margin-top: 10px; }
+  .jcs-menu-item--panel .jcs-mega-menu__strap { margin-top: 0; }
+}
+
+/* ---- Signed in (post-November sprint) ---- */
+
+/* My account panel: Account home on its own line above the groups */
+.jcs-account-menu__home { margin: 0 0 25px; font-family: "GDS Transport", arial, sans-serif; }
+.jcs-mega-menu__link[aria-current] { color: var(--govuk-text-colour, #0b0c0c); text-decoration: none; }
+
+/* Signed in page: side menu beside the page on desktop, inside the normal page width so nothing moves
+   when you sign in. Hidden on phones and small tablets, where My account in the menu does the job. */
+.jcs-signed-in__side { display: none; }
+@media (min-width: 48.0625em) {
+  .jcs-signed-in { display: grid; grid-template-columns: 220px 1fr; gap: 50px; align-items: start; }
+  .jcs-signed-in__side { display: block; padding-top: 40px; }
+}
+.jcs-side-nav { font-family: "GDS Transport", arial, sans-serif; }
+.jcs-side-nav__heading { margin: 25px 0 5px; font-size: 1rem; line-height: 1.25; font-weight: 700; color: var(--govuk-secondary-text-colour, #505a5f); }
+.jcs-side-nav__list { margin: 0; padding: 0; list-style: none; }
+.jcs-side-nav__link { display: block; margin-left: -15px; padding: 6px 0 6px 10px; border-left: 5px solid transparent; font-size: 1rem; line-height: 1.25; text-decoration: none; }
+.jcs-side-nav__link:link, .jcs-side-nav__link:visited { color: var(--govuk-link-colour, #1a65a6); }
+.jcs-side-nav__link:hover { color: var(--govuk-link-hover-colour, #0f385c); text-decoration: underline; text-decoration-thickness: 3px; }
+.jcs-side-nav__link:focus { outline: 3px solid transparent; color: var(--govuk-focus-text-colour, #0b0c0c); background-color: var(--govuk-focus-colour, #ffdd00); box-shadow: inset 0 -4px var(--govuk-focus-text-colour, #0b0c0c); text-decoration: none; }
+.jcs-side-nav__link[aria-current] { border-left-color: var(--govuk-link-colour, #1a65a6); font-weight: 700; color: var(--govuk-text-colour, #0b0c0c); }
+
+/* Account home: "carry on" cards */
+.jcs-cards { display: grid; gap: 15px; margin: 0 0 20px; padding: 0; list-style: none; }
+@media (min-width: 40.0625em) { .jcs-cards { grid-template-columns: repeat(3, 1fr); } }
+.jcs-card { padding: 15px 20px 20px; border-top: 5px solid var(--govuk-link-colour, #1a65a6); background: var(--govuk-surface-background-colour, #f4f8fb); }
+.jcs-card__type { margin: 0 0 5px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: var(--govuk-secondary-text-colour, #505a5f); }
+
+/* Phones: the My account panel opens in place like More. Account home sits with the groups. */
+@media (max-width: 40.0525em) {
+  .jcs-menu-item--panel .jcs-account-menu__home { margin: 10px 0 20px; }
+  .jcs-menu-item--panel .jcs-account-menu .govuk-heading-s { margin-top: 0; }
+}

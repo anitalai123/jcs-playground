@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Account home – Post-November sprint – Work hub – Prototype</title>
+  <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
+  <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="/menu-shared/menu.css">
+  <link rel="stylesheet" href="../home.css">
+</head>
+<body class="govuk-template__body" data-signed-in data-account-page="Account home">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- Signed in account home. The service navigation is the same as signed out (copied from ../index.html);
+       data-signed-in on <body> adds My account to it and turns Sign in into Sign out (see ../parts.js).
+       data-account-page marks the current page in the account menus. -->
+  <header class="govuk-template__header">
+    <div data-shared="header"></div>
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container govuk-service-navigation__inlining-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="index.html" class="govuk-service-navigation__link">Work hub</a>
+          </span>
+          <!-- 4 hero tools, then "More" opens the full mega menu. On phones, GOV.UK service navigation
+               tucks these behind its own Menu toggle. -->
+          <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+            <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden aria-hidden="true">
+              Menu
+            </button>
+            <ul class="govuk-service-navigation__list" id="navigation">
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">AI work assistant</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Find a job</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Build a CV</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Action plan</a></li>
+              <li class="govuk-service-navigation__item">
+                <button type="button" class="jcs-menu-button jcs-menu-button--regular" id="mega-menu-toggle" aria-expanded="false" aria-controls="mega-menu">
+                  More
+                  <svg class="jcs-menu-button__icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 12 1 4h14z"/></svg>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <nav class="govuk-language-navigation" aria-label="Language">
+          <ul class="govuk-language-navigation__list">
+            <li class="govuk-language-navigation__list-item">
+              <span class="govuk-language-navigation__text" aria-current="true" lang="en">English</span>
+            </li>
+            <li class="govuk-language-navigation__list-item">
+              <a class="govuk-language-navigation__link" href="#" rel="alternate" lang="cy" hreflang="cy">Cymraeg</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <div data-part="mega-menu"></div>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <a href="/" class="govuk-link govuk-link--no-underline"><strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong><span class="govuk-visually-hidden"> – go to all prototypes</span></a>
+        <span class="govuk-phase-banner__text">This is a prototype: post-November sprint</span>
+      </p>
+    </div>
+
+    <!-- Side menu with every signed in item (desktop), then the page. On phones the side menu is hidden:
+         My account in the menu holds the same items. -->
+    <div class="jcs-signed-in">
+      <aside class="jcs-signed-in__side">
+        <div data-part="account-nav"></div>
+      </aside>
+
+      <main class="govuk-main-wrapper jcs-signed-in__main" id="main-content">
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Account home</h1>
+        <p class="govuk-body-l">Pick up where you left off, or choose what to do next.</p>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-8">Carry on where you left off</h2>
+        <ul class="jcs-cards">
+          <li class="jcs-card">
+            <p class="jcs-card__type">CV</p>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-1"><a class="govuk-link" href="#">Retail assistant CV</a></h3>
+            <p class="govuk-body-s govuk-!-margin-bottom-0">Edited 2 days ago. 2 sections left to fill in.</p>
+          </li>
+          <li class="jcs-card">
+            <p class="jcs-card__type">Action plan</p>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-1"><a class="govuk-link" href="#">Get a job in customer service</a></h3>
+            <p class="govuk-body-s govuk-!-margin-bottom-0">3 of 5 steps done. Next: practise answering interview questions.</p>
+          </li>
+          <li class="jcs-card">
+            <p class="jcs-card__type">AI work assistant</p>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-1"><a class="govuk-link" href="#">Jobs that use my customer service skills</a></h3>
+            <p class="govuk-body-s govuk-!-margin-bottom-0">Chat from yesterday.</p>
+          </li>
+        </ul>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-8">Your jobs</h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Saved jobs</dt>
+            <dd class="govuk-summary-list__value">4</dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> saved jobs</span></a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Applications</dt>
+            <dd class="govuk-summary-list__value">1 sent, 1 not finished</dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> applications</span></a></dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-8">Suggested next steps</h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li><a class="govuk-link" href="#">Finish your career profile</a> so we can suggest jobs that suit you</li>
+          <li><a class="govuk-link" href="#">Chat with AI about your CV</a> to get it ready to send</li>
+          <li><a class="govuk-link" href="#">Find a job near you</a></li>
+        </ul>
+      </main>
+    </div>
+  </div>
+
+  <div data-part="footer"></div>
+
+  <script type="module">
+    // Shared header (via /menu-shared/menu.js), this prototype's menus, side menu and footer (see ../parts.js)
+    import '/post-nov-sprint/parts.js'
+    import { initAll } from '/assets/govuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+</html>
