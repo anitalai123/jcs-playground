@@ -114,6 +114,8 @@
   .jcs-menu-item--more:first-child { padding: 0; }
   .jcs-menu-item--more .jcs-menu-button { display: flex; align-items: baseline; gap: 0; width: 100%; padding: 5px 0; text-align: left; font-size: 1.1875rem; line-height: 1.3157894737; }
   .jcs-menu-item--more .jcs-menu-button:hover { text-decoration: none; }
+  /* Touchscreens keep a tapped button "hovered", which left More in the darker hover blue. Keep it link blue. */
+  @media (hover: none) { .jcs-menu-item--more .jcs-menu-button:hover { color: var(--govuk-link-colour, #1a65a6); } }
   .jcs-menu-item--more .jcs-menu-button__icon { display: none; }
 
   /* The mega menu opened inside More: white panel to both screen edges, content lined up with the menu text */
