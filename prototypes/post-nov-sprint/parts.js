@@ -132,19 +132,15 @@ const parts = {
 const ACCOUNT_HOME = { text: 'Account home', href: '/post-nov-sprint/account/' }
 const ACCOUNT_MENU = [
   { heading: 'Plan your next steps', items: [
-    { text: 'My career profile' },
     { text: 'My action plan' },
     { text: 'Chat history' }
   ] },
   { heading: 'Apply for jobs', items: [
     { text: 'Saved and applied jobs' },
-    { text: 'My CVs' },
-    { text: 'My cover letters' }
+    { text: 'My CVs' }
   ] },
   { heading: 'Settings', items: [
-    { text: 'Personal details' },
-    { text: 'Notifications' },
-    { text: 'Sign in and security' }
+    { text: 'Manage my account' }
   ] }
 ]
 const current = document.body.dataset.accountPage
