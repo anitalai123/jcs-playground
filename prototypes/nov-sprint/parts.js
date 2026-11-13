@@ -69,11 +69,6 @@ const parts = {
                 <li class="jcs-mega-menu__item--with-icon"><img src="/menu-shared/images/chat-icon.svg" width="49" height="40" alt="" aria-hidden="true"><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI work assistant</a></li>
               </ul>
             </div>
-            <!-- Placeholder for the young people (YP) entry point. Same grey box as the potential ad space in Option 1,
-                 and like it, skips the middle column so it sits under Get support -->
-            <div class="govuk-grid-column-one-third jcs-mega-menu__yp-column">
-              <div class="jcs-mega-menu__ad" aria-hidden="true">YP entry point</div>
-            </div>
           </div>
       </div>
     <!-- Other UK career services: a thin strip along the bottom of the menu, hairline above (content width).

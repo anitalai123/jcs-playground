@@ -72,9 +72,7 @@
 .jcs-home-card .govuk-button { width: auto; }
 
 /* Mega menu (this page has its own copy, see index.html) */
-/* YP entry point skips the middle column, like the ad space in Option 1 */
 @media (min-width: 40.0625em) {
-  .jcs-mega-menu__yp-column { margin-left: 33.3333%; }
   /* Same 50px gutter as the menu's one-third columns */
   .jcs-mega-menu .govuk-grid-column-two-thirds { padding-right: 25px; padding-left: 25px; }
 }
@@ -139,8 +137,7 @@
   .jcs-menu-item--more .jcs-mega-menu::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: calc(-1 * max(15px, calc(15px + env(safe-area-inset-left)))); right: calc(-1 * max(15px, calc(15px + env(safe-area-inset-right)))); background: var(--govuk-surface-background-colour, #f4f8fb); }
   .jcs-menu-item--more .jcs-mega-menu .govuk-width-container { margin-right: 0; margin-left: 0; }
   .jcs-menu-item--more .jcs-mega-menu .govuk-heading-s { margin-top: 10px; }
-  /* No YP entry point on phones. Other UK career services keeps its grey hairline above, as on desktop */
-  .jcs-menu-item--more .jcs-mega-menu__yp-column { display: none; }
+  /* Other UK career services keeps its grey hairline above, as on desktop */
   .jcs-menu-item--more .jcs-mega-menu__strap { margin-top: 0; border-top: 1px solid var(--govuk-border-colour, #cecece); }
 }
 
