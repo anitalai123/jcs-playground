@@ -143,3 +143,22 @@
   .jcs-menu-item--more .jcs-mega-menu__yp-column { display: none; }
   .jcs-menu-item--more .jcs-mega-menu__strap { margin-top: 0; border-top: 1px solid var(--govuk-border-colour, #cecece); }
 }
+
+/* Young people page: flexible sections. Heading, optional AI chat row, plain links and/or a subsection grid. */
+.jcs-yp-section { padding-top: 30px; padding-bottom: 30px; border-top: 1px solid #cecece; }
+.jcs-yp-section:first-child { padding-top: 10px; border-top: 0; }
+.jcs-yp-section__title { margin-bottom: 20px; }
+.jcs-yp-link { font-size: 1.1875rem; font-weight: 700; }
+.jcs-yp-ai { display: flex; align-items: center; gap: 10px; margin: 0 0 25px; }
+.jcs-yp-ai img { flex: none; }
+.jcs-yp-ai__description { display: block; font-family: "GDS Transport", arial, sans-serif; margin-top: 2px; font-size: 1rem; color: var(--govuk-secondary-text-colour, #505a5f); }
+.jcs-yp-links { margin: 0; padding: 0; list-style: none; }
+.jcs-yp-links li { margin-bottom: 15px; }
+.jcs-yp-links li:last-child { margin-bottom: 0; }
+.jcs-yp-groups { display: grid; gap: 30px; }
+.jcs-yp-group__title { margin-bottom: 15px; }
+@media (min-width: 40.0625em) {
+  .jcs-yp-links--columns { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 30px; row-gap: 15px; }
+  .jcs-yp-links--columns li { margin-bottom: 0; }
+  .jcs-yp-groups { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); column-gap: 30px; }
+}
