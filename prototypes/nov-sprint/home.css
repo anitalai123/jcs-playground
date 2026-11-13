@@ -20,6 +20,13 @@
 /* How we can help: links with an arrow in a grey circle */
 .jcs-home-help, .jcs-home-chat__links { margin: 0; padding: 0; list-style: none; }
 .jcs-home-help__item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+/* Two columns on desktop, stacked on phones and tablets */
+@media (min-width: 48em) {
+  .jcs-home-help { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 30px; }
+}
+/* Young person item: the illustration cropped into the circle, and a line of body text under the link */
+.jcs-home-help__circle--image { position: relative; display: block; overflow: hidden; }
+.jcs-home-help__body { display: block; margin: 2px 0 0; font-size: 1rem; line-height: 1.25; color: var(--govuk-secondary-text-colour, #505a5f); }
 .jcs-home-help__circle, .jcs-home-chat__circle { display: flex; flex: none; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #eeefef; }
 .jcs-home-chat__circle { background: #1d70b8; }
 .jcs-home-help__link, .jcs-home-chat__link { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
