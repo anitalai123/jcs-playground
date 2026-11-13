@@ -229,3 +229,12 @@ html { scroll-behavior: smooth; }
 .jcs-yp-block__title { margin-bottom: 10px; }
 @media (min-width: 40.0625em) { .jcs-yp-block { padding: 30px; } }
 .jcs-yp-rule { margin: 0 0 30px; border: 0; border-top: 1px solid #cecece; }
+
+/* Speak to a careers adviser: intro and a list with illustrated tick bullets */
+.jcs-yp-speak__title { margin-bottom: 15px; }
+.jcs-yp-speak__lead { margin-bottom: 10px; }
+.jcs-yp-ticks { margin: 0; padding: 0; list-style: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; line-height: 1.32; color: #0b0c0c; }
+.jcs-yp-ticks li { position: relative; margin-bottom: 10px; padding-left: 38px; min-height: 28px; }
+.jcs-yp-ticks li:last-child { margin-bottom: 0; }
+.jcs-yp-ticks li::before { content: ""; position: absolute; top: -3px; left: 0; width: 28px; height: 28px; background: url(/menu-shared/images/tick_icon.svg) no-repeat center / contain; }
+@media (min-width: 48em) { .jcs-yp-speak__intro { flex: 1; } }
