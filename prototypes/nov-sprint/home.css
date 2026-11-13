@@ -229,26 +229,3 @@ html { scroll-behavior: smooth; }
 .jcs-yp-block__title { margin-bottom: 10px; }
 @media (min-width: 40.0625em) { .jcs-yp-block { padding: 30px; } }
 .jcs-yp-rule { margin: 0 0 30px; border: 0; border-top: 1px solid #cecece; }
-
-/* Young people page, layout option "Aligned columns" (?layout=aligned): a 160px left column (illustrations,
-   labels) and a content column 30px after it. Everything below the hero lines up to that content column. */
-.jcs-yp-aligned [data-layout="aligned"], html:not(.jcs-yp-aligned) [data-layout="standard"] { font-weight: 700; text-decoration: none; color: #0b0c0c; }
-@media (min-width: 40.0625em) {
-  /* I want to: label in the left column, links in the content column */
-  .jcs-yp-aligned .jcs-yp-jump__nav { display: grid; grid-template-columns: 160px 1fr; column-gap: 30px; align-items: baseline; }
-  .jcs-yp-aligned .jcs-yp-jump__title { margin: 0; }
-  /* Full width grey blocks and the line before them start at the content column */
-  .jcs-yp-aligned .jcs-yp-section.jcs-yp-section--full, .jcs-yp-aligned .jcs-yp-rule { margin-left: 190px; }
-  /* Speak to someone: title and options in the content column */
-  .jcs-yp-aligned .jcs-yp-speak__inner { padding-left: 190px; box-sizing: border-box; }
-}
-@media (min-width: 40.0625em) {
-  /* Jump links and speak options sit on the same 2 column grid as the section links */
-  .jcs-yp-aligned .jcs-yp-jump__list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; row-gap: 10px; }
-  .jcs-yp-aligned .jcs-yp-jump__link { font-size: 1.1875rem; }
-  .jcs-yp-aligned .jcs-yp-jump__title { font-size: 1.1875rem; }
-  .jcs-yp-aligned .jcs-yp-speak__inner { flex-direction: column; align-items: stretch; gap: 25px; }
-  .jcs-yp-aligned .jcs-yp-speak__options { grid-template-columns: 1fr 1fr; column-gap: 30px; }
-  .jcs-yp-aligned .jcs-yp-speak__option { flex-direction: row; align-items: center; gap: 15px; text-align: left; }
-  .jcs-yp-aligned .jcs-yp-speak__option img { width: 80px; height: 80px; margin: 0; flex: none; }
-}
