@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+    <!-- School careers adviser in front of a board -->
+    <circle cx="32" cy="32" r="32" fill="#1D70B8"/>
+    <rect x="8" y="10" width="48" height="26" rx="2" fill="#0D6544"/>
+    <rect x="13" y="16" width="14" height="2.5" rx="1.25" fill="#D2E2F1"/>
+    <rect x="13" y="22" width="10" height="2.5" rx="1.25" fill="#D2E2F1"/>
+    <path d="M14 64V56C14 47.2 21.2 40 30 40H34C42.8 40 50 47.2 50 56V64H14Z" fill="#FFDD00"/>
+    <circle cx="32" cy="28" r="11" fill="#FDE4D7"/>
+    <path d="M21 28C21 20 26 16 32 16C38.5 16 43 21 43 28C40 23 35 21.5 30 22.5C26 23.5 23 25.5 21 28Z" fill="#F7996A"/>
+    <path d="M21 28C21 34 20 40 18 44H24V30Z" fill="#F7996A"/>
+    <path d="M43 28C43 34 44 40 46 44H40V30Z" fill="#F7996A"/>
+</svg>

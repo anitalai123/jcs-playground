@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+    <!-- Adviser with a headset -->
+    <circle cx="32" cy="32" r="32" fill="#1D70B8"/>
+    <path d="M14 64V56C14 47.2 21.2 40 30 40H34C42.8 40 50 47.2 50 56V64H14Z" fill="#11875A"/>
+    <circle cx="32" cy="26" r="11" fill="#99704A"/>
+    <path d="M21 25C21 18 26 14 32 14C38 14 43 18 43 24C39 20 34 19 29 20.5C25.5 21.5 23 23 21 25Z" fill="#0F385C"/>
+    <path d="M19 27C19 19 25 13 32 13C39 13 45 19 45 27" stroke="#0F385C" stroke-width="2.5"/>
+    <rect x="16.5" y="24" width="5" height="9" rx="2.5" fill="#0F385C"/>
+    <rect x="42.5" y="24" width="5" height="9" rx="2.5" fill="#0F385C"/>
+    <path d="M45 31C45 36 41 38 36 38" stroke="#0F385C" stroke-width="2"/>
+    <circle cx="35" cy="38" r="2" fill="#FFDD00"/>
+</svg>
