@@ -206,14 +206,19 @@ html { scroll-behavior: smooth; }
 .jcs-yp-section { scroll-margin-top: -10px; }
 .jcs-yp-section:first-child { scroll-margin-top: 20px; }
 
-/* Young people page: full content width section (no illustration column) as a pale yellow block, subsections in
-   2 equal columns with a hairline between them (a line across between them on phones) */
+/* Young people page: full content width section (no illustration column) as a pale yellow block. Its columns
+   (--split, with --2 or --3) have a hairline between them, running across between them on phones. */
 .jcs-yp-section.jcs-yp-section--full { margin-bottom: 30px; padding: 25px 20px; border-top: 0; background: #fff7bf; }
-.jcs-yp-groups--2 { gap: 0; }
-.jcs-yp-groups--2 .jcs-yp-group + .jcs-yp-group { margin-top: 20px; padding-top: 20px; border-top: 1px solid #b1b4b6; }
+.jcs-yp-section.jcs-yp-section--full:last-child { margin-bottom: 0; }
+.jcs-yp-groups--split { gap: 0; }
+.jcs-yp-groups--split .jcs-yp-group + .jcs-yp-group { margin-top: 20px; padding-top: 20px; border-top: 1px solid #b1b4b6; }
+.jcs-yp-hint { display: block; margin-top: 2px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: #0b0c0c; }
 @media (min-width: 40.0625em) {
   .jcs-yp-section.jcs-yp-section--full { padding: 30px; }
-  .jcs-yp-groups.jcs-yp-groups--2 { grid-template-columns: 1fr 1fr; column-gap: 0; }
-  .jcs-yp-groups--2 .jcs-yp-group:first-child { padding-right: 30px; }
-  .jcs-yp-groups--2 .jcs-yp-group + .jcs-yp-group { margin-top: 0; padding-top: 0; padding-left: 30px; border-top: 0; border-left: 1px solid #b1b4b6; }
+  .jcs-yp-groups.jcs-yp-groups--2 { grid-template-columns: 1fr 1fr; }
+  .jcs-yp-groups.jcs-yp-groups--3 { grid-template-columns: 1fr 1fr 1fr; }
+  .jcs-yp-groups.jcs-yp-groups--split { column-gap: 0; }
+  .jcs-yp-groups--split .jcs-yp-group { padding-right: 30px; }
+  .jcs-yp-groups--split .jcs-yp-group:last-child { padding-right: 0; }
+  .jcs-yp-groups--split .jcs-yp-group + .jcs-yp-group { margin-top: 0; padding-top: 0; padding-left: 30px; border-top: 0; border-left: 1px solid #b1b4b6; }
 }
