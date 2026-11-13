@@ -206,9 +206,9 @@ html { scroll-behavior: smooth; }
 .jcs-yp-section { scroll-margin-top: -10px; }
 .jcs-yp-section:first-child { scroll-margin-top: 20px; }
 
-/* Young people page: full content width section (no illustration column) as a pale yellow block. Its columns
+/* Young people page: full content width section (no illustration column) as a light grey block. Its columns
    (--split, with --2 or --3) have a hairline between them, running across between them on phones. */
-.jcs-yp-section.jcs-yp-section--full { margin-bottom: 30px; padding: 25px 20px; border-top: 0; background: #fff7bf; }
+.jcs-yp-section.jcs-yp-section--full { margin-bottom: 30px; padding: 25px 20px; border-top: 0; background: #f3f2f1; }
 .jcs-yp-section.jcs-yp-section--full:last-child { margin-bottom: 0; }
 .jcs-yp-groups--split { gap: 0; }
 .jcs-yp-groups--split .jcs-yp-group + .jcs-yp-group { margin-top: 20px; padding-top: 20px; border-top: 1px solid #b1b4b6; }
