@@ -151,7 +151,6 @@
 .jcs-yp-link { font-size: 1.1875rem; font-weight: 700; }
 .jcs-yp-ai { display: flex; align-items: center; gap: 10px; margin: 0 0 25px; }
 .jcs-yp-ai img { flex: none; }
-.jcs-yp-ai__description { display: block; font-family: "GDS Transport", arial, sans-serif; margin-top: 2px; font-size: 1rem; color: var(--govuk-secondary-text-colour, #505a5f); }
 .jcs-yp-links { margin: 0; padding: 0; list-style: none; }
 .jcs-yp-links li { margin-bottom: 15px; }
 .jcs-yp-links li:last-child { margin-bottom: 0; }
