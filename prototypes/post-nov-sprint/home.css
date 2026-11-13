@@ -119,7 +119,8 @@
   .jcs-menu-item--panel .jcs-menu-button__icon { display: none; }
 
   /* The mega menu opened inside More: light blue panel (as on desktop) to both screen edges, content lined up with the menu text */
-  .jcs-menu-item--panel .jcs-mega-menu { position: relative; z-index: 0; padding: 15px 0 5px 30.5px; border-bottom: 0; background: none; }
+  /* Grey line under the More row when it's open, like the one above the language links */
+  .jcs-menu-item--panel .jcs-mega-menu { position: relative; z-index: 0; margin-top: 5px; padding: 15px 0 5px 30.5px; border-top: 1px solid var(--govuk-border-colour, #cecece); border-bottom: 0; background: none; }
   .jcs-menu-item--panel .jcs-mega-menu::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: calc(-1 * max(15px, calc(15px + env(safe-area-inset-left)))); right: calc(-1 * max(15px, calc(15px + env(safe-area-inset-right)))); background: var(--govuk-surface-background-colour, #f4f8fb); }
   .jcs-menu-item--panel .jcs-mega-menu .govuk-width-container { margin-right: 0; margin-left: 0; }
   .jcs-menu-item--panel .jcs-mega-menu .govuk-heading-s { margin-top: 10px; }
