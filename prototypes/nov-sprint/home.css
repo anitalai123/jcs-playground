@@ -185,7 +185,7 @@
   .jcs-yp-speak__option img { width: 140px; height: 140px; margin-bottom: 20px; }
 }
 
-/* Young people page: "Jump to:" links to the 4 sections, in a light grey strip under the hero */
+/* Young people page: "I want to:" links to the 4 sections, in a light grey strip under the hero */
 .jcs-yp-jump { padding: 20px 0; background: #f3f2f1; }
 .jcs-yp-jump__title { margin: 0 0 10px; font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; color: #0b0c0c; }
 .jcs-yp-jump__list { margin: 0; padding: 0; list-style: none; }
