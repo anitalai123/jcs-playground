@@ -205,3 +205,8 @@
 html { scroll-behavior: smooth; }
 .jcs-yp-section { scroll-margin-top: -10px; }
 .jcs-yp-section:first-child { scroll-margin-top: 20px; }
+
+/* Young people page: full content width section (no illustration column), subsections in 2 equal columns */
+@media (min-width: 40.0625em) {
+  .jcs-yp-groups.jcs-yp-groups--2 { grid-template-columns: 1fr 1fr; }
+}
