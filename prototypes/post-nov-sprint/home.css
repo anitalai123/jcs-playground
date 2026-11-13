@@ -39,8 +39,6 @@
 .jcs-home-notsure { padding-bottom: 16px; text-align: center; }
 .jcs-home-cards { display: flex; flex-direction: column; gap: 24px; }
 @media (min-width: 48em) { .jcs-home-cards { display: grid; grid-template-columns: repeat(2, 1fr); } }
-/* Location bar between the two pairs of cards: full width of the grid */
-.jcs-home-cards__bar { grid-column: 1 / -1; }
 .jcs-home-card { position: relative; overflow: hidden; box-sizing: border-box; height: 100%; padding: 16px; }
 .jcs-home-card__title { margin: 0 0 10px; font-family: "GDS Transport", arial, sans-serif; font-size: 1.75rem; font-weight: 700; line-height: 1.25; color: #0b0c0c; }
 .jcs-home-card__content { position: relative; z-index: 2; max-width: calc(100% - 100px); }
