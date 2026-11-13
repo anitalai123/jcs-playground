@@ -222,3 +222,5 @@ html { scroll-behavior: smooth; }
   .jcs-yp-groups--split .jcs-yp-group:last-child { padding-right: 0; }
   .jcs-yp-groups--split .jcs-yp-group + .jcs-yp-group { margin-top: 0; padding-top: 0; padding-left: 30px; border-top: 0; border-left: 1px solid #b1b4b6; }
 }
+.jcs-yp-section--full .jcs-yp-section__title { margin-bottom: 10px; }
+.jcs-yp-block__body { margin-bottom: 15px; }
