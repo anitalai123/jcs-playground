@@ -203,4 +203,5 @@
   .jcs-yp-jump__link { font-size: 1rem; }
 }
 html { scroll-behavior: smooth; }
-.jcs-yp-section__title { scroll-margin-top: 20px; }
+.jcs-yp-section { scroll-margin-top: -10px; }
+.jcs-yp-section:first-child { scroll-margin-top: 20px; }
