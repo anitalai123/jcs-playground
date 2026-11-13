@@ -182,3 +182,15 @@
   .jcs-yp-speak__option:first-child { padding-right: 30px; }
   .jcs-yp-speak__option + .jcs-yp-speak__option { margin-top: 0; padding-top: 0; padding-left: 30px; border-top: 0; border-left: 1px solid #b1b4b6; }
 }
+
+/* Young people page: jump links to the 4 sections, in the hero */
+.jcs-yp-jump { margin-top: 25px; }
+.jcs-yp-jump__list { margin: 0; padding: 0; list-style: none; }
+.jcs-yp-jump__list li { margin-bottom: 10px; }
+.jcs-yp-jump__link { display: inline-flex; align-items: center; gap: 10px; font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
+.jcs-yp-jump__icon { flex: none; }
+@media (min-width: 40.0625em) {
+  .jcs-yp-jump__list { display: grid; grid-template-columns: repeat(2, max-content); column-gap: 30px; }
+}
+html { scroll-behavior: smooth; }
+.jcs-yp-section__title { scroll-margin-top: 20px; }
