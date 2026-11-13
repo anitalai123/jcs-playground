@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
   <link rel="stylesheet" href="/menu-shared/menu.css">
   <link rel="stylesheet" href="../home.css">
+  <!-- Layout option: ?layout=aligned lines everything below the hero up to the section content column -->
+  <script>if (new URLSearchParams(location.search).get('layout') === 'aligned') document.documentElement.classList.add('jcs-yp-aligned')</script>
 </head>
 <body class="govuk-template__body">
   <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
@@ -67,7 +69,7 @@
     <div class="govuk-phase-banner">
       <p class="govuk-phase-banner__content">
         <a href="/" class="govuk-link govuk-link--no-underline"><strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong><span class="govuk-visually-hidden"> – go to all prototypes</span></a>
-        <span class="govuk-phase-banner__text">This is a prototype: November sprint</span>
+        <span class="govuk-phase-banner__text">This is a prototype: November sprint. Layout: <a class="govuk-link" href="./" data-layout="standard">Standard</a> | <a class="govuk-link" href="./?layout=aligned" data-layout="aligned">Aligned columns</a></span>
       </p>
     </div>
   </div>
