@@ -159,5 +159,12 @@
 @media (min-width: 40.0625em) {
   .jcs-yp-links--columns { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 30px; row-gap: 15px; }
   .jcs-yp-links--columns li { margin-bottom: 0; }
-  .jcs-yp-groups { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); column-gap: 30px; }
+  .jcs-yp-groups { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); column-gap: 30px; }
+}
+/* Section illustration: above the heading on phones, in a left column on desktop */
+.jcs-yp-section__image { display: block; width: 120px; height: auto; margin-bottom: 10px; }
+@media (min-width: 40.0625em) {
+  .jcs-yp-section { display: flex; align-items: flex-start; gap: 30px; }
+  .jcs-yp-section__image { flex: none; width: 160px; margin: 0; }
+  .jcs-yp-section__content { flex: 1; min-width: 0; }
 }

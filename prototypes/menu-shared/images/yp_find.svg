@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120" fill="none">
+    <!-- Briefcase and a magnifying glass: finding jobs -->
+    <circle cx="80" cy="60" r="56" fill="#D2E2F1"/>
+    <path d="M64 46V38C64 35.8 65.8 34 68 34H88C90.2 34 92 35.8 92 38V46" stroke="#0F385C" stroke-width="6"/>
+    <rect x="38" y="44" width="80" height="58" rx="6" fill="#1D70B8"/>
+    <rect x="38" y="64" width="80" height="6" fill="#16548A"/>
+    <rect x="72" y="60" width="12" height="14" rx="2" fill="#FFDD00"/>
+    <circle cx="112" cy="40" r="16" fill="#FFFFFF" stroke="#11875A" stroke-width="6"/>
+    <path d="M123 52L134 64" stroke="#11875A" stroke-width="8" stroke-linecap="round"/>
+    <path d="M104 38C105 33 109 30 114 30" stroke="#8EB8DC" stroke-width="3" stroke-linecap="round"/>
+</svg>

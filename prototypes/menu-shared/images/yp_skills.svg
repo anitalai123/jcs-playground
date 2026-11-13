@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120" fill="none">
+    <!-- Books and a graduation cap: building skills -->
+    <circle cx="80" cy="60" r="56" fill="#D2E2F1"/>
+    <rect x="42" y="94" width="78" height="14" rx="2" fill="#11875A"/>
+    <rect x="42" y="98" width="78" height="3" fill="#0D6544"/>
+    <rect x="48" y="80" width="68" height="14" rx="2" fill="#F7996A"/>
+    <rect x="48" y="84" width="68" height="3" fill="#FDE4D7"/>
+    <rect x="44" y="66" width="72" height="14" rx="2" fill="#1D70B8"/>
+    <rect x="44" y="70" width="72" height="3" fill="#5694CA"/>
+    <path d="M80 22L122 38L80 54L38 38L80 22Z" fill="#0F385C"/>
+    <path d="M58 44V58C58 58 66 64 80 64C94 64 102 58 102 58V44L80 53L58 44Z" fill="#16548A"/>
+    <path d="M114 41V58" stroke="#FFDD00" stroke-width="3"/>
+    <circle cx="114" cy="60" r="4" fill="#FFDD00"/>
+</svg>
