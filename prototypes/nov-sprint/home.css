@@ -189,7 +189,7 @@
 .jcs-yp-jump__list { margin: 0; padding: 0; list-style: none; }
 .jcs-yp-jump__list li { margin-bottom: 10px; }
 .jcs-yp-jump__list li:last-child { margin-bottom: 0; }
-.jcs-yp-jump__link { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; }
+.jcs-yp-jump__link { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
 @media (min-width: 40.0625em) {
   .jcs-yp-jump__list { display: grid; grid-template-columns: repeat(2, max-content); column-gap: 30px; row-gap: 10px; }
   .jcs-yp-jump__list li { margin-bottom: 0; }
