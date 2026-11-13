@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="343" height="201" viewBox="0 0 343 201" fill="none">
+    <!-- Arched doorway with a bookshelf, as in the Work hub hero -->
+    <path d="M44 8H100C116.6 8 130 21.4 130 38V201H14V38C14 21.4 27.4 8 44 8Z" fill="#8EB8DC"/>
+    <path d="M52 22H92C105.3 22 116 32.7 116 46V201H28V46C28 32.7 38.7 22 52 22Z" fill="#16548A"/>
+    <rect x="28" y="74" width="88" height="5" fill="#5694CA"/>
+    <rect x="36" y="50" width="8" height="24" fill="#D2E2F1"/>
+    <rect x="46" y="44" width="9" height="30" fill="#FFDD00"/>
+    <rect x="57" y="52" width="7" height="22" fill="#F7996A"/>
+    <rect x="68" y="56" width="20" height="7" rx="1" transform="rotate(-24 68 56)" fill="#11875A"/>
+    <rect x="94" y="48" width="8" height="26" fill="#D2E2F1"/>
+    <rect x="104" y="54" width="8" height="20" fill="#5694CA"/>
+    <rect x="28" y="128" width="88" height="5" fill="#5694CA"/>
+    <rect x="40" y="104" width="9" height="24" fill="#11875A"/>
+    <rect x="51" y="110" width="8" height="18" fill="#D2E2F1"/>
+    <rect x="61" y="100" width="9" height="28" fill="#F7996A"/>
+    <rect x="86" y="108" width="20" height="20" rx="10" fill="#0F385C"/>
+
+    <!-- Notice board with pinned cards -->
+    <rect x="210" y="16" width="122" height="98" rx="6" fill="#8EB8DC"/>
+    <rect x="218" y="24" width="106" height="82" rx="3" fill="#D2E2F1"/>
+    <rect x="225" y="32" width="32" height="26" fill="#FFFFFF"/>
+    <rect x="230" y="39" width="20" height="3" rx="1.5" fill="#5694CA"/>
+    <rect x="230" y="46" width="14" height="3" rx="1.5" fill="#5694CA"/>
+    <rect x="263" y="30" width="24" height="24" transform="rotate(6 263 30)" fill="#FFDD00"/>
+    <rect x="295" y="34" width="22" height="30" fill="#FFFFFF"/>
+    <rect x="299" y="41" width="14" height="3" rx="1.5" fill="#11875A"/>
+    <rect x="299" y="48" width="10" height="3" rx="1.5" fill="#11875A"/>
+    <circle cx="241" cy="32" r="3" fill="#0F385C"/>
+    <circle cx="306" cy="34" r="3" fill="#0F385C"/>
+
+    <!-- Speech bubble with a briefcase: a first job -->
+    <path d="M154 18H194C199.5 18 204 22.5 204 28V50C204 55.5 199.5 60 194 60H180L170 70V60H154C148.5 60 144 55.5 144 50V28C144 22.5 148.5 18 154 18Z" fill="#FFFFFF"/>
+    <path d="M168 32V29C168 27.3 169.3 26 171 26H177C178.7 26 180 27.3 180 29V32" stroke="#0F385C" stroke-width="2.5"/>
+    <rect x="160" y="32" width="28" height="19" rx="2.5" fill="#1D70B8"/>
+    <rect x="160" y="39" width="28" height="2.5" fill="#16548A"/>
+
+    <!-- Young person with a backpack and a phone -->
+    <rect x="136" y="124" width="16" height="44" rx="7" fill="#0F385C"/>
+    <path d="M146 201V140C146 126.7 156.7 116 170 116H174C187.3 116 198 126.7 198 140V201H146Z" fill="#11875A"/>
+    <ellipse cx="172" cy="118" rx="14" ry="6" fill="#0D6544"/>
+    <path d="M158 120L156 201" stroke="#0F385C" stroke-width="5"/>
+    <circle cx="172" cy="96" r="17" fill="#99704A"/>
+    <path d="M154.5 96C154.5 84 162 77 172 77C182.5 77 190 84 189.5 95C185 87 178 85 171 87C164 89 158 92 154.5 96Z" fill="#0F385C"/>
+    <path d="M193 130C202 144 202 152 189 153" stroke="#11875A" stroke-width="12" stroke-linecap="round"/>
+    <rect x="178" y="134" width="11" height="19" rx="2.5" transform="rotate(-8 178 134)" fill="#0F385C"/>
+    <circle cx="186" cy="153" r="5.5" fill="#99704A"/>
+
+    <!-- Young person holding a folder -->
+    <path d="M248 201V144C248 130.7 258.7 120 272 120H278C291.3 120 302 130.7 302 144V201H248Z" fill="#FFDD00"/>
+    <circle cx="275" cy="99" r="16" fill="#FDE4D7"/>
+    <circle cx="285" cy="79" r="7.5" fill="#0F385C"/>
+    <path d="M259 99C259 89 266 82 275 82C284.5 82 291 89 291 98C286 92 278 90 271 91C266 92 262 95 259 99Z" fill="#0F385C"/>
+    <path d="M253 134C248 148 252 158 264 160" stroke="#FFDD00" stroke-width="12" stroke-linecap="round"/>
+    <rect x="256" y="142" width="32" height="24" rx="2" transform="rotate(-8 256 142)" fill="#F7996A"/>
+    <circle cx="266" cy="160" r="5.5" fill="#FDE4D7"/>
+</svg>
