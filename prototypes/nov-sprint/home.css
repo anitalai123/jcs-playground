@@ -225,7 +225,6 @@ html { scroll-behavior: smooth; }
 .jcs-yp-block { margin-top: 30px; padding: 25px 20px; background: #f3f2f1; }
 .jcs-yp-block__title { margin-bottom: 10px; }
 @media (min-width: 40.0625em) { .jcs-yp-block { padding: 30px; } }
-.jcs-yp-rule { margin: 0 0 30px; border: 0; border-top: 1px solid #cecece; }
 
 /* Speak to a careers adviser: intro and a list with illustrated tick bullets */
 .jcs-yp-speak__title { margin-bottom: 15px; }
