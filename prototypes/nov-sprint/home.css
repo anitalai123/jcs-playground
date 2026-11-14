@@ -235,3 +235,12 @@ html { scroll-behavior: smooth; }
 .jcs-yp-ticks li:last-child { margin-bottom: 0; }
 .jcs-yp-ticks li::before { content: ""; position: absolute; top: -3px; left: 0; width: 28px; height: 28px; background: url(/menu-shared/images/tick_icon.svg) no-repeat center / contain; }
 @media (min-width: 48em) { .jcs-yp-speak__intro { flex: 1; } }
+
+/* Numbered steps: a number badge on each key section illustration */
+.jcs-yp-section__figure { position: relative; display: block; flex: none; width: 120px; margin-bottom: 10px; }
+.jcs-yp-section__figure .jcs-yp-section__image { margin: 0; }
+.jcs-yp-section__number { position: absolute; top: -4px; left: 4px; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 3px solid #fff; border-radius: 50%; background: #0b0c0c; color: #fff; font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; line-height: 1; }
+@media (min-width: 40.0625em) {
+  .jcs-yp-section__figure { width: 160px; margin: 0; }
+  .jcs-yp-section__number { top: -6px; left: 10px; width: 40px; height: 40px; font-size: 1.5rem; }
+}
