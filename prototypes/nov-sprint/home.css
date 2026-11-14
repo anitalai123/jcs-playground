@@ -228,7 +228,7 @@ html { scroll-behavior: smooth; }
 
 /* Speak to a careers adviser: intro and a list with illustrated tick bullets */
 .jcs-yp-speak__title { margin-bottom: 15px; }
-.jcs-yp-speak__lead { margin-bottom: 10px; }
+.jcs-yp-speak__lead { margin-bottom: 20px; }
 .jcs-yp-ticks { margin: 0; padding: 0; list-style: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; line-height: 25px; color: #0b0c0c; }
 .jcs-yp-ticks li { position: relative; margin-bottom: 10px; padding-left: 38px; min-height: 28px; }
 .jcs-yp-ticks li:last-child { margin-bottom: 0; }
