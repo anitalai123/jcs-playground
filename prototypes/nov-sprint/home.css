@@ -302,10 +302,9 @@ html { scroll-behavior: smooth; }
 .jcs-feed-card--blue { border-color: #8eb8dc; background: #d2e2f1; }
 .jcs-feed-card--govblue { border-color: #1d70b8; background: #1d70b8; }
 .jcs-feed-card--govblue .govuk-heading-m, .jcs-feed-card--govblue .govuk-heading-s, .jcs-feed-card--govblue .govuk-body { color: #fff; }
-.jcs-feed-card__header { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+.jcs-feed-card__header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.jcs-feed-card__icon { flex: none; }
 .jcs-feed-card__header .jcs-feed-card__question { margin-bottom: 0; }
-.jcs-feed-card__badge { flex: none; display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50%; background: #fff; overflow: hidden; }
-.jcs-feed-card__badge img { width: 52px; height: auto; }
 .jcs-feed-card__subtitle + .jcs-feed-card__text { margin-top: 5px; }
 .jcs-feed-card--yellow .govuk-caption-m, .jcs-feed-card--lilac .govuk-caption-m { color: #0b0c0c; }
 
