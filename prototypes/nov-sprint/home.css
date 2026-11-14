@@ -250,3 +250,24 @@ html { scroll-behavior: smooth; }
 .jcs-yp-section__body { max-width: 36em; margin-bottom: 25px; }
 .jcs-yp-section--full .jcs-yp-section__title { margin-bottom: 10px; }
 .jcs-yp-block__subtitle { margin: 25px 0 10px; }
+
+/* Breathing room (quick wins):
+   1. Links in regular weight; bold kept for headings and the main calls to action
+   2. White space between steps instead of grey lines
+   3. Callouts as GOV.UK inset text (10px left border, no fill)
+   4. A line joining the step numbers down the left column (desktop) */
+.jcs-yp-link { font-weight: 400; }
+.jcs-yp-speak .jcs-yp-link { font-weight: 700; }
+.jcs-yp-section { padding-top: 30px; padding-bottom: 30px; border-top: 0; }
+.jcs-yp-block, .jcs-yp-section.jcs-yp-section--full { padding: 5px 0 5px 20px; border-left: 10px solid #cecece; background: none; }
+@media (min-width: 40.0625em) {
+  .jcs-yp-section { padding-top: 35px; padding-bottom: 35px; }
+  .jcs-yp-section:first-child { padding-top: 10px; }
+  .jcs-yp-block, .jcs-yp-section.jcs-yp-section--full { padding: 5px 0 5px 25px; }
+  .jcs-yp-section.jcs-yp-section--full { margin-top: 10px; margin-bottom: 40px; }
+  .jcs-yp-section { position: relative; }
+  .jcs-yp-section__figure { z-index: 1; }
+  /* From this badge's centre down to the next badge's centre (35px padding - 6px offset + 20px half badge = 49px) */
+  .jcs-yp-section--connected::before { content: ""; position: absolute; top: 49px; bottom: -49px; left: 29px; width: 2px; background: #8eb8dc; }
+  .jcs-yp-section--connected:first-child::before { top: 24px; }
+}
