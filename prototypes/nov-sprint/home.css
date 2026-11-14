@@ -261,3 +261,64 @@ html { scroll-behavior: smooth; }
   .jcs-yp-section { padding-top: 35px; padding-bottom: 35px; }
   .jcs-yp-section:first-child { padding-top: 10px; }
 }
+
+/* ===== Young people page, feed version (young-people/feed/): one column of cards, one bit at a time ===== */
+/* Steps as story circles under the hero */
+.jcs-feed-stories { padding: 20px 0 15px; background: #fff; border-bottom: 1px solid #cecece; }
+.jcs-feed-stories__list { display: flex; gap: 18px; margin: 0 auto; padding: 0 0 5px; list-style: none; max-width: 640px; overflow-x: auto; }
+.jcs-feed-stories__link { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 80px; color: #0b0c0c; text-decoration: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; text-align: center; }
+.jcs-feed-stories__ring { position: relative; display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; border: 3px solid #1d70b8; border-radius: 50%; background: #fff; }
+.jcs-feed-stories__ring img { width: 82px; height: auto; margin: -2px; border-radius: 50%; }
+.jcs-feed-stories__ring { overflow: visible; }
+.jcs-feed-stories__number { position: absolute; top: -6px; left: -6px; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 2px solid #fff; border-radius: 50%; background: #0b0c0c; color: #fff; font-size: 0.875rem; font-weight: 700; }
+.jcs-feed-stories__link:focus { outline: 3px solid transparent; background: #fd0; box-shadow: 0 -2px #fd0, 0 4px #0b0c0c; }
+.jcs-feed-stories__link:hover .jcs-feed-stories__label { text-decoration: underline; }
+@media (min-width: 40.0625em) { .jcs-feed-stories__list { justify-content: space-between; } }
+
+/* The feed: grey background, a centred column of white cards */
+.jcs-feed { padding: 25px 0 40px; background: #f3f2f1; }
+.jcs-feed__column { display: block; max-width: 640px; margin: 0 auto; }
+.jcs-feed-card { margin-bottom: 15px; background: #fff; border: 1px solid #cecece; scroll-margin-top: 15px; }
+.jcs-feed-card__body { padding: 20px; }
+@media (min-width: 40.0625em) { .jcs-feed-card { margin-bottom: 20px; } .jcs-feed-card__body { padding: 25px 30px; } }
+.jcs-feed-card__media { display: flex; justify-content: center; padding: 20px 0 10px; background: #d2e2f1; }
+.jcs-feed-card__media img { width: 200px; height: auto; }
+.jcs-feed-card__step { margin: 0 0 5px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 700; color: #1d70b8; }
+.jcs-feed-card__title { margin-bottom: 10px; }
+.jcs-feed-card__text { margin-bottom: 0; }
+.jcs-feed-card__text + .jcs-feed-links, .jcs-feed-card__text + .jcs-feed-card__subtitle { margin-top: 15px; }
+.jcs-feed-card__tag { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: var(--govuk-secondary-text-colour, #484949); }
+.jcs-feed-card__tag-number { display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: #0b0c0c; color: #fff; font-size: 0.8125rem; font-weight: 700; }
+.jcs-feed-card__question { margin-bottom: 10px; }
+.jcs-feed-card__subtitle { margin: 20px 0 0; }
+.jcs-feed-card__ai { display: flex; align-items: center; gap: 10px; margin: 0; }
+.jcs-feed-card__ai img { flex: none; }
+.jcs-feed-card__ai-link { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
+.jcs-feed-card--ai { border-color: #8eb8dc; background: #f4f8fb; }
+.jcs-feed-card--yellow { border-color: #f1dd5c; background: #fff7bf; }
+.jcs-feed-card--lilac { border-color: #b8afd1; background: #dbd5e9; }
+.jcs-feed-card--blue { border-color: #8eb8dc; background: #d2e2f1; }
+.jcs-feed-card--yellow .jcs-feed-card__tag, .jcs-feed-card--lilac .jcs-feed-card__tag { color: #0b0c0c; }
+
+/* Links as full width tappable rows with a chevron */
+.jcs-feed-links { margin: 0; padding: 0; list-style: none; }
+.jcs-feed-links li + li { border-top: 1px solid #cecece; }
+.jcs-feed-card--yellow .jcs-feed-links li + li, .jcs-feed-card--lilac .jcs-feed-links li + li { border-top-color: rgba(11, 12, 12, .2); }
+.jcs-feed-links__link { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 12px 0; font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; text-decoration: none; }
+.jcs-feed-links__link:hover .jcs-feed-links__text { text-decoration: underline; text-decoration-thickness: 3px; }
+.jcs-feed-links__text { text-decoration: underline; text-underline-offset: .1578em; }
+.jcs-feed-links__link:focus .jcs-feed-links__text { text-decoration: none; }
+.jcs-feed-links__hint { display: block; margin-top: 2px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: var(--govuk-secondary-text-colour, #484949); }
+.jcs-feed-links__chevron { flex: none; }
+.jcs-feed-links li:last-child .jcs-feed-links__link { padding-bottom: 0; }
+
+/* Careers adviser card */
+.jcs-feed-advisers { margin: 20px 0 0; padding: 0; list-style: none; }
+.jcs-feed-advisers li { display: flex; align-items: center; gap: 15px; padding: 12px 0; border-top: 1px solid #8eb8dc; }
+.jcs-feed-advisers li:last-child { padding-bottom: 0; }
+.jcs-feed-advisers img { flex: none; }
+.jcs-feed-advisers__link { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
+
+/* End of the feed */
+.jcs-feed__end { padding: 20px 0 0; text-align: center; }
+.jcs-feed__end img { display: block; margin: 0 auto 10px; }

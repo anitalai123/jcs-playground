@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Young people (feed) – November sprint – Work hub – Prototype</title>
+  <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
+  <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="/menu-shared/menu.css">
+  <link rel="stylesheet" href="../../home.css">
+</head>
+<body class="govuk-template__body" id="top">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- Young people page, feed version: the same content as cards in one column, one bit at a time, like a social feed.
+       Switch layouts from the phase banner. -->
+  <header class="govuk-template__header">
+    <div data-shared="header"></div>
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container govuk-service-navigation__inlining-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="../../" class="govuk-service-navigation__link">Work hub</a>
+          </span>
+          <!-- 4 hero tools, then "More" opens the full mega menu. On phones, GOV.UK service navigation
+               tucks these behind its own Menu toggle. -->
+          <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+            <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden aria-hidden="true">
+              Menu
+            </button>
+            <ul class="govuk-service-navigation__list" id="navigation">
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">AI work assistant</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Find a job</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Build a CV</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Action plan</a></li>
+              <li class="govuk-service-navigation__item">
+                <button type="button" class="jcs-menu-button jcs-menu-button--regular" id="mega-menu-toggle" aria-expanded="false" aria-controls="mega-menu">
+                  More
+                  <svg class="jcs-menu-button__icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 12 1 4h14z"/></svg>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <nav class="govuk-language-navigation" aria-label="Language">
+          <ul class="govuk-language-navigation__list">
+            <li class="govuk-language-navigation__list-item">
+              <span class="govuk-language-navigation__text" aria-current="true" lang="en">English</span>
+            </li>
+            <li class="govuk-language-navigation__list-item">
+              <a class="govuk-language-navigation__link" href="#" rel="alternate" lang="cy" hreflang="cy">Cymraeg</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <div data-nov-sprint="mega-menu"></div>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <a href="/" class="govuk-link govuk-link--no-underline"><strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong><span class="govuk-visually-hidden"> – go to all prototypes</span></a>
+        <span class="govuk-phase-banner__text">This is a prototype: November sprint. Layout: <a class="govuk-link" href="../">Standard</a> | <strong>Feed</strong></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="jcs-home-hero">
+    <div class="govuk-width-container jcs-home-hero__inner">
+      <img class="jcs-home-hero__image" src="/menu-shared/images/young_people.svg" alt="" aria-hidden="true" width="343" height="201">
+      <div class="jcs-home-hero__text">
+        <h1 class="govuk-heading-xl jcs-home-hero__heading">Figuring out what to do next is never easy</h1>
+        <p class="govuk-body-l jcs-home-hero__body">Work hub can guide you through your options and support you along the way.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steps as a row of story circles: tap one to jump to that step in the feed -->
+  <nav class="jcs-feed-stories" aria-label="Steps">
+    <div class="govuk-width-container">
+      <ol class="jcs-feed-stories__list">
+        <li><a class="jcs-feed-stories__link" href="#step-1"><span class="jcs-feed-stories__ring"><img src="/menu-shared/images/yp_explore.svg" alt="" width="160" height="120"><span class="jcs-feed-stories__number" aria-hidden="true">1</span></span><span class="jcs-feed-stories__label"><span class="govuk-visually-hidden">Step 1: </span>Explore</span></a></li>
+        <li><a class="jcs-feed-stories__link" href="#step-2"><span class="jcs-feed-stories__ring"><img src="/menu-shared/images/yp_skills.svg" alt="" width="160" height="120"><span class="jcs-feed-stories__number" aria-hidden="true">2</span></span><span class="jcs-feed-stories__label"><span class="govuk-visually-hidden">Step 2: </span>Skills</span></a></li>
+        <li><a class="jcs-feed-stories__link" href="#step-3"><span class="jcs-feed-stories__ring"><img src="/menu-shared/images/yp_apply.svg" alt="" width="160" height="120"><span class="jcs-feed-stories__number" aria-hidden="true">3</span></span><span class="jcs-feed-stories__label"><span class="govuk-visually-hidden">Step 3: </span>Apply</span></a></li>
+        <li><a class="jcs-feed-stories__link" href="#step-4"><span class="jcs-feed-stories__ring"><img src="/menu-shared/images/yp_find.svg" alt="" width="160" height="120"><span class="jcs-feed-stories__number" aria-hidden="true">4</span></span><span class="jcs-feed-stories__label"><span class="govuk-visually-hidden">Step 4: </span>Find jobs</span></a></li>
+        <li><a class="jcs-feed-stories__link" href="#step-5"><span class="jcs-feed-stories__ring"><img src="/menu-shared/images/yp_in_work.svg" alt="" width="160" height="120"><span class="jcs-feed-stories__number" aria-hidden="true">5</span></span><span class="jcs-feed-stories__label"><span class="govuk-visually-hidden">Step 5: </span>In work</span></a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <div class="jcs-feed">
+    <div class="govuk-width-container">
+      <main class="jcs-feed__column" id="main-content">
+
+        <!-- Step 1 -->
+        <article class="jcs-feed-card jcs-feed-card--intro" id="step-1" aria-labelledby="step-1-title">
+          <div class="jcs-feed-card__media"><img src="/menu-shared/images/yp_explore.svg" alt="" width="160" height="120"></div>
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__step">Step 1 of 5</p>
+            <h2 class="govuk-heading-l jcs-feed-card__title" id="step-1-title">Explore what I can do</h2>
+            <p class="govuk-body jcs-feed-card__text">Not sure what you want to do yet? That's OK. Find out what you're good at, discover jobs that match your interests and see what your options are after school or college.</p>
+          </div>
+        </article>
+        <article class="jcs-feed-card jcs-feed-card--ai">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">1</span>Explore what I can do</p>
+            <p class="jcs-feed-card__ai"><img src="/menu-shared/images/chat-icon.svg" width="49" height="40" alt="" aria-hidden="true"><a class="govuk-link jcs-feed-card__ai-link" href="#">Chat with AI about jobs you can do</a></p>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">1</span>Explore what I can do</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">What are you good at?</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Skills assessment</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">1</span>Explore what I can do</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">What jobs are out there?</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Learn about different jobs and sectors</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">1</span>Explore what I can do</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Finishing school or college?</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Post 16 options</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Post 18 options</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+
+        <!-- Step 2 -->
+        <article class="jcs-feed-card jcs-feed-card--intro" id="step-2" aria-labelledby="step-2-title">
+          <div class="jcs-feed-card__media"><img src="/menu-shared/images/yp_skills.svg" alt="" width="160" height="120"></div>
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__step">Step 2 of 5</p>
+            <h2 class="govuk-heading-l jcs-feed-card__title" id="step-2-title">Get skills and experience</h2>
+            <p class="govuk-body jcs-feed-card__text">Once you have some ideas, start building the skills to get there. You could take a course, keep studying or try volunteering to get a feel for different kinds of work.</p>
+          </div>
+        </article>
+        <article class="jcs-feed-card jcs-feed-card--ai">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">2</span>Get skills and experience</p>
+            <p class="jcs-feed-card__ai"><img src="/menu-shared/images/chat-icon.svg" width="49" height="40" alt="" aria-hidden="true"><a class="govuk-link jcs-feed-card__ai-link" href="#">Chat with AI about your skills</a></p>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">2</span>Get skills and experience</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Want to build some skills?</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Find a course</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">2</span>Get skills and experience</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Want to keep studying?</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Find T-levels</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Find university courses</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">2</span>Get skills and experience</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Want to try lots of different things?</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Try volunteering</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+        <article class="jcs-feed-card jcs-feed-card--yellow">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">2</span>Get skills and experience</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Worry about learning costs?</h3>
+            <p class="govuk-body jcs-feed-card__text">See what financial support is available to help you learn, complete training or move towards your dream job.</p>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Money and learning costs</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+
+        <!-- Step 3 -->
+        <article class="jcs-feed-card jcs-feed-card--intro" id="step-3" aria-labelledby="step-3-title">
+          <div class="jcs-feed-card__media"><img src="/menu-shared/images/yp_apply.svg" alt="" width="160" height="120"></div>
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__step">Step 3 of 5</p>
+            <h2 class="govuk-heading-l jcs-feed-card__title" id="step-3-title">Get ready to apply for jobs</h2>
+            <p class="govuk-body jcs-feed-card__text">When you're ready to apply, put together a CV that shows what you can do and get help writing applications that stand out.</p>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">3</span>Get ready to apply for jobs</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Get my CV together</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Build a CV</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Advice on how to write a CV</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">3</span>Get ready to apply for jobs</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Application help</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Application form advice</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">How to write a cover letter</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+
+        <!-- Step 4 -->
+        <article class="jcs-feed-card jcs-feed-card--intro" id="step-4" aria-labelledby="step-4-title">
+          <div class="jcs-feed-card__media"><img src="/menu-shared/images/yp_find.svg" alt="" width="160" height="120"></div>
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__step">Step 4 of 5</p>
+            <h2 class="govuk-heading-l jcs-feed-card__title" id="step-4-title">Find jobs and opportunities</h2>
+            <p class="govuk-body jcs-feed-card__text">Now it's time to start looking. Search for jobs and apprenticeships, find internships and make connections that can help you get your foot in the door.</p>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">4</span>Find jobs and opportunities</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Ready to look?</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Find an apprenticeship</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Find a job</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">4</span>Find jobs and opportunities</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Not sure how to start looking?</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Where to find job vacancies</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">How to find an internship</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">How to get a mentor</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Networking tips to help your career</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+        <article class="jcs-feed-card jcs-feed-card--lilac">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">4</span>Find jobs and opportunities</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Feeling the pressure?</h3>
+            <p class="govuk-body jcs-feed-card__text">Applying for jobs can be stressful, especially when you don't hear back. Get support with how you're feeling.</p>
+            <h4 class="govuk-heading-s jcs-feed-card__subtitle">Staying motivated</h4>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">How to handle job rejections*</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Tips to stay motivated*</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+            <h4 class="govuk-heading-s jcs-feed-card__subtitle">Mental health support</h4>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Youth hub</span><span class="jcs-feed-links__hint">Local support and wellbeing advice for young people</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Young minds</span><span class="jcs-feed-links__hint">A mental health charity for young people, with a free text support service</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+
+        <!-- Step 5 -->
+        <article class="jcs-feed-card jcs-feed-card--intro" id="step-5" aria-labelledby="step-5-title">
+          <div class="jcs-feed-card__media"><img src="/menu-shared/images/yp_in_work.svg" alt="" width="160" height="120"></div>
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__step">Step 5 of 5</p>
+            <h2 class="govuk-heading-l jcs-feed-card__title" id="step-5-title">Get support in work</h2>
+            <p class="govuk-body jcs-feed-card__text">Once you start a job, you can ask for changes that help you do your best, like adjustments for a disability or health condition.</p>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">5</span>Get support in work</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Asking for adjustments</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">What reasonable adjustments are*</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">How to ask your employer for adjustments*</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <p class="jcs-feed-card__tag"><span class="jcs-feed-card__tag-number">5</span>Get support in work</p>
+            <h3 class="govuk-heading-m jcs-feed-card__question">Settling in</h3>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Your rights at work*</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Your first few weeks in a new job*</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+
+        <!-- Universal Credit -->
+        <article class="jcs-feed-card">
+          <div class="jcs-feed-card__body">
+            <h2 class="govuk-heading-m jcs-feed-card__question">Support if you are on Universal Credit (placeholder)</h2>
+            <ul class="jcs-feed-links"><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Youth Guarantee</span><span class="jcs-feed-links__hint">For 16 to 24 year olds</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">Speak to your Work Coach</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li><li><a class="govuk-link jcs-feed-links__link" href="#"><span><span class="jcs-feed-links__text">SWAPs</span></span><svg class="jcs-feed-links__chevron" xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.4 0 0 1.4l5.1 5.1L0 11.6 1.4 13 7.9 6.5z"/></svg></a></li></ul>
+          </div>
+        </article>
+
+        <!-- Careers adviser -->
+        <article class="jcs-feed-card jcs-feed-card--blue">
+          <div class="jcs-feed-card__body">
+            <h2 class="govuk-heading-m jcs-feed-card__question">Speak to a careers adviser</h2>
+            <p class="govuk-body jcs-yp-speak__lead">A careers adviser can help you:</p>
+            <ul class="jcs-yp-ticks"><li>take the first step in your career</li><li>work out what jobs you might enjoy</li><li>change jobs or progress in your current career</li><li>decide on an ideal training choice</li></ul>
+            <ul class="jcs-feed-advisers">
+              <li><img src="/menu-shared/images/advisor_dwp.svg" width="56" height="56" alt=""><span><a class="govuk-link jcs-feed-advisers__link" href="#">Speak to a DWP careers adviser</a><span class="jcs-feed-links__hint">For 18 and above</span></span></li>
+              <li><img src="/menu-shared/images/advisor_school.svg" width="56" height="56" alt=""><span><a class="govuk-link jcs-feed-advisers__link" href="#">Speak to your school careers adviser</a><span class="jcs-feed-links__hint">For under 18s</span></span></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- End of the feed -->
+        <div class="jcs-feed__end">
+          <img src="/menu-shared/images/tick_icon.svg" width="40" height="40" alt="" aria-hidden="true">
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">You've seen everything for now</p>
+          <p class="govuk-body govuk-!-margin-bottom-0"><a class="govuk-link" href="#top">Back to the top</a></p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div data-nov-sprint="footer"></div>
+
+  <script type="module">
+    // Shared header (via /menu-shared/menu.js), plus this sprint's mega menu and footer (see parts.js)
+    import '/nov-sprint/parts.js'
+    import { initAll } from '/assets/govuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+</html>
