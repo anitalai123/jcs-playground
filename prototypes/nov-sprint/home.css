@@ -194,10 +194,10 @@
   .jcs-yp-jump__list li { margin-bottom: 0; }
 }
 @media (min-width: 58em) {
+  /* 6 steps: label on the left, links in a 3 column grid (2 rows) */
   .jcs-yp-jump__nav { display: flex; align-items: baseline; gap: 30px; }
-  .jcs-yp-jump__title { flex: none; margin: 0; font-size: 1rem; }
-  .jcs-yp-jump__list { display: flex; flex: 1; justify-content: space-between; }
-  .jcs-yp-jump__link { font-size: 1rem; }
+  .jcs-yp-jump__title { flex: none; margin: 0; }
+  .jcs-yp-jump__list { flex: 1; grid-template-columns: repeat(3, max-content); justify-content: space-between; }
 }
 html { scroll-behavior: smooth; }
 .jcs-yp-section { scroll-margin-top: -10px; }
