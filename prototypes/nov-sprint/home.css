@@ -294,7 +294,6 @@ html { scroll-behavior: smooth; }
 .jcs-feed-card__ai { display: flex; align-items: center; gap: 10px; margin: 0; }
 .jcs-feed-card__ai img { flex: none; }
 .jcs-feed-card__ai-link { font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; font-weight: 700; }
-.jcs-feed-card--ai { border-color: #8eb8dc; background: #f4f8fb; }
 .jcs-feed-card--yellow { border-color: #f1dd5c; background: #fff7bf; }
 .jcs-feed-card--lilac { border-color: #b8afd1; background: #dbd5e9; }
 .jcs-feed-card--blue { border-color: #8eb8dc; background: #d2e2f1; }
@@ -322,3 +321,5 @@ html { scroll-behavior: smooth; }
 /* End of the feed */
 .jcs-feed__end { padding: 20px 0 0; text-align: center; }
 .jcs-feed__end img { display: block; margin: 0 auto 10px; }
+/* AI chat row inside a step card */
+.jcs-feed-card__text + .jcs-feed-card__ai { margin-top: 20px; padding-top: 20px; border-top: 1px solid #cecece; }
