@@ -244,3 +244,8 @@ html { scroll-behavior: smooth; }
   .jcs-yp-section__figure { width: 160px; margin: 0; }
   .jcs-yp-section__number { top: -6px; left: 10px; width: 40px; height: 40px; font-size: 1.5rem; }
 }
+
+/* Key section body text: tells the story from exploring to finding work */
+.jcs-yp-section__title { margin-bottom: 15px; }
+.jcs-yp-section__body { max-width: 36em; margin-bottom: 25px; }
+.jcs-yp-section--full .jcs-yp-section__title { margin-bottom: 10px; }
