@@ -209,7 +209,8 @@ html { scroll-behavior: smooth; }
 .jcs-yp-section.jcs-yp-section--full:last-child { margin-bottom: 0; }
 .jcs-yp-groups--split { gap: 0; }
 .jcs-yp-groups--split .jcs-yp-group + .jcs-yp-group { margin-top: 20px; padding-top: 20px; border-top: 1px solid #b1b4b6; }
-.jcs-yp-hint { display: block; margin-top: 2px; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; color: #0b0c0c; }
+/* GOV.UK hint style: secondary text colour, 19px */
+.jcs-yp-hint { display: block; margin-top: 5px; font-family: "GDS Transport", arial, sans-serif; font-size: 1.1875rem; line-height: 1.3157894737; color: var(--govuk-secondary-text-colour, #484949); }
 @media (min-width: 40.0625em) {
   .jcs-yp-section.jcs-yp-section--full { padding: 30px; }
   .jcs-yp-groups.jcs-yp-groups--2 { grid-template-columns: 1fr 1fr; }
