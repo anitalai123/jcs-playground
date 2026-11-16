@@ -377,3 +377,7 @@ html { scroll-behavior: smooth; }
   .jcs-feed-links--cols .jcs-feed-links__link { align-items: flex-start; }
   .jcs-feed-links--cols .jcs-feed-links__chevron { margin-top: 6px; }
 }
+
+/* Standard: shorter teal strip (Staying motivated) */
+.jcs-yp-section.jcs-yp-section--strip { padding-top: 20px; padding-bottom: 20px; }
+@media (min-width: 40.0625em) { .jcs-yp-section.jcs-yp-section--strip { padding-top: 20px; padding-bottom: 20px; } }
