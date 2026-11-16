@@ -329,3 +329,14 @@ html { scroll-behavior: smooth; }
 /* End of the feed */
 /* AI chat row inside a step card */
 .jcs-feed-card__text + .jcs-feed-card__ai { margin-top: 20px; padding-top: 20px; border-top: 1px solid #cecece; }
+
+/* Feed 2: on desktop the feed is a 3-column grid. Each step's intro card starts a new row and spans 2 columns
+   (illustration left, text right); the step's other cards fill the third column and the rows below. */
+@media (min-width: 48em) {
+  .jcs-feed__column--grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; max-width: none; }
+  .jcs-feed__column--grid .jcs-feed-card { margin-bottom: 0; }
+  .jcs-feed__column--grid .jcs-feed-card--intro { grid-column: 1 / span 2; display: flex; }
+  .jcs-feed__column--grid .jcs-feed-card--intro .jcs-feed-card__media { flex: none; align-items: center; width: 220px; padding: 20px; }
+  .jcs-feed__column--grid .jcs-feed-card--intro .jcs-feed-card__media img { width: 100%; }
+  .jcs-feed__column--grid .jcs-feed-card--intro .jcs-feed-card__body { flex: 1; min-width: 0; }
+}
