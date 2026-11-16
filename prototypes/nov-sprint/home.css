@@ -355,3 +355,9 @@ html { scroll-behavior: smooth; }
 
 /* Feed 2: a 3px blue line on top of each step's title card to separate the steps */
 .jcs-feed__column--grid .jcs-feed-card--intro { border-top: 3px solid #1d70b8; }
+
+/* Standard: "Things feeling too much?" block in light teal */
+.jcs-yp-section.jcs-yp-section--teal { background: #d5e8e8; }
+.jcs-yp-section--teal .jcs-yp-hint { color: #0b0c0c; }
+/* Jump links without an "I want to:" label: columns sit left, not spread across the width */
+@media (min-width: 58em) { .jcs-yp-jump__list--start { justify-content: start; column-gap: 40px; } }
