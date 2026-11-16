@@ -346,3 +346,6 @@ html { scroll-behavior: smooth; }
 /* Feed 2 careers adviser card: reuses the Standard page's band layout, stacked until there's room for both sides */
 .jcs-feed-card--speak .jcs-yp-speak__inner { display: flex; }
 @media (min-width: 48em) and (max-width: 57.99em) { .jcs-feed-card--speak .jcs-yp-speak__inner { flex-direction: column; align-items: stretch; } }
+
+/* Feed 2 jump links: a dividing line so the grey strip stands apart from the grey feed below */
+.jcs-yp-jump--feed { border-bottom: 1px solid #cecece; }
