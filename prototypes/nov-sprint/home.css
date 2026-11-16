@@ -349,3 +349,6 @@ html { scroll-behavior: smooth; }
 
 /* Feed 2 jump links: a dividing line so the grey strip stands apart from the grey feed below */
 .jcs-yp-jump--feed { border-bottom: 1px solid #cecece; }
+
+/* Feed 2: a 3px blue line on top of each step's title card to separate the steps */
+.jcs-feed__column--grid .jcs-feed-card--intro { border-top: 3px solid #1d70b8; }
