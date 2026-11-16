@@ -333,7 +333,7 @@ html { scroll-behavior: smooth; }
 /* Feed 2: on desktop the feed is a 3-column grid. Each step's intro card is full width (illustration left,
    text right) and the step's cards follow 3 to a row. Yellow cards and the careers adviser card are full width. */
 @media (min-width: 48em) {
-  .jcs-feed__column--grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; max-width: none; }
+  .jcs-feed__column--grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; max-width: none; }
   .jcs-feed__column--grid .jcs-feed-card { margin-bottom: 0; }
   .jcs-feed__column--grid .jcs-feed-card--intro { grid-column: 1 / -1; display: flex; }
   .jcs-feed__column--grid .jcs-feed-card--yellow, .jcs-feed__column--grid .jcs-feed-card--blue { grid-column: 1 / -1; }
