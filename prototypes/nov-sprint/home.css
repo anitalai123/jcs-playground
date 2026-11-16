@@ -361,3 +361,19 @@ html { scroll-behavior: smooth; }
 .jcs-yp-section--teal .jcs-yp-hint { color: #0b0c0c; }
 /* Jump links without an "I want to:" label: columns sit left, not spread across the width */
 @media (min-width: 58em) { .jcs-yp-jump__list--start { justify-content: start; column-gap: 40px; } }
+
+/* Feed 2: Universal Credit card in light grey, "Things feeling too much?" in light teal, both full width.
+   Their links sit side by side on desktop (3 for UC, 2 for the teal card). */
+.jcs-feed-card--grey { border-color: #f3f2f1; background: #f3f2f1; }
+.jcs-feed-card--teal { border-color: #d5e8e8; background: #d5e8e8; }
+.jcs-feed-card--teal .jcs-feed-links__hint { color: #0b0c0c; }
+.jcs-feed-card--grey .jcs-feed-links li + li, .jcs-feed-card--teal .jcs-feed-links li + li { border-top-color: rgba(11, 12, 12, .2); }
+.jcs-feed-card--teal .jcs-feed-card__subtitle { margin-bottom: 0; }
+@media (min-width: 48em) {
+  .jcs-feed__column--grid .jcs-feed-card--grey, .jcs-feed__column--grid .jcs-feed-card--teal { grid-column: 1 / -1; }
+  .jcs-feed-links--cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 30px; }
+  .jcs-feed-links--cols.jcs-feed-links--cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .jcs-feed-links--cols li + li { border-top: 0; }
+  .jcs-feed-links--cols .jcs-feed-links__link { align-items: flex-start; }
+  .jcs-feed-links--cols .jcs-feed-links__chevron { margin-top: 6px; }
+}
