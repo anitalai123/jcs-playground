@@ -427,3 +427,4 @@ html { scroll-behavior: smooth; }
 .jcs-feed-card--uc .jcs-feed-links__link { align-items: flex-start; }
 .jcs-feed-card--uc .jcs-feed-links__chevron { margin-top: 66px; }
 
+@media (max-width: 47.9988em) { .jcs-feed-card--uc .jcs-feed-links__hint { margin-top: 10px; } }
