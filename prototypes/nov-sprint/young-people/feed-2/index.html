@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
   <link rel="stylesheet" href="/menu-shared/menu.css">
   <link rel="stylesheet" href="../../home.css">
+  <script>
+    // Which jump link version to show: ?jump=pills, otherwise tiles
+    document.documentElement.setAttribute('data-jump', new URLSearchParams(location.search).get('jump') === 'pills' ? 'pills' : 'tiles')
+  </script>
 </head>
 <body class="govuk-template__body" id="top">
   <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
@@ -68,7 +72,7 @@
     <div class="govuk-phase-banner">
       <p class="govuk-phase-banner__content">
         <a href="/" class="govuk-link govuk-link--no-underline"><strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong><span class="govuk-visually-hidden"> – go to all prototypes</span></a>
-        <span class="govuk-phase-banner__text">This is a prototype: November sprint. Layout: <a class="govuk-link" href="../">Standard</a> | <a class="govuk-link" href="../feed/">Feed</a> | <strong>Feed 2</strong></span>
+        <span class="govuk-phase-banner__text">This is a prototype: November sprint. Layout: <a class="govuk-link" href="../">Standard</a> | <a class="govuk-link" href="../feed/">Feed</a> | <strong>Feed 2</strong>. Jump links: <a class="govuk-link" href="?jump=tiles">Tiles</a> | <a class="govuk-link" href="?jump=pills">Pills</a></span>
       </p>
     </div>
   </div>
@@ -84,15 +88,26 @@
   </div>
 
   <!-- Jump links to the 5 steps, the same strip as the Standard page -->
-  <div class="jcs-yp-jump">
+  <!-- Jump links to the 5 steps, in two versions to compare: illustrated tiles (default) or pill buttons with a
+       down chevron. Switch with ?jump=tiles or ?jump=pills (links in the phase banner). -->
+  <div class="jcs-yp-jump jcs-jump">
     <div class="govuk-width-container">
-        <nav class="jcs-yp-jump__nav" aria-label="On this page">
-          <ul class="jcs-yp-jump__list jcs-yp-jump__list--start">
-            <li><a class="govuk-link jcs-yp-jump__link jcs-yp-jump__link--arrow" href="#step-1"><svg class="jcs-yp-jump__arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 1v15M1.5 10.5 7 16l5.5-5.5"/></svg><span class="jcs-yp-jump__text">Explore your options</span></a></li>
-            <li><a class="govuk-link jcs-yp-jump__link jcs-yp-jump__link--arrow" href="#step-2"><svg class="jcs-yp-jump__arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 1v15M1.5 10.5 7 16l5.5-5.5"/></svg><span class="jcs-yp-jump__text">Build skills and experience</span></a></li>
-            <li><a class="govuk-link jcs-yp-jump__link jcs-yp-jump__link--arrow" href="#step-3"><svg class="jcs-yp-jump__arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 1v15M1.5 10.5 7 16l5.5-5.5"/></svg><span class="jcs-yp-jump__text">Get ready to apply</span></a></li>
-            <li><a class="govuk-link jcs-yp-jump__link jcs-yp-jump__link--arrow" href="#step-4"><svg class="jcs-yp-jump__arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 1v15M1.5 10.5 7 16l5.5-5.5"/></svg><span class="jcs-yp-jump__text">Find jobs and opportunities</span></a></li>
-            <li><a class="govuk-link jcs-yp-jump__link jcs-yp-jump__link--arrow" href="#step-5"><svg class="jcs-yp-jump__arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 1v15M1.5 10.5 7 16l5.5-5.5"/></svg><span class="jcs-yp-jump__text">Get support in work</span></a></li>
+        <nav class="jcs-jump__variant jcs-jump__variant--tiles" aria-label="On this page">
+          <ul class="jcs-jump-tiles">
+            <li><a class="jcs-jump-tile" href="#step-1"><span class="jcs-jump-tile__pic"><img src="/menu-shared/images/yp_explore.svg" alt="" width="160" height="120"></span><span class="jcs-jump-tile__label">Explore your options</span></a></li>
+            <li><a class="jcs-jump-tile" href="#step-2"><span class="jcs-jump-tile__pic"><img src="/menu-shared/images/yp_skills.svg" alt="" width="160" height="120"></span><span class="jcs-jump-tile__label">Build skills and experience</span></a></li>
+            <li><a class="jcs-jump-tile" href="#step-3"><span class="jcs-jump-tile__pic"><img src="/menu-shared/images/yp_apply.svg" alt="" width="160" height="120"></span><span class="jcs-jump-tile__label">Get ready to apply</span></a></li>
+            <li><a class="jcs-jump-tile" href="#step-4"><span class="jcs-jump-tile__pic"><img src="/menu-shared/images/yp_find.svg" alt="" width="160" height="120"></span><span class="jcs-jump-tile__label">Find jobs and opportunities</span></a></li>
+            <li><a class="jcs-jump-tile" href="#step-5"><span class="jcs-jump-tile__pic"><img src="/menu-shared/images/yp_in_work.svg" alt="" width="160" height="120"></span><span class="jcs-jump-tile__label">Get support in work</span></a></li>
+          </ul>
+        </nav>
+        <nav class="jcs-jump__variant jcs-jump__variant--pills" aria-label="On this page">
+          <ul class="jcs-jump-pills">
+            <li><a class="jcs-jump-pill" href="#step-1"><span class="jcs-jump-pill__label">Explore your options</span><svg class="jcs-jump-pill__chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1.5 1.5 7 7l5.5-5.5"/></svg></a></li>
+            <li><a class="jcs-jump-pill" href="#step-2"><span class="jcs-jump-pill__label">Build skills and experience</span><svg class="jcs-jump-pill__chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1.5 1.5 7 7l5.5-5.5"/></svg></a></li>
+            <li><a class="jcs-jump-pill" href="#step-3"><span class="jcs-jump-pill__label">Get ready to apply</span><svg class="jcs-jump-pill__chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1.5 1.5 7 7l5.5-5.5"/></svg></a></li>
+            <li><a class="jcs-jump-pill" href="#step-4"><span class="jcs-jump-pill__label">Find jobs and opportunities</span><svg class="jcs-jump-pill__chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1.5 1.5 7 7l5.5-5.5"/></svg></a></li>
+            <li><a class="jcs-jump-pill" href="#step-5"><span class="jcs-jump-pill__label">Get support in work</span><svg class="jcs-jump-pill__chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1.5 1.5 7 7l5.5-5.5"/></svg></a></li>
           </ul>
         </nav>
     </div>
