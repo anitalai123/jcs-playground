@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+  <!-- Prototypes shouldn't show up in search results -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Young people (standard) – November sprint – Work hub – Prototype</title>
+  <!-- GOV.UK Frontend 6.5.1 (https://design-system.service.gov.uk/), served from /assets so the GDS Transport font loads -->
+  <link rel="stylesheet" href="/assets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="/menu-shared/menu.css">
+  <link rel="stylesheet" href="../../home.css">
+</head>
+<body class="govuk-template__body">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+  <!-- Young people page, linked from "Support for young person" and the young person bar on the homepage.
+       Same header, mega menu and footer as the homepage (see parts.js). -->
+  <header class="govuk-template__header">
+    <div data-shared="header"></div>
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+      <div class="govuk-width-container govuk-service-navigation__inlining-container">
+        <div class="govuk-service-navigation__container">
+          <span class="govuk-service-navigation__service-name">
+            <a href="../../" class="govuk-service-navigation__link">Work hub</a>
+          </span>
+          <!-- 4 hero tools, then "More" opens the full mega menu. On phones, GOV.UK service navigation
+               tucks these behind its own Menu toggle. -->
+          <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+            <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden aria-hidden="true">
+              Menu
+            </button>
+            <ul class="govuk-service-navigation__list" id="navigation">
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">AI work assistant</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Find a job</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Build a CV</a></li>
+              <li class="govuk-service-navigation__item"><a class="govuk-service-navigation__link" href="#">Action plan</a></li>
+              <li class="govuk-service-navigation__item">
+                <button type="button" class="jcs-menu-button jcs-menu-button--regular" id="mega-menu-toggle" aria-expanded="false" aria-controls="mega-menu">
+                  More
+                  <svg class="jcs-menu-button__icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 12 1 4h14z"/></svg>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <nav class="govuk-language-navigation" aria-label="Language">
+          <ul class="govuk-language-navigation__list">
+            <li class="govuk-language-navigation__list-item">
+              <span class="govuk-language-navigation__text" aria-current="true" lang="en">English</span>
+            </li>
+            <li class="govuk-language-navigation__list-item">
+              <a class="govuk-language-navigation__link" href="#" rel="alternate" lang="cy" hreflang="cy">Cymraeg</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <div data-nov-sprint="mega-menu"></div>
+  </header>
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content jcs-phase-banner--toggle">
+        <a href="/" class="govuk-link govuk-link--no-underline"><strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">Prototype</strong><span class="govuk-visually-hidden"> – go to all prototypes</span></a>
+        <span class="govuk-phase-banner__text">This is a prototype: November sprint.</span>
+        <span class="jcs-layout-toggle">Layout exploration: <a class="govuk-link" href="../">Feed 2</a> | <strong>Standard</strong> | <a class="govuk-link" href="../feed/">Feed</a></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="jcs-home-hero">
+    <div class="govuk-width-container jcs-home-hero__inner">
+      <img class="jcs-home-hero__image" src="/menu-shared/images/young_people.svg" alt="" aria-hidden="true" width="343" height="201">
+      <div class="jcs-home-hero__text">
+        <h1 class="govuk-heading-xl jcs-home-hero__heading">Taking your first steps into work</h1>
+        <p class="govuk-body-l jcs-home-hero__body">Figuring out your next steps can be hard but support is available whichever stage you’re at.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jump links to the 5 sections, in a light grey strip under the hero -->
+  <div class="jcs-yp-jump">
+    <div class="govuk-width-container">
+        <nav class="jcs-yp-jump__nav" aria-label="On this page">
+          <ul class="jcs-yp-jump__list jcs-yp-jump__list--start">
+            <li><a class="govuk-link jcs-yp-jump__link" href="#explore">Explore your options</a></li>
+            <li><a class="govuk-link jcs-yp-jump__link" href="#skills">Build skills and experience</a></li>
+            <li><a class="govuk-link jcs-yp-jump__link" href="#apply">Get ready to apply</a></li>
+            <li><a class="govuk-link jcs-yp-jump__link" href="#find">Find jobs and opportunities</a></li>
+            <li><a class="govuk-link jcs-yp-jump__link" href="#in-work">Get support in work</a></li>
+          </ul>
+        </nav>
+    </div>
+  </div>
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper" id="main-content">
+      <!-- Section system: each section is a heading, then optionally an AI work assistant chat row (chat illustration,
+           as in the mega menu), and a grid of subsections. The subsection grid fits as many columns as there are
+           subsections, up to 3, so sections with 1, 2 or 3 subsections all fit. -->
+        <section class="jcs-yp-section" id="explore" aria-labelledby="explore-title">
+          <span class="jcs-yp-section__figure" aria-hidden="true"><img class="jcs-yp-section__image" src="/menu-shared/images/yp_explore.svg" width="160" height="120" alt=""></span>
+          <div class="jcs-yp-section__content">
+          <h2 class="govuk-heading-l jcs-yp-section__title" id="explore-title">Explore your options</h2>
+          <p class="govuk-body jcs-yp-section__body">Knowing where to start can be overwhelming. You might be starting out or looking for a change and wonder what you could do next. Finding out the skills you have right now and what you might enjoy is a good place to start.</p>
+          <p class="jcs-yp-ai"><img src="/menu-shared/images/chat-icon.svg" width="49" height="40" alt="" aria-hidden="true"><a class="govuk-link jcs-yp-link" href="#">Chat with AI about jobs you could do</a></p>
+          <div class="jcs-yp-groups">
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Finishing school, college or university</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Options once you’re 16</a></li><li><a class="govuk-link jcs-yp-link" href="#">Options once you’re 18</a></li></ul>
+            </div>
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Seeing what’s out there</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Job sectors and careers</a></li><li><a class="govuk-link jcs-yp-link" href="#">Getting on a graduate scheme</a></li></ul>
+            </div>
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Knowing your skills</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Take a skills assessment</a></li></ul>
+            </div>
+          </div>
+          </div>
+        </section>
+        <section class="jcs-yp-section" id="skills" aria-labelledby="skills-title">
+          <span class="jcs-yp-section__figure" aria-hidden="true"><img class="jcs-yp-section__image" src="/menu-shared/images/yp_skills.svg" width="160" height="120" alt=""></span>
+          <div class="jcs-yp-section__content">
+          <h2 class="govuk-heading-l jcs-yp-section__title" id="skills-title">Build skills and experience</h2>
+          <p class="govuk-body jcs-yp-section__body">Experience comes in many shapes and sizes. It might be a work placement, volunteering, further study or things you already do on your day-to-day. You have more to offer than you might think and there’s lots of different ways of getting experience.</p>
+          <p class="jcs-yp-ai"><img src="/menu-shared/images/chat-icon.svg" width="49" height="40" alt="" aria-hidden="true"><a class="govuk-link jcs-yp-link" href="#">Chat with AI about your skills</a></p>
+          <div class="jcs-yp-groups">
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Getting experience</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">How to get work experience</a></li><li><a class="govuk-link jcs-yp-link" href="#">How to start volunteering</a></li></ul>
+            </div>
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Continue studying</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Find T-levels</a></li><li><a class="govuk-link jcs-yp-link" href="#">Find university courses</a></li></ul>
+            </div>
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Courses and training</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Find a course</a></li></ul>
+            </div>
+          </div>
+            <!-- Learning costs: a subset of Build skills and experience, so it sits in this section's content column -->
+            <div class="jcs-yp-block">
+              <h3 class="govuk-heading-m jcs-yp-block__title">Did you know you can get help with learning costs?</h3>
+              <p class="govuk-body jcs-yp-block__body">Learning can come with lots of costs such as equipment, textbooks and transport. Some courses are also free if you meet the requirements, so it’s worth taking a look.</p>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Money and learning costs</a></li><li><a class="govuk-link jcs-yp-link" href="#">Free courses for jobs</a></li></ul>
+            </div>
+          </div>
+        </section>
+        <section class="jcs-yp-section" id="apply" aria-labelledby="apply-title">
+          <span class="jcs-yp-section__figure" aria-hidden="true"><img class="jcs-yp-section__image" src="/menu-shared/images/yp_apply.svg" width="160" height="120" alt=""></span>
+          <div class="jcs-yp-section__content">
+          <h2 class="govuk-heading-l jcs-yp-section__title" id="apply-title">Get ready to apply</h2>
+          <p class="govuk-body jcs-yp-section__body">Before you start sending job applications, you’ll need a CV that shows what you can do and why you’d be a good fit for a job. Planning enough time to complete an application is also important as it could have more than one interview or step.</p>
+          <div class="jcs-yp-groups">
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Preparing your CV</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">How to write a CV</a></li><li><a class="govuk-link jcs-yp-link" href="#">Build a CV</a></li></ul>
+            </div>
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Application help</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Application form advice</a></li><li><a class="govuk-link jcs-yp-link" href="#">How to write a cover letter</a></li></ul>
+            </div>
+          </div>
+          </div>
+        </section>
+        <section class="jcs-yp-section" id="find" aria-labelledby="find-title">
+          <span class="jcs-yp-section__figure" aria-hidden="true"><img class="jcs-yp-section__image" src="/menu-shared/images/yp_find.svg" width="160" height="120" alt=""></span>
+          <div class="jcs-yp-section__content">
+          <h2 class="govuk-heading-l jcs-yp-section__title" id="find-title">Find jobs and opportunities</h2>
+          <p class="govuk-body jcs-yp-section__body">There’s lots of jobs out there, but it can be competitive and sometimes not hearing back about your application can be exhausting. There are lots of ways to find jobs and opportunities even if it can be hard.</p>
+          <div class="jcs-yp-groups">
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">How to start looking</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Where to find job vacancies</a></li><li><a class="govuk-link jcs-yp-link" href="#">How to find an internship</a></li></ul>
+            </div>
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Finding work</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Find an apprenticeship</a></li><li><a class="govuk-link jcs-yp-link" href="#">Find a job</a></li></ul>
+            </div>
+          </div>
+          </div>
+        </section>
+        <!-- Universal Credit: light grey block, 3 columns -->
+        <section class="jcs-yp-section jcs-yp-section--full" aria-labelledby="uc-title">
+          <div class="jcs-yp-section__content">
+            <h2 class="govuk-heading-m jcs-yp-section__title" id="uc-title">Work experience if you’re on Universal Credit</h2>
+            <div class="jcs-yp-groups jcs-yp-groups--3">
+              <div class="jcs-yp-group"><a class="govuk-link jcs-yp-link" href="#">Jobs Guarantee</a><span class="jcs-yp-hint">6-month paid job placement if you’re 16 to 24 and have been on benefits for more than 1 year.</span></div>
+              <div class="jcs-yp-group"><a class="govuk-link jcs-yp-link" href="#">Sector-based work academy placements (SWAPs)</a><span class="jcs-yp-hint">6-week work experience placement and a guaranteed job interview.</span></div>
+              <div class="jcs-yp-group"><a class="govuk-link jcs-yp-link" href="#">Work coach</a><span class="jcs-yp-hint">If you’re on UC, you’ll get support from a work coach to help you back into work.</span></div>
+            </div>
+          </div>
+        </section>
+        <section class="jcs-yp-section" id="in-work" aria-labelledby="in-work-title">
+          <span class="jcs-yp-section__figure" aria-hidden="true"><img class="jcs-yp-section__image" src="/menu-shared/images/yp_in_work.svg" width="160" height="120" alt=""></span>
+          <div class="jcs-yp-section__content">
+          <h2 class="govuk-heading-l jcs-yp-section__title" id="in-work-title">Get support in work</h2>
+          <p class="govuk-body jcs-yp-section__body">Check if you can get extra help such as workplace adjustments if you have a disability and knowing your rights at work, and tips for progressing your career. You may also have questions about how a new job affects your benefits.</p>
+          <div class="jcs-yp-groups">
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Your rights in work</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">Read about disability rights</a></li><li><a class="govuk-link jcs-yp-link" href="#">Get help with Access to Work costs</a></li></ul>
+            </div>
+            <div class="jcs-yp-group">
+              <h3 class="govuk-heading-s jcs-yp-group__title">Career tips</h3>
+              <ul class="jcs-yp-links"><li><a class="govuk-link jcs-yp-link" href="#">How to get a mentor</a></li><li><a class="govuk-link jcs-yp-link" href="#">Networking tips to help your career</a></li></ul>
+            </div>
+          </div>
+          </div>
+        </section>
+        <!-- Things feeling too much: full width light teal block at the end of the page -->
+        <section class="jcs-yp-section jcs-yp-section--full jcs-yp-section--teal" aria-labelledby="wellbeing-title">
+          <div class="jcs-yp-section__content">
+            <h2 class="govuk-heading-l jcs-yp-section__title" id="wellbeing-title">Things feeling too much?</h2>
+            <p class="govuk-body jcs-yp-block__body">Looking for work can be stressful and you’re not alone. Taking one step at a time can help break down a job search. Taking care of your mental health along the way is important when times get hard.</p>
+            <h3 class="govuk-heading-s jcs-yp-block__subtitle">Staying motivated</h3>
+            <ul class="jcs-yp-links jcs-yp-links--columns"><li><a class="govuk-link jcs-yp-link" href="#">Create an action plan</a></li><li><a class="govuk-link jcs-yp-link" href="#">TBC</a></li></ul>
+            <h3 class="govuk-heading-s jcs-yp-block__subtitle">Mental health support</h3>
+            <ul class="jcs-yp-links jcs-yp-links--columns"><li><a class="govuk-link jcs-yp-link" href="#">Youth Hub</a><span class="jcs-yp-hint">Local careers support and well-being advice for young people.</span></li><li><a class="govuk-link jcs-yp-link" href="#">Young Minds</a><span class="jcs-yp-hint">A mental health charity for young people, with a free text support service.</span></li></ul>
+          </div>
+        </section>
+    </main>
+  </div>
+
+  <div data-nov-sprint="footer"></div>
+
+  <script type="module">
+    // Shared header (via /menu-shared/menu.js), plus this sprint's mega menu and footer (see parts.js)
+    import '/nov-sprint/parts.js'
+    import { initAll } from '/assets/govuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+</html>
