@@ -385,6 +385,8 @@ html { scroll-behavior: smooth; }
    both full width. The grid has 6 tracks so cards can sit 3 to a row (span 2) or 2 to a row (span 3). */
 .jcs-feed-card--green { border: 0; background: #cfe4dc; }
 .jcs-feed-card--green .jcs-feed-card__text { margin-bottom: 0; }
+.jcs-feed-card--green .jcs-feed-card__question, .jcs-feed-card--green .jcs-feed-card__text, .jcs-feed-card--green .govuk-link:link, .jcs-feed-card--green .govuk-link:visited { color: #0f385c; }
+.jcs-feed-card--green .govuk-link:focus { color: #0b0c0c; }
 .jcs-feed-card--uc { border-color: #d2e2f1; background: #d2e2f1; }
 .jcs-feed-card--uc .jcs-feed-card__question { color: #0f385c; }
 .jcs-feed-card--uc .jcs-feed-links__text { font-weight: 700; }
