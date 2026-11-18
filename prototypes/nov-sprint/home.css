@@ -477,14 +477,18 @@ html { scroll-behavior: smooth; }
 .jcs-yp-strip--in-main { margin: 40px calc(50% - 50vw); }
 .jcs-home-page-clip { overflow-x: clip; }
 
-/* Is this page useful? (young people page): homepage feedback module with two buttons */
-.jcs-useful { grid-column: 1 / -1; margin-top: 60px; }
-.jcs-useful .govuk-heading-l { margin-bottom: 25px; }
-.jcs-useful__buttons { justify-content: center; margin-bottom: 0; }
-.jcs-useful__button { display: inline-flex; align-items: center; gap: 10px; }
+/* Is this page useful? (young people page): green strip style */
+.jcs-useful { grid-column: 1 / -1; margin-top: 45px; }
+.jcs-useful__title { margin-bottom: 15px; }
+.jcs-useful__links { margin-bottom: 0; }
+.jcs-useful__links li { margin-bottom: 10px; }
+.jcs-useful__links li:last-child { margin-bottom: 0; }
+.jcs-useful__link { display: inline-flex; align-items: center; gap: 8px; }
 .jcs-useful__icon { flex: none; }
-@media (max-width: 40.0525em) {
-  .jcs-useful { margin-top: 45px; padding: 40px 20px; }
-  .jcs-useful__buttons { flex-direction: row; flex-wrap: wrap; gap: 15px; }
-  .jcs-useful__buttons .jcs-useful__button { width: auto; margin: 0; }
+@media (min-width: 40.0625em) {
+  .jcs-useful { margin-top: 60px; }
+  .jcs-useful__body { display: flex; flex-wrap: wrap; align-items: center; column-gap: 40px; row-gap: 10px; }
+  .jcs-useful__title { margin-bottom: 0; }
+  .jcs-useful__links { display: flex; gap: 30px; }
+  .jcs-useful__links li { margin-bottom: 0; }
 }
