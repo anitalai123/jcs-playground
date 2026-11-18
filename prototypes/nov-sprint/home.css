@@ -400,3 +400,10 @@ html { scroll-behavior: smooth; }
 /* Feed 2: more space before each step's title card, so a step's cards and green strip read as one group */
 .jcs-feed__column--grid .jcs-feed-card--intro:not(:first-child) { margin-top: 30px; }
 @media (min-width: 48em) { .jcs-feed__column--grid .jcs-feed-card--intro:not(:first-child) { margin-top: 40px; } }
+
+/* Feed 2 jump links: a thin down arrow before each link, to show it jumps further down the page */
+.jcs-yp-jump__link--arrow { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+.jcs-yp-jump__link--arrow .jcs-yp-jump__text { text-decoration: underline; text-underline-offset: .1578em; }
+.jcs-yp-jump__link--arrow:hover .jcs-yp-jump__text { text-decoration-thickness: 3px; }
+.jcs-yp-jump__link--arrow:focus .jcs-yp-jump__text { text-decoration: none; }
+.jcs-yp-jump__arrow { flex: none; }
