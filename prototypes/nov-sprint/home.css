@@ -407,5 +407,9 @@ html { scroll-behavior: smooth; }
 .jcs-jump-pill__arrow { flex: none; transform: rotate(180deg); }
 .jcs-jump-pill:hover { border-color: #1a65a6; color: #0f385c; }
 .jcs-jump-pill:hover .jcs-jump-pill__label { text-decoration: underline; }
-.jcs-jump-pill:focus { outline: 3px solid transparent; background: #fd0; border-color: #0b0c0c; color: #0b0c0c; box-shadow: 0 4px #0b0c0c; }
+.jcs-jump-pill__inner { display: inline-flex; align-items: center; gap: 10px; }
+/* Focus, like the GOV.UK back to top link: yellow highlight with a black underline on the text and arrow only */
+.jcs-jump-pill:focus { outline: 3px solid transparent; }
+.jcs-jump-pill:focus .jcs-jump-pill__inner { background: #fd0; color: #0b0c0c; box-shadow: 0 -2px #fd0, 0 4px #0b0c0c; }
+.jcs-jump-pill:focus .jcs-jump-pill__label { text-decoration: none; }
 @media (min-width: 40.0625em) { .jcs-jump-pill { font-size: 1.1875rem; padding: 10px 18px 10px 22px; } }
