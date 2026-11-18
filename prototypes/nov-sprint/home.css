@@ -476,3 +476,8 @@ html { scroll-behavior: smooth; }
 /* Young people strip moved inside main, under How we can help: break out to full width */
 .jcs-yp-strip--in-main { margin: 40px calc(50% - 50vw); }
 .jcs-home-page-clip { overflow-x: clip; }
+
+/* Give us feedback, blue version (young people page) */
+.jcs-home-feedback--blue { grid-column: 1 / -1; margin-top: 60px; background: #1d70b8; }
+.jcs-home-feedback--blue .govuk-heading-l, .jcs-home-feedback--blue .govuk-body { color: #fff; }
+@media (max-width: 40.0525em) { .jcs-home-feedback--blue { margin-top: 45px; padding: 40px 20px; } }
