@@ -446,3 +446,16 @@ html { scroll-behavior: smooth; }
 @media (min-width: 48em) { .jcs-interview { margin-bottom: 60px; } }
 .jcs-interview .govuk-button { width: auto; }
 @media (max-width: 40.0525em) { .jcs-interview__title { font-size: 1.5rem; line-height: 1.25; } }
+
+/* Young people strip under the hero: pale yellow, about half the hero's height */
+.jcs-yp-strip { background: #fff7bf; }
+.jcs-yp-strip__inner { display: flex; align-items: flex-end; gap: 30px; }
+.jcs-yp-strip__image { display: none; }
+.jcs-yp-strip__text { padding: 25px 0; }
+.jcs-yp-strip__title { margin-bottom: 8px; }
+.jcs-yp-strip__body { margin-bottom: 0; }
+@media (min-width: 40em) {
+  .jcs-yp-strip__inner { min-height: 130px; }
+  .jcs-yp-strip__image { display: block; flex: none; width: auto; height: 130px; margin-top: 15px; }
+  .jcs-yp-strip__text { flex: 1; align-self: center; padding: 15px 0; }
+}
