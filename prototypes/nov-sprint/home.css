@@ -469,3 +469,7 @@ html { scroll-behavior: smooth; }
 }
 .jcs-yp-strip__inner { row-gap: 0; }
 .jcs-yp-strip__button { width: auto; }
+@media (max-width: 40.0525em) {
+  .jcs-yp-strip__image { display: block; flex: none; width: auto; height: 110px; margin-top: 25px; }
+  .jcs-yp-strip__text { padding-top: 15px; }
+}
