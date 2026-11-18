@@ -428,3 +428,21 @@ html { scroll-behavior: smooth; }
 .jcs-feed-card--uc .jcs-feed-links__chevron { margin-top: 66px; }
 
 @media (max-width: 47.9988em) { .jcs-feed-card--uc .jcs-feed-links__hint { margin-top: 10px; } }
+
+/* Homepage: Practise interviewing promo (experimental service) */
+.jcs-interview { position: relative; margin-right: -15px; margin-left: -15px; padding: 50px 20px 0; background: #cfe4dc; color: #0f385c; }
+.jcs-interview__tag { position: absolute; top: 0; right: 0; max-width: none; padding: 4px 8px; font-size: 1.1875rem; background: #fff7bf; color: #594d00; }
+.jcs-interview__plant { display: none; }
+.jcs-interview__title { color: #0f385c; }
+.jcs-interview__text { color: #0f385c; }
+.jcs-interview__phone { display: block; width: 160px; height: auto; margin: 10px 0 0 auto; }
+@media (min-width: 40em) {
+  .jcs-interview { margin-right: 0; margin-left: 30px; display: flex; align-items: flex-end; justify-content: space-between; min-height: 220px; padding: 0 30px 0 70px; }
+  .jcs-interview__plant { display: block; position: absolute; left: -30px; bottom: -42px; width: 70px; height: auto; }
+  .jcs-interview__content { flex: 0 1 560px; align-self: center; padding: 40px 0; }
+  .jcs-interview__title { font-size: 1.75rem; }
+  .jcs-interview__phone { flex: none; width: 170px; margin: 0; }
+}
+@media (min-width: 48em) { .jcs-interview { margin-bottom: 60px; } }
+.jcs-interview .govuk-button { width: auto; }
+@media (max-width: 40.0525em) { .jcs-interview__title { font-size: 1.5rem; line-height: 1.25; } }
