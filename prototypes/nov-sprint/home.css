@@ -448,7 +448,7 @@ html { scroll-behavior: smooth; }
 @media (max-width: 40.0525em) { .jcs-interview__title { font-size: 1.5rem; line-height: 1.25; } }
 
 /* Young people strip under the hero: pale yellow, about half the hero's height */
-.jcs-yp-strip { background: #fff7bf; }
+.jcs-yp-strip { background: #e8f1f8; }
 .jcs-yp-strip__inner { display: flex; align-items: flex-end; gap: 30px; }
 .jcs-yp-strip__image { display: none; }
 .jcs-yp-strip__text { padding: 25px 0; }
