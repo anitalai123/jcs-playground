@@ -492,3 +492,6 @@ html { scroll-behavior: smooth; }
   .jcs-useful__links { display: flex; gap: 30px; }
   .jcs-useful__links li { margin-bottom: 0; }
 }
+.jcs-useful { border: 0; background: #f8f8f8; }
+@media (min-width: 48em) { .jcs-feed__column--grid .jcs-useful .jcs-feed-card__body { padding: 30px 30px 30px 51px; } }
+@media (min-width: 48em) { .jcs-feed__column--grid .jcs-useful { grid-column: 1 / -1; } }
