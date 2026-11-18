@@ -381,9 +381,9 @@ html { scroll-behavior: smooth; }
   .jcs-feed-links--cols .jcs-feed-links__chevron { margin-top: 6px; }
 }
 
-/* Feed 2 second iteration: green signpost strips (5px green line on top) and the light blue Universal Credit card,
+/* Feed 2 second iteration: green signpost strips and the light blue Universal Credit card,
    both full width. The grid has 6 tracks so cards can sit 3 to a row (span 2) or 2 to a row (span 3). */
-.jcs-feed-card--green { border: 0; border-top: 5px solid #4b9b7d; background: #cfe4dc; }
+.jcs-feed-card--green { border: 0; background: #cfe4dc; }
 .jcs-feed-card--green .jcs-feed-card__text { margin-bottom: 0; }
 .jcs-feed-card--uc { border-color: #d2e2f1; background: #d2e2f1; }
 .jcs-feed-card--uc .jcs-feed-card__question { color: #0f385c; }
