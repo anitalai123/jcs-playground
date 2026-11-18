@@ -503,3 +503,7 @@ html { scroll-behavior: smooth; }
   .jcs-feed__column--grid .jcs-useful--after-uc { margin-top: 10px; }
   .jcs-feed__column--grid .jcs-useful--after-uc + .jcs-feed-card--intro { margin-top: 10px; }
 }
+/* Feedback strip at the bottom of the young people page: 30px above and below */
+.jcs-feed__column--grid .jcs-useful--end { margin-top: 15px; margin-bottom: 0; }
+.jcs-feed--white:has(.jcs-useful--end) { padding-bottom: 30px; }
+@media (min-width: 48em) { .jcs-feed__column--grid .jcs-useful--end { margin-top: 10px; } }
