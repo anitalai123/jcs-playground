@@ -394,3 +394,7 @@ html { scroll-behavior: smooth; }
   .jcs-feed__column--grid .jcs-feed-card--green, .jcs-feed__column--grid .jcs-feed-card--uc { grid-column: 1 / -1; }
   .jcs-feed__column--grid .jcs-feed-card--green .jcs-feed-card__body { padding: 30px 30px 30px 51px; }
 }
+
+/* Feed 2: more space before each step's title card, so a step's cards and green strip read as one group */
+.jcs-feed__column--grid .jcs-feed-card--intro:not(:first-child) { margin-top: 30px; }
+@media (min-width: 48em) { .jcs-feed__column--grid .jcs-feed-card--intro:not(:first-child) { margin-top: 40px; } }
