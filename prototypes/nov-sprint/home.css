@@ -473,3 +473,6 @@ html { scroll-behavior: smooth; }
   .jcs-yp-strip__image { display: block; flex: none; width: auto; height: 110px; margin-top: 25px; }
   .jcs-yp-strip__text { padding-top: 15px; }
 }
+/* Young people strip moved inside main, under How we can help: break out to full width */
+.jcs-yp-strip--in-main { margin: 40px calc(50% - 50vw); }
+.jcs-home-page-clip { overflow-x: clip; }
