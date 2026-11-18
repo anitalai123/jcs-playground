@@ -403,9 +403,9 @@ html { scroll-behavior: smooth; }
 
 /* Feed 2 jump links: white rounded pill buttons with a down arrow (GOV.UK back to top arrow, flipped) */
 .jcs-jump-pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
-.jcs-jump-pill { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 18px; border: 1px solid #b1b4b6; border-radius: 999px; background: #fff; color: #1a65a6; text-decoration: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.25; }
+.jcs-jump-pill { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 18px; border: 1px solid #1d70b8; border-radius: 999px; background: #fff; color: #1a65a6; text-decoration: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.25; }
 .jcs-jump-pill__arrow { flex: none; transform: rotate(180deg); }
-.jcs-jump-pill:hover { border-color: #1a65a6; color: #0f385c; }
+.jcs-jump-pill:hover { border-color: #0f385c; color: #0f385c; }
 .jcs-jump-pill:hover .jcs-jump-pill__label { text-decoration: underline; }
 .jcs-jump-pill__inner { display: inline-flex; align-items: center; gap: 10px; }
 /* Focus, like the GOV.UK back to top link: yellow highlight with a black underline on the text and arrow only */
