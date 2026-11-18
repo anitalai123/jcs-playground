@@ -459,3 +459,13 @@ html { scroll-behavior: smooth; }
   .jcs-yp-strip__image { display: block; flex: none; width: auto; height: 130px; margin-top: 15px; }
   .jcs-yp-strip__text { flex: 1; align-self: center; padding: 15px 0; }
 }
+.jcs-yp-strip__inner { flex-wrap: wrap; }
+.jcs-yp-strip__text { flex: 1 1 100%; padding-bottom: 15px; }
+.jcs-yp-strip__button { margin-bottom: 25px; }
+@media (min-width: 40em) {
+  .jcs-yp-strip__inner { flex-wrap: nowrap; }
+  .jcs-yp-strip__text { flex: 1 1 auto; padding-bottom: 15px; }
+  .jcs-yp-strip__button { flex: none; align-self: center; margin: 0; }
+}
+.jcs-yp-strip__inner { row-gap: 0; }
+.jcs-yp-strip__button { width: auto; }
