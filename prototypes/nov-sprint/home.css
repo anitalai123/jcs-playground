@@ -507,3 +507,6 @@ html { scroll-behavior: smooth; }
 .jcs-feed__column--grid .jcs-useful--end { margin-top: 15px; margin-bottom: 0; }
 .jcs-feed--white:has(.jcs-useful--end) { padding-bottom: 30px; }
 @media (min-width: 48em) { .jcs-feed__column--grid .jcs-useful--end { margin-top: 10px; } }
+/* A link-list item shown as plain text (no link), e.g. Jobs guarantee */
+.jcs-feed-links__link--static { color: #0b0c0c; }
+.jcs-feed-links__link--static .jcs-feed-links__text { text-decoration: none; }
