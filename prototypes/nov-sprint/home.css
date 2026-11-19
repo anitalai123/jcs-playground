@@ -510,3 +510,16 @@ html { scroll-behavior: smooth; }
 /* A link-list item shown as plain text (no link), e.g. Jobs guarantee */
 .jcs-feed-links__link--static { color: #0b0c0c; }
 .jcs-feed-links__link--static .jcs-feed-links__text { text-decoration: none; }
+
+/* Make your voice heard: green strip layout in GOV.UK blue, white text, small illustration */
+.jcs-voice { border: 0; background: #1d70b8; }
+.jcs-voice .jcs-feed-card__question, .jcs-voice .jcs-feed-card__text { color: #fff; }
+.jcs-voice .jcs-feed-card__text { margin-bottom: 0; }
+.jcs-voice__body { display: flex; flex-direction: column; }
+.jcs-voice__art { display: block; width: 170px; height: auto; margin-bottom: 15px; }
+.jcs-voice__speech { font-family: "GDS Transport", arial, sans-serif; font-size: 15px; font-weight: 700; fill: #0b0c0c; }
+@media (min-width: 48em) {
+  .jcs-feed__column--grid .jcs-voice .jcs-feed-card__body { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 30px; padding: 0 40px 0 51px; }
+  .jcs-voice__text { align-self: center; padding: 30px 0; }
+  .jcs-voice__art { order: 2; width: 200px; margin: 15px 0 0; }
+}
