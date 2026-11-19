@@ -21,11 +21,11 @@ const parts = {
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Get my CV together</h2>
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Prepare your CV</h2>
               <ul class="govuk-list">
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about your CV</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Build a CV</a></li>
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">CV guidance</a></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">How to write a CV</a></li>
               </ul>
             </div>
             <div class="govuk-grid-column-one-third">
