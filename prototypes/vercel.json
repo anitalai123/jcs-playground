@@ -1,3 +1,7 @@
 {
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/nov", "destination": "/nov-sprint/", "permanent": false },
+    { "source": "/nov/", "destination": "/nov-sprint/", "permanent": false }
+  ]
 }
