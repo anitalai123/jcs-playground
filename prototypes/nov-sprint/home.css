@@ -519,3 +519,6 @@ html { scroll-behavior: smooth; }
 .jcs-voice__body { display: flex; align-items: center; gap: 20px; }
 .jcs-voice__icon { display: flex; flex: none; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: #fff; color: #1d70b8; }
 .jcs-voice__icon svg { display: block; }
+/* Make your voice heard: icon without the circle, white, sized to balance the heading and link */
+.jcs-voice__icon { width: auto; height: auto; border-radius: 0; background: none; color: #fff; }
+.jcs-voice__icon svg { width: 48px; height: 48px; }
