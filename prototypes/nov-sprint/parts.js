@@ -15,7 +15,7 @@ const parts = {
             <div class="govuk-grid-column-one-third">
               <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Explore what I can do</h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about jobs you can do</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about jobs you can do</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Learn about different jobs and sectors</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Skills assessment</a></li>
               </ul>
@@ -23,7 +23,7 @@ const parts = {
             <div class="govuk-grid-column-one-third">
               <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Get my CV together</h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about your CV</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about your CV</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Build a CV</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">CV guidance</a></li>
               </ul>
@@ -31,7 +31,7 @@ const parts = {
             <div class="govuk-grid-column-one-third">
               <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Prepare for an interview</h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about an interview</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about an interview</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Interview guidance</a></li>
               </ul>
             </div>
@@ -40,7 +40,7 @@ const parts = {
             <div class="govuk-grid-column-one-third">
               <h2 class="govuk-heading-s govuk-!-margin-bottom-4">Build skills &amp; experience</h2>
               <ul class="govuk-list">
-                <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about your skills</a><p class="jcs-mega-menu__description">AI work assistant</p></li>
+                <li><a class="govuk-link jcs-mega-menu__link" href="#">Chat with AI about your skills</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Find a course</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Find T-levels</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Find university courses on UCAS</a></li>
