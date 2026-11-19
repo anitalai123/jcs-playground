@@ -522,3 +522,5 @@ html { scroll-behavior: smooth; }
 /* Make your voice heard: icon without the circle, white, sized to balance the heading and link */
 .jcs-voice__icon { width: auto; height: auto; border-radius: 0; background: none; color: #fff; }
 .jcs-voice__icon svg { width: 48px; height: 48px; }
+/* Line the icon up with the content of the cards above (30px in on desktop) */
+@media (min-width: 48em) { .jcs-feed__column--grid .jcs-voice .jcs-feed-card__body { padding-left: 30px; } }
