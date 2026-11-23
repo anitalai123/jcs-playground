@@ -19,6 +19,12 @@
       .jcs-feed__column--grid .jcs-wb .jcs-feed-card__body { padding-left: 30px; gap: 30px; }
       .jcs-wb__illo svg { width: 120px; height: 100px; }
     }
+    .jcs-wb-opt__section { grid-column: 1 / -1; margin: 50px 0 0; }
+    .jcs-fit .jcs-wb__illo { width: 60px; height: 60px; }
+    @media (min-width: 48em) {
+      .jcs-feed__column--grid .jcs-fit .jcs-feed-card__body { gap: 20px; }
+      .jcs-feed__column--grid .jcs-fit--tight .jcs-feed-card__body { gap: 10px; padding-right: 10px; }
+    }
   </style>
 </head>
 <body class="govuk-template__body">
@@ -26,8 +32,40 @@
     <div class="govuk-width-container">
       <main class="jcs-feed__column jcs-feed__column--grid" id="main-content">
         <div style="grid-column:1/-1"><span class="govuk-caption-l">Young people page</span><h1 class="govuk-heading-l">Green strips: illustration options</h1>
-        <p class="govuk-body">For the motivation and mental health strips. Each option is shown on both strips.</p>
+        <p class="govuk-body">Option 3 (open hand with a heart) is now on the young people page.</p>
         <p class="govuk-body"><a class="govuk-link" href="../">Back to the young people page</a></p></div>
+        <h2 class="govuk-heading-m jcs-wb-opt__section">Fitting “Not sure what to do next?” on one line (desktop)</h2>
+        <h3 class="govuk-heading-s jcs-wb-opt__label">Fit A: as it is now, “advice.” wraps</h3>
+        <article class="jcs-feed-card jcs-feed-card--green jcs-wb jcs-fit ">
+          <div class="jcs-feed-card__body jcs-wb__body">
+            <img class="jcs-wb__illo" src="/menu-shared/images/yp_heart_hand.svg" alt="" width="60" height="60">
+            <div class="jcs-wb__text">
+              <h3 class="govuk-heading-m jcs-feed-card__question">Not sure what to do next?</h3>
+              <p class="govuk-body jcs-feed-card__text"><a class="govuk-link govuk-link--text-colour" href="https://jobhelp.campaign.gov.uk/youth-hubs/">Visit a community Youth Hub</a> to get free, practical help with work, training, mental health, and life advice.</p>
+            </div>
+          </div>
+        </article>
+        <h3 class="govuk-heading-s jcs-wb-opt__label">Fit B: trimmed copy (drops “practical” and the comma before “and”)</h3>
+        <article class="jcs-feed-card jcs-feed-card--green jcs-wb jcs-fit ">
+          <div class="jcs-feed-card__body jcs-wb__body">
+            <img class="jcs-wb__illo" src="/menu-shared/images/yp_heart_hand.svg" alt="" width="60" height="60">
+            <div class="jcs-wb__text">
+              <h3 class="govuk-heading-m jcs-feed-card__question">Not sure what to do next?</h3>
+              <p class="govuk-body jcs-feed-card__text"><a class="govuk-link govuk-link--text-colour" href="https://jobhelp.campaign.gov.uk/youth-hubs/">Visit a community Youth Hub</a> to get free help with work, training, mental health and life advice.</p>
+            </div>
+          </div>
+        </article>
+        <h3 class="govuk-heading-s jcs-wb-opt__label">Fit C: same copy, tighter spacing (10px gap, 10px right padding)</h3>
+        <article class="jcs-feed-card jcs-feed-card--green jcs-wb jcs-fit jcs-fit--tight">
+          <div class="jcs-feed-card__body jcs-wb__body">
+            <img class="jcs-wb__illo" src="/menu-shared/images/yp_heart_hand.svg" alt="" width="60" height="60">
+            <div class="jcs-wb__text">
+              <h3 class="govuk-heading-m jcs-feed-card__question">Not sure what to do next?</h3>
+              <p class="govuk-body jcs-feed-card__text"><a class="govuk-link govuk-link--text-colour" href="https://jobhelp.campaign.gov.uk/youth-hubs/">Visit a community Youth Hub</a> to get free, practical help with work, training, mental health, and life advice.</p>
+            </div>
+          </div>
+        </article>
+        <h2 class="govuk-heading-m jcs-wb-opt__section">Illustration options</h2>
         <h2 class="govuk-heading-s jcs-wb-opt__label">Option 1: heart hands</h2>
         <article class="jcs-feed-card jcs-feed-card--green jcs-wb">
           <div class="jcs-feed-card__body jcs-wb__body">
