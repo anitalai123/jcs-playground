@@ -531,3 +531,7 @@ html { scroll-behavior: smooth; }
   .jcs-wb__illo { margin-top: 0; }
   .jcs-feed__column--grid .jcs-wb .jcs-feed-card__body { padding-left: 30px; padding-right: 10px; }
 }
+/* Make your voice heard: megaphone illustration, 60 x 60, top lined up with the title */
+.jcs-voice__body:has(.jcs-voice__illo) { align-items: flex-start; gap: 15px; }
+.jcs-voice__illo { flex: none; display: block; width: 60px; height: 60px; margin-top: -3px; }
+@media (min-width: 48em) { .jcs-voice__body:has(.jcs-voice__illo) { gap: 10px; } .jcs-voice__illo { margin-top: -4px; } }
