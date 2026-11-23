@@ -521,11 +521,13 @@ html { scroll-behavior: smooth; }
 .jcs-voice__icon svg { width: 48px; height: 48px; }
 /* Line the icon up with the content of the cards above (30px in on desktop) */
 @media (min-width: 48em) { .jcs-feed__column--grid .jcs-voice .jcs-feed-card__body { padding-left: 30px; } }
-/* Green motivation and mental health strips: open hand with a heart illustration to the left */
-.jcs-wb__body { display: flex; align-items: center; gap: 15px; }
-.jcs-wb__illo { flex: none; display: block; width: 72px; height: 60px; }
+/* Green signpost strips: open hand with a heart illustration to the left, 60 x 60.
+   Mobile: illustration top lines up with the top of the title. Desktop: centred. */
+.jcs-wb__body { display: flex; align-items: flex-start; gap: 15px; }
+.jcs-wb__illo { flex: none; display: block; width: 60px; height: 60px; object-fit: contain; object-position: top; margin-top: -4px; }
 .jcs-wb__text { min-width: 0; }
 @media (min-width: 48em) {
-  .jcs-feed__column--grid .jcs-wb .jcs-feed-card__body { padding-left: 30px; gap: 30px; }
-  .jcs-wb__illo { width: 120px; height: 100px; }
+  .jcs-wb__body { align-items: center; gap: 20px; }
+  .jcs-wb__illo { margin-top: 0; object-position: center; }
+  .jcs-feed__column--grid .jcs-wb .jcs-feed-card__body { padding-left: 30px; }
 }
