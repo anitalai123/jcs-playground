@@ -521,3 +521,11 @@ html { scroll-behavior: smooth; }
 .jcs-voice__icon svg { width: 48px; height: 48px; }
 /* Line the icon up with the content of the cards above (30px in on desktop) */
 @media (min-width: 48em) { .jcs-feed__column--grid .jcs-voice .jcs-feed-card__body { padding-left: 30px; } }
+/* Green motivation and mental health strips: open hand with a heart illustration to the left */
+.jcs-wb__body { display: flex; align-items: center; gap: 15px; }
+.jcs-wb__illo { flex: none; display: block; width: 72px; height: 60px; }
+.jcs-wb__text { min-width: 0; }
+@media (min-width: 48em) {
+  .jcs-feed__column--grid .jcs-wb .jcs-feed-card__body { padding-left: 30px; gap: 30px; }
+  .jcs-wb__illo { width: 120px; height: 100px; }
+}
