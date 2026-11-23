@@ -521,3 +521,6 @@ html { scroll-behavior: smooth; }
 .jcs-voice__icon svg { width: 48px; height: 48px; }
 /* Line the icon up with the content of the cards above (30px in on desktop) */
 @media (min-width: 48em) { .jcs-feed__column--grid .jcs-voice .jcs-feed-card__body { padding-left: 30px; } }
+/* Intro card with light blue across the whole card (Explore your options) */
+.jcs-feed-card--blue { background: #d2e2f1; }
+.jcs-feed-card--blue .jcs-feed-card__text + .jcs-feed-card__ai { border-top-color: #a5c4e2; }
