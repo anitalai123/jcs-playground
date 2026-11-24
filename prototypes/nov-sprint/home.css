@@ -536,20 +536,24 @@ html { scroll-behavior: smooth; }
 .jcs-voice__illo { flex: none; display: block; width: 60px; height: 60px; margin-top: -3px; }
 @media (min-width: 48em) { .jcs-voice__body:has(.jcs-voice__illo) { gap: 10px; } .jcs-voice__illo { margin-top: -4px; } }
 
-/* Young people strip illustration: animates in when the whole strip is in view.
-   Green person springs up first, then the yellow person, then the job speech bubble pops in.
-   Parts start hidden only once JS has marked the SVG as ready, so no-JS and reduced-motion users see it static. */
+/* Young people strip illustration: animates when the whole strip is in view.
+   The two people are always shown; in view, the green person hops, then the yellow person,
+   then the job speech bubble pops in. The bubble is hidden only once JS has marked the SVG as ready,
+   so no-JS and reduced-motion users see the full illustration static. */
 .jcs-yp-anim { overflow: visible; }
 .jcs-yp-anim__part { transform-box: fill-box; }
 .jcs-yp-anim__part--green, .jcs-yp-anim__part--yellow { transform-origin: 50% 100%; }
 .jcs-yp-anim__part--bubble { transform-origin: 30% 100%; }
+@keyframes jcs-yp-hop {
+  0% { transform: none; animation-timing-function: cubic-bezier(.2, .7, .4, 1); }
+  40% { transform: translateY(-12px) scale(.98, 1.03); animation-timing-function: cubic-bezier(.6, 0, .8, .4); }
+  65% { transform: translateY(0) scale(1.03, .97); animation-timing-function: ease-out; }
+  82% { transform: translateY(-3px); animation-timing-function: ease-in; }
+  100% { transform: none; }
+}
 @media (prefers-reduced-motion: no-preference) {
-  .jcs-yp-anim.is-ready .jcs-yp-anim__part { opacity: 0; }
-  .jcs-yp-anim.is-ready .jcs-yp-anim__part--green,
-  .jcs-yp-anim.is-ready .jcs-yp-anim__part--yellow { transform: translateY(60px) scale(.8, 1.15); }
-  .jcs-yp-anim.is-ready .jcs-yp-anim__part--bubble { transform: scale(0) rotate(-20deg); }
-  .jcs-yp-anim.is-in .jcs-yp-anim__part { opacity: 1; transform: none; }
-  .jcs-yp-anim.is-in .jcs-yp-anim__part--green { transition: opacity .15s ease-out, transform .5s cubic-bezier(.3, 1.9, .5, 1); }
-  .jcs-yp-anim.is-in .jcs-yp-anim__part--yellow { transition: opacity .15s ease-out .28s, transform .5s cubic-bezier(.3, 1.9, .5, 1) .28s; }
-  .jcs-yp-anim.is-in .jcs-yp-anim__part--bubble { transition: opacity .1s ease-out .62s, transform .5s cubic-bezier(.3, 2.2, .5, 1) .62s; }
+  .jcs-yp-anim.is-ready .jcs-yp-anim__part--bubble { opacity: 0; transform: scale(0) rotate(-20deg); }
+  .jcs-yp-anim.is-in .jcs-yp-anim__part--green { animation: jcs-yp-hop .6s both; }
+  .jcs-yp-anim.is-in .jcs-yp-anim__part--yellow { animation: jcs-yp-hop .6s .25s both; }
+  .jcs-yp-anim.is-in .jcs-yp-anim__part--bubble { opacity: 1; transform: none; transition: opacity .1s ease-out .6s, transform .5s cubic-bezier(.3, 2.2, .5, 1) .6s; }
 }
