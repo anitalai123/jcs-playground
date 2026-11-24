@@ -535,3 +535,20 @@ html { scroll-behavior: smooth; }
 .jcs-voice__body:has(.jcs-voice__illo) { align-items: flex-start; gap: 15px; }
 .jcs-voice__illo { flex: none; display: block; width: 60px; height: 60px; margin-top: -3px; }
 @media (min-width: 48em) { .jcs-voice__body:has(.jcs-voice__illo) { gap: 10px; } .jcs-voice__illo { margin-top: -4px; } }
+
+/* Young people strip illustration: animates in when the strip scrolls into view.
+   Green person rises up first, then the yellow person, then the job speech bubble pops in.
+   Parts start hidden only once JS has marked the SVG as ready, so no-JS and reduced-motion users see it static. */
+.jcs-yp-anim__part { transform-box: fill-box; }
+.jcs-yp-anim__part--green, .jcs-yp-anim__part--yellow { transform-origin: 50% 100%; }
+.jcs-yp-anim__part--bubble { transform-origin: 30% 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .jcs-yp-anim.is-ready .jcs-yp-anim__part { opacity: 0; }
+  .jcs-yp-anim.is-ready .jcs-yp-anim__part--green,
+  .jcs-yp-anim.is-ready .jcs-yp-anim__part--yellow { transform: translateY(24px); }
+  .jcs-yp-anim.is-ready .jcs-yp-anim__part--bubble { transform: scale(0.4); }
+  .jcs-yp-anim.is-in .jcs-yp-anim__part { opacity: 1; transform: none; }
+  .jcs-yp-anim.is-in .jcs-yp-anim__part--green { transition: opacity .45s ease-out, transform .55s cubic-bezier(.2, .9, .3, 1.15); }
+  .jcs-yp-anim.is-in .jcs-yp-anim__part--yellow { transition: opacity .45s ease-out .45s, transform .55s cubic-bezier(.2, .9, .3, 1.15) .45s; }
+  .jcs-yp-anim.is-in .jcs-yp-anim__part--bubble { transition: opacity .3s ease-out 1s, transform .45s cubic-bezier(.3, 1.6, .5, 1) 1s; }
+}
