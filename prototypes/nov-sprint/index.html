@@ -241,15 +241,21 @@
     // Young people strip: play the illustration animation once, when the strip comes into view
     (function () {
       var svg = document.querySelector('.jcs-yp-anim');
-      if (!svg || !('IntersectionObserver' in window)) return;
+      var strip = svg && svg.closest('.jcs-yp-strip');
+      if (!strip || !('IntersectionObserver' in window)) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       svg.classList.add('is-ready');
+      // Wait until the whole strip is on screen (and a little clear of the bottom edge),
+      // then a short beat so people are looking at it before it plays
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
-          if (e.isIntersecting) { svg.classList.add('is-in'); io.disconnect(); }
+          if (e.isIntersecting && e.intersectionRatio > 0.99) {
+            io.disconnect();
+            setTimeout(function () { svg.classList.add('is-in'); }, 350);
+          }
         });
-      }, { threshold: 0.6 });
-      io.observe(svg);
+      }, { threshold: 1, rootMargin: '0px 0px -80px 0px' });
+      io.observe(strip);
     })();
   </script>
 
