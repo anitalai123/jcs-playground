@@ -83,6 +83,15 @@
 .jcs-mega-menu__strap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 30px; margin-top: 10px; padding-top: 20px; padding-bottom: 20px; border-top: 1px solid var(--govuk-border-colour, #cecece); }
 .jcs-mega-menu__strap-title { margin: 0; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.25; color: var(--govuk-text-colour, #0b0c0c); }
 .jcs-mega-menu__strap-list { display: flex; flex-wrap: wrap; gap: 10px 30px; margin: 0; padding: 0; list-style: none; font-family: "GDS Transport", arial, sans-serif; font-size: 1rem; line-height: 1.25; }
+/* Employer link, version 1: a second title + links pair in the strip, left aligned after Other UK career services */
+.jcs-mega-menu__strap-group { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 30px; }
+@media (min-width: 40.0625em) { .jcs-mega-menu__strap-group { margin-left: 30px; } }
+@media (max-width: 40.0525em) {
+  .jcs-mega-menu__strap-group { flex-basis: 100%; margin-top: 10px; }
+  .jcs-mega-menu__strap-group .jcs-mega-menu__strap-title { flex-basis: 100%; }
+}
+/* Employer link, version 2: a group under Get support. The list above already leaves the 30px row gap. */
+.jcs-mega-menu__employers-group { margin-top: 0; }
 /* Keep "Chat with AI work assistant" on one line beside its icon. On narrow desktops it runs into the
    empty middle column rather than wrapping. */
 .jcs-mega-menu__item--with-icon .jcs-mega-menu__link { white-space: nowrap; }

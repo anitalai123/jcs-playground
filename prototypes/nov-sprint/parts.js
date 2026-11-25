@@ -60,6 +60,13 @@ const parts = {
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Disabilities and work</a></li>
                 <li><a class="govuk-link jcs-mega-menu__link" href="#">Mental health support</a></li>
               </ul>
+              <!-- Employer link, version 2: its own group under Get support -->
+              <div class="jcs-mega-menu__employers-group" data-menu-version="2">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-4">For employers</h2>
+                <ul class="govuk-list">
+                  <li><a class="govuk-link jcs-mega-menu__link" href="#">Employer portal</a></li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="govuk-grid-row">
@@ -81,6 +88,13 @@ const parts = {
           <li><a class="govuk-link jcs-mega-menu__link" href="#">Wales</a></li>
           <li><a class="govuk-link jcs-mega-menu__link" href="#">Northern Ireland</a></li>
         </ul>
+        <!-- Employer link, version 1: in the strip, after Other UK career services -->
+        <div class="jcs-mega-menu__strap-group" data-menu-version="1">
+          <h2 class="jcs-mega-menu__strap-title">For employers</h2>
+          <ul class="jcs-mega-menu__strap-list">
+            <li><a class="govuk-link jcs-mega-menu__link" href="#">Employer portal</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     </div>
@@ -120,6 +134,33 @@ const parts = {
 
 for (const el of document.querySelectorAll('[data-nov-sprint]')) {
   el.outerHTML = parts[el.dataset.novSprint]
+}
+
+// Two versions of the employer link in the mega menu, picked with ?menu=1 or ?menu=2 (remembered for the visit).
+// Version 1 puts it in the Other UK career services strip; version 2 makes it a group under Get support.
+// A switcher in the phase banner flips between them.
+const menuVersions = { 1: 'Employer link in the strip', 2: 'Employer link as a group' }
+let menuVersion = new URLSearchParams(location.search).get('menu')
+try {
+  if (menuVersions[menuVersion]) sessionStorage.setItem('jcs-nov-menu', menuVersion)
+  else menuVersion = sessionStorage.getItem('jcs-nov-menu')
+} catch (e) {}
+if (!menuVersions[menuVersion]) menuVersion = '1'
+for (const el of document.querySelectorAll('[data-menu-version]')) {
+  if (el.dataset.menuVersion !== menuVersion) el.remove()
+}
+const bannerText = document.querySelector('.govuk-phase-banner__text')
+if (bannerText) {
+  const switcher = document.createElement('span')
+  switcher.className = 'jcs-menu-switcher'
+  switcher.innerHTML = ' · Menu: ' + Object.entries(menuVersions).map(([v, label]) => {
+    const url = new URL(location.href)
+    url.searchParams.set('menu', v)
+    return v === menuVersion
+      ? `<strong>${v}. ${label} (current)</strong>`
+      : `<a class="govuk-link" href="${url.pathname + url.search}">${v}. ${label}</a>`
+  }).join(' | ')
+  bannerText.append(switcher)
 }
 
 const signIn = document.querySelector('.jcs-header__sign-in')
